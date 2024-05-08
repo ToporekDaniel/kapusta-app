@@ -1,7 +1,8 @@
 # Start
 
 czysty template to frontu naszej aplikacji z podstawowymi paczkami
-npm run dev do wystartowania
+
+npm run dev do wystartowania frontu na porcie 8000
 
 # React + Vite
 
