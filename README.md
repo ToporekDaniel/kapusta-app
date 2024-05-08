@@ -1,6 +1,7 @@
 # Start
 
 czysty template to frontu naszej aplikacji z podstawowymi paczkami
+npm run dev do wystartowania
 
 # React + Vite
 
