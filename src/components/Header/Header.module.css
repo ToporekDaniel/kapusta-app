@@ -1,0 +1,38 @@
+.header {
+    max-width: 320px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  @media (min-width: 768px) {
+    .header {
+      max-width: 768px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .header {
+      max-width: 1280px;
+    }
+  }
+  
+  .headerWrapper {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 0;
+    padding-top: 12px;
+    padding-bottom: 13px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--white-color);
+  }
+  
+  .logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+  

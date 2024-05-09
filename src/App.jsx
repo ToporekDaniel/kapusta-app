@@ -1,13 +1,9 @@
 import "./App.css";
+import Header from "./components/Header/Header.jsx";
 
 function App() {
   return (
-    <>
-      <h1>
-        Mam nadzieję że tutaj powstanie nasza wspaniała aplikacja do liczenia
-        kapusty ;-)
-      </h1>
-    </>
+    <Header />
   );
 }
 

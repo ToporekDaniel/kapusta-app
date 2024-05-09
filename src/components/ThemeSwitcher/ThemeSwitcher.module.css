@@ -1,0 +1,98 @@
+.toggleBtn {
+    position: relative;
+    width: 35px;
+    height: 14px;
+  }
+  @media screen and (min-width: 768px) {
+    .toggleBtn {
+      width: 55px;
+      height: 19px;
+    }
+  }
+  
+  input[type='checkbox'] {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: 0px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+  }
+  
+  .toggleBtn span {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+    opacity: 1;
+    background-color: var(--white-color);
+    border: 1px solid rgb(218, 221, 228);
+    border-radius: 50px;
+    transition: 0.2s ease background-color, 0.2s ease opacity;
+  }
+  
+  .toggleBtn span:before,
+  .toggleBtn span:after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transition: 0.5s ease transform, 0.2s ease background-color;
+  }
+  @media screen and (min-width: 768px) {
+    .toggleBtn span:before,
+    .toggleBtn span:after {
+      width: 15px;
+      height: 15px;
+    }
+  }
+  
+  .toggleBtn span:before {
+    background-color: var(--white-color);
+    transform: translate(-17px, -30px);
+    z-index: 1;
+  }
+  
+  .toggleBtn span:after {
+    background-color: rgb(218, 221, 228);
+    transform: translate(-3px, 0px);
+    z-index: 0;
+  }
+  
+  .toggleBtn input[type='checkbox']:checked + span {
+    background-color: transparent;
+  }
+  
+  .toggleBtn input[type='checkbox']:active + span {
+    opacity: 0.5;
+  }
+  
+  .toggleBtn input[type='checkbox']:checked + span:before {
+    background-color: rgb(6, 6, 31);
+    transform: translate(19px, -3px);
+  }
+  @media screen and (min-width: 768px) {
+    .toggleBtn input[type='checkbox']:checked + span:before {
+      transform: translate(32px, -4px);
+    }
+  }
+  
+  .toggleBtn input[type='checkbox']:checked + span:after {
+    background-color: #fff;
+    transform: translate(18px, 0px);
+  }
+  @media screen and (min-width: 768px) {
+    .toggleBtn input[type='checkbox']:checked + span:after {
+      transform: translate(33px, 0px);
+    }
+  }
+  
