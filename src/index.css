@@ -1,11 +1,21 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --background-main: #fff;
+  --background-lightgrey: #F5F6FB;
+  --text-main: #000000;
+  --text-darkgrey: #52555F;
+  /* jak zapisać poprawnie, że text-grey ma transparentność 70%? */
+  --text-grey: #52555F; 
+  --accent-lightgrey: #C7CCDC;
+  --text-red: #E7192E;
+  --text-green: #407946;
+  --accent-orange: #FF751D;
+  /* jak zapisać poprawnie, że accent-lightorange ma transparentność 20%? */
+  --accent-lightorange: #FF751D;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --font-family: Roboto; 
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
