@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
+import { Children } from 'react';
 
 const Header = () => {
   return (
@@ -15,6 +16,7 @@ const Header = () => {
           <LanguageSwitcher />
         </div>
       </header>
+      {Children}
     </>
   );
 };
