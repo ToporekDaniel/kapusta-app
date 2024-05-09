@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function Balance({ expenses, income }) {
   const [balance, setBalance] = useState(0);
   const [inputBalance, setInputBalance] = useState('');
-  const [showTooltip, setShowTooltip] = useState(false);  // Stan dla dymku
+  const [showTooltip, setShowTooltip] = useState(false); 
 
   useEffect(() => {
     const totalExpenses = expenses.reduce((acc, expense) => acc + expense.amount, 0);
@@ -11,19 +11,19 @@ function Balance({ expenses, income }) {
     const calculatedBalance = totalIncome - totalExpenses;
     setBalance(calculatedBalance);
     setInputBalance(calculatedBalance.toFixed(2));
-    setShowTooltip(calculatedBalance === 0);  // Pokaż dymek, jeśli saldo wynosi 0
+    setShowTooltip(calculatedBalance === 0);  
   }, [expenses, income]);
 
   const handleConfirm = () => {
     setBalance(parseFloat(inputBalance));
-    setShowTooltip(false);  // Ukryj dymek po potwierdzeniu
+    setShowTooltip(false); 
     alert('Balance confirmed: ' + inputBalance + ' UAH');
-    // saveBalanceToDatabase(); // Zakomentowane dla przykładu
+    // saveBalanceToDatabase();
   };
 
   const handleInputChange = (e) => {
     setInputBalance(e.target.value);
-    setShowTooltip(!e.target.value);  // Jeśli input jest pusty, pokaż dymek
+    setShowTooltip(!e.target.value);  
   };
 
   return (
