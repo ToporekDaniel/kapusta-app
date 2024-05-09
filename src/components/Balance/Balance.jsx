@@ -1,26 +1,36 @@
 import React, { useState, useEffect } from 'react';
-// import './Balance.css';
+// import './Balance.css';  // Zakomentowane dla czytelności, odkomentuj w swoim projekcie
 
 function Balance({ expenses, income }) {
   const [balance, setBalance] = useState(0);
-  const [inputBalance, setInputBalance] = useState('');  
+  const [inputBalance, setInputBalance] = useState('');
+  const [showTooltip, setShowTooltip] = useState(false);  // Dla komunikatu z tooltipem
 
   useEffect(() => {
     const totalExpenses = expenses.reduce((acc, expense) => acc + expense.amount, 0);
     const totalIncome = income.reduce((acc, income) => acc + income.amount, 0);
     const calculatedBalance = totalIncome - totalExpenses;
     setBalance(calculatedBalance);
-    setInputBalance(calculatedBalance.toFixed(2));  
+    setInputBalance(calculatedBalance.toFixed(2));
   }, [expenses, income]);
 
   const handleConfirm = () => {
-    setBalance(parseFloat(inputBalance));  
-    alert('Balance confirmed: ' + inputBalance + ' UAH');
-    saveBalanceToDatabase(); 
+    if (parseFloat(inputBalance) === 0) {
+      setShowTooltip(true);  // Pokaż tooltip, jeśli saldo jest 0
+      setTimeout(() => setShowTooltip(false), 3000);  // Automatycznie ukryj tooltip po 3 sekundach
+    } else {
+      setBalance(parseFloat(inputBalance));
+      setShowTooltip(false);  // Ukryj tooltip
+      alert('Balance confirmed: ' + inputBalance + ' UAH');
+      // saveBalanceToDatabase();  // Zakomentowane dla przykładu
+    }
   };
 
   const handleInputChange = (e) => {
-    setInputBalance(e.target.value);  
+    setInputBalance(e.target.value);
+    if (parseFloat(e.target.value) !== 0) {
+      setShowTooltip(false);  // Ukryj tooltip, jeśli saldo nie jest 0
+    }
   };
 
   return (
@@ -32,7 +42,19 @@ function Balance({ expenses, income }) {
         value={inputBalance}
         onChange={handleInputChange}
       />
-      <button className="confirm-button" onClick={handleConfirm}>CONFIRM</button>
+      {showTooltip && (
+        <div className="tooltip">
+          <span>Hello! To get started, enter the current balance of your account!
+          </span>
+          <span>You can't spend money until you have it :) </span>     </div>
+      )}
+      <button
+        className="confirm-button"
+        onClick={handleConfirm}
+        disabled={parseFloat(inputBalance) === 0}
+      >
+        CONFIRM
+      </button>
     </div>
   );
 }
