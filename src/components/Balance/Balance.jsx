@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { disableInput } from '../../app/store';
 import { useFinance } from '../../../contexts/FinanceContext';
+import Button from './UI/Button/Button';
 
 function Balance() {
   const [inputBalance, setInputBalance] = useState('');
@@ -55,9 +56,7 @@ function Balance() {
         </div>
       )}
       {!inputDisabled && (
-        <button className="confirm-button" onClick={handleConfirm}>
-          CONFIRM
-        </button>
+        <Button className="confirm-button" onClick={handleConfirm} text="CONFIRM"/>
       )}
     </div>
   );
