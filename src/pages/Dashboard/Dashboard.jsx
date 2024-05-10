@@ -1,10 +1,10 @@
 import React from 'react';
-import Balance from '../Balance/Balance'; 
+import Balance from '../../components/Balance/Balance'; 
 import Reports from '../Reports/Reports';
-function Dashboard({ expenses, income }) {
+function Dashboard() {
   return (
     <div>
-      <Balance expenses={expenses} income={income} />
+      <Balance />
       <Reports />
     </div>
   );
