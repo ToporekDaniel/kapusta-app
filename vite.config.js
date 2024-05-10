@@ -7,5 +7,5 @@ export default defineConfig({
   server: {
     port: 8000, // Tu możesz ustawić dowolny port, który chcesz użyć
   },
-  base: "/kapusta-app/",
+  // base: "/kapusta-app/",
 });
