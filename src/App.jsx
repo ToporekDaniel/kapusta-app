@@ -1,3 +1,4 @@
+import "./App.css";
 import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
@@ -13,7 +14,6 @@ function App() {
 
   return (
     <div>
-      <h1>Mam nadzieję, że tutaj powstanie nasza wspaniała aplikacja do liczenia kapusty ;-)</h1>
       <Dashboard expenses={expenses} income={income} />
     </div>
   );
