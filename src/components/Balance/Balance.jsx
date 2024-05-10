@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { disableInput } from '../../app/store'
+import { disableInput } from '../../app/store';
 import { useFinance } from '../../../contexts/FinanceContext';
 
 function Balance() {
@@ -15,13 +15,16 @@ function Balance() {
     const totalIncome = income.reduce((acc, income) => acc + income.amount, 0);
     const calculatedBalance = totalIncome - totalExpenses;
     setInputBalance(calculatedBalance.toFixed(2));
+
+    setShowModal(calculatedBalance === 0);
   }, [expenses, income]);
 
   const handleConfirm = () => {
-    if (parseFloat(inputBalance) === 0) {
+    const numBalance = parseFloat(inputBalance);
+    if (numBalance === 0) {
       setShowModal(true);
     } else {
-      alert('Balance confirmed: ' + inputBalance + 'PLN');
+      alert('Balance confirmed: ' + numBalance + ' PLN');
       dispatch(disableInput());
       setShowModal(false);
     }
@@ -29,14 +32,8 @@ function Balance() {
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    if (!isNaN(value) && value.trim() !== '') {
-      setInputBalance(value);
-      setShowModal(false);
-    }
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
+    setInputBalance(value);
+    setShowModal(!value || parseFloat(value) === 0);
   };
 
   return (
@@ -52,7 +49,6 @@ function Balance() {
       {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <span className="close" onClick={closeModal}>&times;</span>
             <p>Hello! To get started, enter the current balance of your account!</p>
             <p>You can't spend money until you have it :)</p>
           </div>
