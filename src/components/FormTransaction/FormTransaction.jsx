@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import css from "./FormTransaction.modules.css";
+import css from "./FormTransaction.module.css";
 
 function FormTransaction() {
   const [startDate, setStartDate] = useState(new Date());
@@ -11,9 +11,9 @@ function FormTransaction() {
 
   return (
     <form className={css['container-transaction']}>
-      <div className={css['datapicker-wrapper']}>
+      <div className={css['datepicker-wrapper']}>
         <svg></svg>
-        <div className={css['datapicker-input-container']}>
+        <div className={css['datepicker-input-container']}>
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}

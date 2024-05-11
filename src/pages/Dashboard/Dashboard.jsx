@@ -1,7 +1,6 @@
 import Balance from "../../components/Balance/Balance";
 import Reports from "../Reports/Reports";
-import {FormTransaction} from "../../components/FormTransaction/FormTransaction.jsx";
-// import React from 'react';
+import FormTransaction from "../../components/FormTransaction/FormTransaction.jsx";
 import SummaryTable from "../../components/SummaryTable/SummaryTable";
 
 //przykładowe dane do wyświetlenia w tabeli
