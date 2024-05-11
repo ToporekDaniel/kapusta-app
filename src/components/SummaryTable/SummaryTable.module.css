@@ -6,6 +6,7 @@
 
 @media (min-width: 480px) {
   .summary {
+    display: block;
     background-color: var(--background-additional);
     border-bottom-right-radius: 20px;
     border-top-left-radius: 20px;
@@ -53,6 +54,7 @@
 
 @media (min-width: 768px) {
   .summary {
+    display: block;
     width: 213px;
   }
 }
