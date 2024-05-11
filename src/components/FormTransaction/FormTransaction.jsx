@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import styles from "./FormTransaction.modules.css";
+import css from "./FormTransaction.modules.css";
 
 function FormTransaction() {
   const [startDate, setStartDate] = useState(new Date());
@@ -10,10 +10,10 @@ function FormTransaction() {
   const [amount, setAmount] = useState("");
 
   return (
-    <form className={styles.ContainerTransaction}>
-      <div className={styles.DatapickerWrapper}>
+    <form className={css['container-transaction']}>
+      <div className={css['datapicker-wrapper']}>
         <svg></svg>
-        <div className={styles.DatapickerInputContainer}>
+        <div className={css['datapicker-input-container']}>
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}
@@ -21,8 +21,9 @@ function FormTransaction() {
         </div>
       </div>
 
-      <label className={styles.TransactionDescription}>
+      <label >
         <input
+        className={css['transaction-description']}
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -30,7 +31,7 @@ function FormTransaction() {
         />
       </label>
 
-      <div className={styles.TransactionSelect}>
+      <div className={css['transaction-select']}>
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
           <option value="">Product category</option>
           <option value="Transport">Transport</option>
@@ -50,7 +51,7 @@ function FormTransaction() {
 
       <label>
         <input
-          className={styles.CalcInput}
+          className={css['calc-input']}
           type="number"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
