@@ -1,12 +1,12 @@
 import css from "./SummaryTable.module.css";
 import PropTypes from "prop-types";
 
-function SummaryTable(data) {
+function SummaryTable(props) {
   return (
     <div className={css["summary"]}>
       <h2 className={css["summary-title"]}>summary</h2>
       <ul className={css["summary-list"]}>
-        {data.map((item, index) => (
+        {props.data.map((item, index) => (
           <li key={index} className={css["summary-item"]}>
             <p>{item.monthName}</p>
             <p>{item.value}</p>
