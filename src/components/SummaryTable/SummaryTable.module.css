@@ -1,0 +1,58 @@
+@import url('../../index.css');
+
+.summary {
+  display: block;
+}
+
+@media (min-width: 480px) {
+  .summary {
+    background-color: var(--background-additional);
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-top: 60px;
+    width: 230px;
+  }
+
+  .summary-title {
+    align-items: center;
+    border-bottom: 4px solid #fff;
+    color: var(--text-main);
+    display: flex;
+    font-size: 12px;
+    font-weight: 700;
+    height: 38px;
+    justify-content: center;
+    line-height: 1.2;
+    padding-left: auto;
+    padding-right: auto;
+    text-transform: uppercase;
+  }
+
+  .summary-list {
+    list-style: none;
+  }
+
+  .summary-item {
+    align-items: center;
+    border-bottom: 2px solid #fff;
+    color: var(--text-darkgrey);
+    display: flex;
+    font-size: 12px;
+    font-weight: 400;
+    height: 38px;
+    justify-content: space-between;
+    letter-spacing: 0.04em;
+    line-height: 14px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 4px;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 768px) {
+  .summary {
+    width: 213px;
+  }
+}
