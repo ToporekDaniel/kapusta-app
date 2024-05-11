@@ -1,8 +1,7 @@
-// import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import Balance from '../../components/Balance/Balance'; 
 import Reports from '../Reports/Reports';
-import summaryTable from '../../components/summaryTable/summaryTable.jsx';
+import SummaryTable from '../../components/SummaryTable/SummaryTable.jsx';
 
 const data =[{ monthName: "January, value: 100"},
 { monthName: "February", value: 100},
@@ -17,16 +16,10 @@ function Dashboard() {
     <div>
       <Balance />
       <Reports />
-      <summaryTable data= {data} />
+      <SummaryTable data= {data} />
     </div>
   );
 }
 
-summaryTable.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape({
-    monthName: PropTypes.string.isRequired,
-    value: PropTypes.number.isRequired
-  })).isRequired
-};
 
 export default Dashboard;
