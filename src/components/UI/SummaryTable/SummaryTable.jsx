@@ -1,13 +1,13 @@
 import React from "react";
-import styles from "./SummaryTable.module.css";
+import css from "./SummaryTable.module.css";
 
 function SummaryTable({ data }) {
   return (
-    <div className={styles.Summary}>
-      <h2 className={styles.SummaryTitle}>summary</h2>
-      <ul className={styles.SummaryList}>
+    <div className={css['summary']}>
+      <h2 className={css['summary-title']}>summary</h2>
+      <ul className={css['summary-list']}>
         {data.map((item, index) => (
-          <li key={index} className={styles.SummaryItem}>
+          <li key={index} className={css.SummaryItem}>
             <p>{item.monthName}</p>
             <p>{item.value}</p>
           </li>
