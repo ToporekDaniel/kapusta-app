@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../css/SummaryTable.module.css";
+import styles from "./SummaryTable.module.css";
 
 function SummaryTable({ data }) {
   return (
@@ -17,4 +17,4 @@ function SummaryTable({ data }) {
   );
 }
 
-export default Summary;
+export default SummaryTable;

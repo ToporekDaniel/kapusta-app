@@ -1,4 +1,4 @@
-@import url('./css/SummaryTable.module.css');
+@import url('./components/UI/SummaryTable/SummaryTable.module.css');
 
 :root {
   --background-main: #E0E5EB;
