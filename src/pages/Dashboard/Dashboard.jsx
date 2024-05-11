@@ -4,6 +4,8 @@ import Balance from "../../components/Balance/Balance";
 import Reports from "../Reports/Reports";
 import SummaryTable from "../../components/SummaryTable/SummaryTable";
 
+//przykładowe dane do wyświetlenia w tabeli
+//finalnie powinny być zaciągane przez serwer
 const data = [
   { monthName: "January", value: 222 },
   { monthName: "February", value: 100 },
