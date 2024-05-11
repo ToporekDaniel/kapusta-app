@@ -1,12 +1,12 @@
-import css from "./summaryTable.module.css";
+import css from "./SummaryTable.module.css";
 
-function summaryTable(props) {
+function SummaryTable(props) {
   return (
-    <div className={css['summary']}>
-      <h2 className={css['summary-title']}>summary</h2>
-      <ul className={css['summary-list']}>
+    <div className={css["summary"]}>
+      <h2 className={css["summary-title"]}>summary</h2>
+      <ul className={css["summary-list"]}>
         {props.data.map((item, index) => (
-          <li key={index} className={css['summary-item']}>
+          <li key={index} className={css["summary-item"]}>
             <p>{item.monthName}</p>
             <p>{item.value}</p>
           </li>
@@ -16,4 +16,4 @@ function summaryTable(props) {
   );
 }
 
-export default summaryTable;
+export default SummaryTable;

@@ -1,7 +1,7 @@
 @import url('../../index.css');
 
 .summary {
-  display: none;
+  display: block;
 }
 
 @media (min-width: 480px) {
