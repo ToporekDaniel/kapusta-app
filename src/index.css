@@ -1,10 +1,10 @@
 :root {
   --background-main: #E0E5EB;
-  --background-additional: #F5F6FB; 
+  --background-additional: #F5F6FB;
   --background-modal-darkblue: linear-gradient(90deg, #34495e, #2c3e50, #263859, #212a3a, #1a1a2e);
   --background-modal: #fff;
   --text-main: #000000;
-   --text-darkgrey: #52555F;
+  --text-darkgrey: #52555F;
   --text-grey: rgba(82, 85, 95, 0.7);
   --accent-lightgrey: #C7CCDC;
   --text-red: #E7192E;
@@ -19,11 +19,11 @@
   --dashboard-not-active-link-bg: #fafbfd;
   --dashboard-input-color: #fff;
   --border-color: #F6F7FC;
-  
 
-  --font-family: Roboto, , sans-serif; 
+
+  font-family: Roboto, sans-serif;
   --primary-font-size: 12px;
- 
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -32,16 +32,16 @@
 
 
 html[data-theme='dark'] {
-  --background-main:#27282d;
-  --background-additional:  #27282d; 
-  --background-modal:#4b4e55;
-  --text-main:#fff;
+  --background-main: #27282d;
+  --background-additional: #27282d;
+  --background-modal: #4b4e55;
+  --text-main: #fff;
   --text-darkgrey: #fff;
   --table-color: #60646d;
-  --dashboard-color:#4b4e55;
+  --dashboard-color: #4b4e55;
   --dashboard-active-link-bg: #60646d;
-  --dashboard-not-active-link-bg:#4b4e55;
-  --dashboard-input-color:#60646d;
+  --dashboard-not-active-link-bg: #4b4e55;
+  --dashboard-input-color: #60646d;
   --active-link-bg: #60646d;
   --not-active-link-bg: #4b4e55;
 }
