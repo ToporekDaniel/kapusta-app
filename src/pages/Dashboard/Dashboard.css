@@ -1,7 +1,21 @@
-.dashboard{
+.dashboard {
     margin: 0 auto;
     display: flex;
     align-items: center;
-justify-content: center;
-background-color: var(--background-main);
+    justify-content: center;
+    background-color: var(--background-main);
+}
+
+@media (max-width: 1023px) {
+    .dashboard {
+        flex-direction: column;   
+    }
+}
+
+@media (max-width: 767px) {
+    .dashboard {
+        flex-direction: column;   
+
+        padding: 10px; 
+    }
 }
