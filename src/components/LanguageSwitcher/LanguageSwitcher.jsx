@@ -1,6 +1,6 @@
 import i18n from 'i18n';
-//import english from '../../assets/images/languages/english.png';
-//import ukrainian from '../../assets/images/languages/ukrainian.png';
+import english from '../Header/img/en.png';
+import ukrainian from '../Header/img/ua.png';
 import s from './LanguageSwitcher.module.css';
 
 export default function LanguageSwitcher() {
@@ -11,10 +11,10 @@ export default function LanguageSwitcher() {
   return (
     <div>
       <button className={s.loclIcon} onClick={() => changeLanguage('en')}>
-        <img className={s.icon} src="" alt="" width="30" />
+        <img className={s.icon} src={english} alt="" width="30" />
       </button>
       <button className={s.loclIcon} onClick={() => changeLanguage('ua')}>
-        <img className={s.icon} src="" alt="" width="30" />
+        <img className={s.icon} src={ukrainian} alt="" width="30" />
       </button>
     </div>
   );
