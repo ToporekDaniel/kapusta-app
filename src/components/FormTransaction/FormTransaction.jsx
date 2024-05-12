@@ -2,6 +2,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import css from "./FormTransaction.module.css";
+// import { Button } from "../Balance/UI/Button/Button.jsx";
 
 function FormTransaction() {
   const [startDate, setStartDate] = useState(new Date());
@@ -9,30 +10,46 @@ function FormTransaction() {
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
 
+  // const handleSubmitInput = () => {
+  //   // Logika obsługi przycisku INPUT do zrobienie
+  // };
+
+  // const handleClear = () => {
+  //   // Logika obsługi przycisku CLEAR do zrobienia
+  // };
+
   return (
-    <form className={css['container-transaction']}>
-      <div className={css['datepicker-wrapper']}>
+    <form className={css["container-transaction"]}>
+      <div className={css["datepicker-wrapper"]}>
         <svg></svg>
-        <div className={css['datepicker-input-container']}>
+        <div>
           <DatePicker
+            className={css["datepicker-input-container"]}
             selected={startDate}
             onChange={(date) => setStartDate(date)}
           />
         </div>
       </div>
 
-      <label >
+      <label>
         <input
-        className={css['transaction-description']}
+          className={css["transaction-description"]}
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Product description"
+          required
         />
       </label>
 
-      <div className={css['transaction-select']}>
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+      <div>
+        <select
+          className={css["transaction-select"]}
+          data-value={category}
+          required
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
           <option value="">Product category</option>
           <option value="Transport">Transport</option>
           <option value="Products">Products</option>
@@ -44,19 +61,36 @@ function FormTransaction() {
           <option value="Communal, communication">
             Communal, communication
           </option>
-          <option value="Eduction">Eduction</option>
+          <option value="Education">Education</option>
           <option value="Other">Other</option>
         </select>
+        <svg width="10" height="4">
+          <use
+            className={css["select-arrow"]}
+            href="/src/assets/icons.svg#icon-arrow"
+          ></use>
+        </svg>
       </div>
-
-      <label>
-        <input
-          className={css['calc-input']}
-          type="number"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-        />
-      </label>
+      <div>
+        <label>
+          <input
+            className={css["calc-input"]}
+            required
+            type="number"
+            value={amount}
+            placeholder="0,00"
+            onChange={(e) => setAmount(e.target.value)}
+          />
+          <svg width="20" height="20">
+            <use
+              className={css["calc-icon"]}
+              href="/src/assets/icons.svg#icon-calculator"
+            ></use>
+          </svg>
+        </label>
+      </div>
+      {/* <Button onClick={handleSubmitInput} text="INPUT" />
+      <Button onClick={handleClear} text="CLEAR" /> */}
     </form>
   );
 }
