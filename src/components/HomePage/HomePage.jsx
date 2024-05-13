@@ -2,13 +2,13 @@ import Dashboard from "../../pages/Dashboard/Dashboard";
 import Hero from "../Hero/Hero";
 
 const HomePage = () => {
-    return (
-      <>
-              <Dashboard />
+  return (
+    <>
+      <Dashboard />
 
-        <Hero />
-      </>
-    );
-  }
-  
-  export default HomePage;
+      <Hero />
+    </>
+  );
+};
+
+export default HomePage;
