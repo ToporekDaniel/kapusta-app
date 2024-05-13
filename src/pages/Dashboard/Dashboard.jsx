@@ -18,13 +18,4 @@ function Dashboard() {
   );
 }
 
-SummaryTable.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      monthName: PropTypes.string.isRequired,
-      value: PropTypes.number.isRequired,
-    })
-  ).isRequired,
-};
-
 export default Dashboard;
