@@ -1,0 +1,59 @@
+.expense {
+  color: var(--text-red);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.income {
+  color: var(--text-green);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.transaction-table {
+  border-collapse: separate;
+  width: 780px;
+  table-layout: auto;
+  padding: 5px;
+}
+
+thead {
+  vertical-align: middle;
+  color: var(--text-main);
+  height: 38px;
+  background-color: var(--table-color);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+thead tr th:first-child {
+  border-top-left-radius: 20px;
+}
+
+thead tr th:last-child {
+  border-top-right-radius: 20px;
+}
+
+tr {
+  border-bottom: 2px solid var(--table-color);
+  height: 40px;
+  font-size: 12px;
+}
+
+.icon {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--table-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 40px;
+  margin-left: 40px;
+}
