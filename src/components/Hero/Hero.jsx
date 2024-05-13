@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 import css from './Hero.module.css'
 import SummaryTable from "../../components/SummaryTable/SummaryTable";
 import FormTransaction from "../FormTransaction/FormTransaction";
@@ -42,7 +42,7 @@ const handleDelete = (id) => {
 };
 
 function Hero() {
-//   const [type, setType] = useState("expenses");
+  const [type, setType] = useState("expenses");
 
 //   const handleTabChange = (selectedType) => {
 //     setType(selectedType);
@@ -53,7 +53,7 @@ function Hero() {
       <div className={css['hero-table']}>
       <TransactionTable
         transactions={transactions}
-        // type={type}
+        type={type}
         handleDelete={handleDelete}
       />
       <SummaryTable data={data} /></div>
