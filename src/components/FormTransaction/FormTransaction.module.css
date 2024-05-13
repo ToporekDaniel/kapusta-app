@@ -3,6 +3,9 @@
 .container-transaction {
   display: flex;
   height: 44px;
+  margin: 32px 32px 0 32px;
+  justify-content: center;
+  align-items: center; 
 }
 
 .datepicker-wrapper {
@@ -71,6 +74,7 @@ width: 250px;
 
 .calc-container {
   position: relative;
+
 }
 
 .calc-input {
@@ -106,3 +110,10 @@ width: 250px;
   -moz-appearance: textfield;
 }
 
+.buttons-wrapper {
+    margin-left: 32px;
+}
+
+.buttons-wrapper > Button:first-child {
+    margin-right: 16px; /* Dodaj odstęp między przyciskami */
+  }

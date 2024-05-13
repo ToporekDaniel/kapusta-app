@@ -7,7 +7,7 @@ function Dashboard() {
   return (
     <div className="dashboard">
       <Balance />
-      <Reports />
+      <Reports /> 
     </div>
   );
 }
