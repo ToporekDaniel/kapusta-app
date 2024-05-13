@@ -1,6 +1,5 @@
 // import { useState, useEffect } from "react";
 import css from "./TransactionTable.module.css";
-// import trashIcon from "../assets/icons.svg/icon-trash.svg";
 import PropTypes from "prop-types";
 
 function TransactionTable({ transactions, type, handleDelete }) {
@@ -25,42 +24,56 @@ function TransactionTable({ transactions, type, handleDelete }) {
   //       console.error("Error fetching data:", error);
   //     }
   //   };
-  
+
+  const emptyRows = new Array(10 - transactions.length).fill(undefined);
+
+  const rows = [...transactions, ...emptyRows];
 
   return (
-    <table className={css["transaction-table"]}>
-      <thead>
-        <tr>
-          <th>date</th>
-          <th>description</th>
-          <th>category</th>
-          <th>sum</th>
-        </tr>
-      </thead>
-      <tbody>
-        {transactions.map((transaction) => (
-          <tr key={transaction.id}>
-            <td>{transaction.date}</td>
-            <td>{transaction.description}</td>
-            <td>{transaction.category}</td>
-            <td className={type === "expenses" ? css.expense : css.income}>
-  {transaction.sum}
-  <div className={css.icon}>
-    {type === "expenses" && (
-      <svg
-        width="18"
-        height="18"
-        onClick={() => handleDelete(transaction.id)}
-      >
-        <use href="/src/assets/icons.svg#icon-trash"></use>
-      </svg>
-    )}
-  </div>
-</td>
+    <div style={{ maxHeight: "500px", overflow: "auto" }}>
+      <table className={css["transaction-table"]}>
+        <thead>
+          <tr>
+            <th>date</th>
+            <th>description</th>
+            <th>category</th>
+            <th>sum</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {rows.map((row, index) =>
+            row ? (
+              <tr key={row.id}>
+                <td>{row.date}</td>
+                <td>{row.description}</td>
+                <td>{row.category}</td>
+                <td className={type === "expenses" ? css.expense : css.income}>
+                  {row.sum}
+                  <div className={css.icon}>
+                    {type === "expenses" && (
+                      <svg
+                        width="18"
+                        height="18"
+                        onClick={() => handleDelete(row.id)}
+                      >
+                        <use href="/src/assets/icons.svg#icon-trash"></use>
+                      </svg>
+                    )}
+                  </div>
+                </td>
+              </tr>
+            ) : (
+              <tr key={index}>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            )
+          )}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

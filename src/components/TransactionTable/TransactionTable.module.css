@@ -15,11 +15,11 @@
 }
 
 .transaction-table {
-  border-collapse: separate;
-  width: 780px;
+  border-collapse: collapse;
+   width: 780px;
   table-layout: auto;
   padding: 5px;
-}
+  }
 
 thead {
   vertical-align: middle;
