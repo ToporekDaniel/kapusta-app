@@ -30,7 +30,7 @@ function TransactionTable({ transactions, type, handleDelete }) {
   const rows = [...transactions, ...emptyRows];
 
   return (
-    <div style={{ maxHeight: "500px", overflowY: "auto", overflowX: "hidden" }}>
+    <div className={css["transaction-table-wrapper"]}>
       <table className={css["transaction-table"]}>
         <thead>
           <tr>
@@ -54,9 +54,10 @@ function TransactionTable({ transactions, type, handleDelete }) {
                       <svg
                         width="18"
                         height="18"
+                        
                         onClick={() => handleDelete(row.id)}
                       >
-                        <use href="/src/assets/icons.svg#icon-trash"></use>
+                        <use href="/src/assets/icons.svg#icon-trash" fill="#52555f"></use>
                       </svg>
                     )}
                   </div>

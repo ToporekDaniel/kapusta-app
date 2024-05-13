@@ -1,7 +1,5 @@
-// import './Dashboard.css';
-import { useState } from "react";
-import PropTypes from "prop-types";
-
+// import { useState } from "react";
+import css from './Hero.module.css'
 import SummaryTable from "../../components/SummaryTable/SummaryTable";
 import FormTransaction from "../FormTransaction/FormTransaction";
 import TransactionTable from "../TransactionTable/TransactionTable";
@@ -50,25 +48,17 @@ function Hero() {
 //     setType(selectedType);
 //   };
   return (
-    <div className="hero">
+    <div className={css['hero-wrapper']}>
       <FormTransaction />
+      <div className={css['hero-table']}>
       <TransactionTable
         transactions={transactions}
         // type={type}
         handleDelete={handleDelete}
       />
-      <SummaryTable data={data} />
+      <SummaryTable data={data} /></div>
     </div>
   );
 }
-
-SummaryTable.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      monthName: PropTypes.string.isRequired,
-      value: PropTypes.number.isRequired,
-    })
-  ).isRequired,
-};
 
 export default Hero;
