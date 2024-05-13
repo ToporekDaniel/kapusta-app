@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Balance from "../../components/Balance/Balance";
 import Reports from "../Reports/Reports";
 import SummaryTable from "../../components/SummaryTable/SummaryTable";
+import Header from "../../components/Header/Header";
 
 //przykładowe dane do wyświetlenia w tabeli
 //finalnie powinny być zaciągane przez serwer
