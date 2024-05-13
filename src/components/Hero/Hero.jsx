@@ -3,6 +3,7 @@
 import PropTypes from "prop-types";
 
 import SummaryTable from "../../components/SummaryTable/SummaryTable";
+import FormTransaction from "../FormTransaction/FormTransaction";
 
 //przykładowe dane do wyświetlenia w tabeli
 //finalnie powinny być zaciągane przez serwer
@@ -18,6 +19,7 @@ const data = [
 function Hero() {
     return (
         <div className='hero'>
+            <FormTransaction />
             <SummaryTable data={data} />
         </div>
     );
