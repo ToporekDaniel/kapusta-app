@@ -30,7 +30,7 @@ function TransactionTable({ transactions, type, handleDelete }) {
   const rows = [...transactions, ...emptyRows];
 
   return (
-    <div style={{ maxHeight: "500px", overflow: "auto" }}>
+    <div style={{ maxHeight: "500px", overflowY: "auto", overflowX: "hidden" }}>
       <table className={css["transaction-table"]}>
         <thead>
           <tr>
