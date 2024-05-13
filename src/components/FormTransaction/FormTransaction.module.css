@@ -17,10 +17,7 @@
   border: none;
   color: var(--text-darkgrey);
   display: flex;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 900;
-  letter-spacing: 0.04em;
+  font-weight: 700;
   line-height: 14px;
   margin-left: 10px;
   margin-right: 32px;
@@ -28,78 +25,76 @@
 }
 
 .transaction-description {
-  font-size: 12px;
   background-color: var(--dashboard-input-color);
   border: 2px solid var(--border-color);
   border-radius: 16px 0 0 0;
   border-right: none;
-  color: #c7ccdc;
-  height: 44px;
-  padding-left: 10px;
+width: 250px;
+  height: 40px;
+  padding-left: 20px;
 }
 
 .transaction-select {
-  color: #c7ccdc;
+  color: var(--accent-lightgrey);
   display: flex;
   position: relative;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14px;
-  height: 44px;
 }
 
-.transaction-select::after {
-  content: attr(data-value) " ";
-  visibility: hidden;
-  white-space: pre;
-  grid-area: 1 / 2;
-  position: absolute;
-  top: 0;
-  left: 0;
-  font: inherit;
-  min-width: 2px;
-  border: 0px;
+.transaction-select select {
+  -webkit-appearance: none; 
+  -moz-appearance: none; 
+  appearance: none;
+  height: 45px;
+  width: 190px;
+  color: var(--accent-lightgrey);
+  font-family: Roboto, sans-serif;
+  border: 2px solid var(--border-color);
   margin: 0px;
-  outline: 0px;
-  padding: 0px;
+  padding: 0 0 0 20px;
 }
 
-.select-svg {
-  color: #c7ccdc;
+.select-arrow {
+  width: 20px;
+  height: 10px;
+  stroke: var(--accent-lightgrey);
+  fill: #fff;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: stroke 0.3s ease;
 }
 
+.select-arrow:hover {
+    stroke: var(--text-darkgrey);
+  }
+
+.calc-container {
+  position: relative;
+}
 
 .calc-input {
-    position: relative;
-  font-family: Roboto;
+  text-align: right;
+  padding-right: 40px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 14px;
-  height: 44px;
+  height: 40px;
+  width: 120px;
   border: 2px solid var(--border-color);
   border-left: none;
   border-radius: 0 16px 16px 0;
+  color: var(--accent-lightgrey);
   font-size: 18px;
-  max-width: 183px;
-  padding-right: 50px;
- }
+}
 
-.calc-input::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 10px; 
-    transform: translateY(-50%);
-    width: 20px; 
-    height: 20px; 
-    background-image: url("../../assets/icons.svg#icon-calculator");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: #c7ccdc ;
-    cursor: pointer;
-  }
-
+.calc-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-darkgrey);
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 .calc-input[type="number"]::-webkit-inner-spin-button,
 .calc-input[type="number"]::-webkit-outer-spin-button {
@@ -111,6 +106,3 @@
   -moz-appearance: textfield;
 }
 
-.transaction-icon {
-  align-items: center;
-}

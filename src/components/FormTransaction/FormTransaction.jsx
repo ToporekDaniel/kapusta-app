@@ -22,16 +22,14 @@ function FormTransaction() {
     <form className={css["container-transaction"]}>
       <div className={css["datepicker-wrapper"]}>
         <svg width="20" height="20">
-          <use
-            className={css["transaction-icon"]}
-            href="/src/assets/icons.svg#icon-calendar"
-          ></use>
+          <use href="/src/assets/icons.svg#icon-calendar"></use>
         </svg>
         <div>
           <DatePicker
             className={css["datepicker-input-container"]}
             selected={startDate}
             onChange={(date) => setStartDate(date)}
+            dateFormat="dd.MM.yyyy"
           />
         </div>
       </div>
@@ -44,6 +42,7 @@ function FormTransaction() {
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Product description"
           required
+          style={{ color: "var(--accent-lightgrey)" }}
         />
       </label>
 
@@ -53,16 +52,6 @@ function FormTransaction() {
           required
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          style={{
-            color: " rgba(82, 85, 95, 0.7)",
-            background: "0px center",
-            width: "169px",
-            fontSize: "12px",
-            font: "400 1rem/1.5 Roboto, sans-serif",
-            border: "2px solid var(--border-color)",
-            margin: "0px",
-            padding: "0px",
-          }}
         >
           <option value="">Product category</option>
           <option value="Transport">Transport</option>
@@ -78,22 +67,14 @@ function FormTransaction() {
           <option value="Education">Education</option>
           <option value="Other">Other</option>
         </select>
-        {/* <svg width="10" height="4">
-          <use
-            className={css["select-arrow"]}
-            href="/src/assets/icons.svg#icon-arrow"
-          ></use>
-        </svg> */}
+        <svg className={css["select-arrow"]} width="10" height="4">
+          <use href="/src/assets/icons.svg#icon-arrow"></use>
+        </svg>
       </div>
+
       <div>
-        <label>
+        <label className={css["calc-container"]}>
           <input
-            style={{
-              color: " rgba(82, 85, 95, 0.7)",
-              width: "169px",
-              fontSize: "18px",
-              font: "400 1rem/1.5 Roboto, sans-serif",
-            }}
             className={css["calc-input"]}
             required
             type="number"
@@ -101,6 +82,9 @@ function FormTransaction() {
             placeholder="0,00"
             onChange={(e) => setAmount(e.target.value)}
           />
+          <svg className={css["calc-icon"]}>
+            <use href="/src/assets/icons.svg#icon-calculator"></use>
+          </svg>
         </label>
       </div>
 
