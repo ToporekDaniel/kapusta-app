@@ -1,0 +1,82 @@
+@import url('../../index.css');
+html{
+  background-color: var(--header-color);
+}
+.header {
+    max-width: 320px;
+    margin: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: var(--header-color);
+    margin-top: -40px;
+    text-decoration: none;
+  }
+  .logoSquare{
+    background-color: var(--accent-orange);
+    width: 33px;
+    height: 26px;
+    top: 12px;
+    left: 16px;
+    gap: 0px;
+    border-radius: 8px;
+    opacity: 0px;
+    box-shadow: -5px -4px 0px 1px #FB7C2F33;
+  }
+  .logo{
+    display: inline-flex;
+    align-content: center;
+    width: 90px;
+    height: 31px;
+    top: 12px;
+    left: 16px;
+    gap: 0px;
+    border-radius: 8px;
+    opacity: 0px;
+    margin-top: -25px;
+    text-decoration: none;
+  }
+  .logoText{
+    width: 70px;
+    height: 16.71px;
+    top: 23px;
+    left: 36px;
+    gap: 0px;
+    opacity: 0px;
+    color: var(--text-main);
+    list-style: none;
+    font-weight: 800;
+    align-content: center;
+    margin-left: -25px;
+  }
+  @media (min-width: 768px) {
+    .header {
+      max-width: 768px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .header {
+      max-width: 1280px;
+    }
+  }
+  
+  .headerWrapper {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 0;
+    padding-top: 12px;
+    padding-bottom: 13px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--header-color);
+  }
+  
+  .logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+  
