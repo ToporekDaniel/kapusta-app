@@ -1,5 +1,6 @@
 import { useState } from "react";
-import css from './Hero.module.css'
+import { NavLink } from "react-router-dom";
+import css from "./Hero.module.css";
 import SummaryTable from "../../components/SummaryTable/SummaryTable";
 import FormTransaction from "../FormTransaction/FormTransaction";
 import TransactionTable from "../TransactionTable/TransactionTable";
@@ -44,19 +45,42 @@ const handleDelete = (id) => {
 function Hero() {
   const [type, setType] = useState("expenses");
 
-//   const handleTabChange = (selectedType) => {
-//     setType(selectedType);
-//   };
+  const handleTabChange = (selectedType) => {
+    setType(selectedType);
+  };
+
   return (
-    <div className={css['hero-wrapper']}>
+    <div className={css["hero-container"]}>
+      <nav className={css["tab-wrapper"]} >
+        <NavLink
+          to="/expenses"
+          className={type === "expenses" ? css["tab-active"] : css["tab"]}
+          onClick={() => handleTabChange("expenses")}
+        >
+          Expenses
+        </NavLink>
+
+        <NavLink
+          to="/income"
+          className={type === "income" ? css["tab-active"] : css["tab"]}
+          onClick={() => handleTabChange("income")}
+        >
+          Income
+        </NavLink>
+      </nav>
+
+      <div className={css["hero-wrapper"]}>
       <FormTransaction />
-      <div className={css['hero-table']}>
-      <TransactionTable
-        transactions={transactions}
-        type={type}
-        handleDelete={handleDelete}
-      />
-      <SummaryTable data={data} /></div>
+      <div className={css["hero-wrapper-tables"]}>
+        <TransactionTable
+          className={css["hero-transaction-table"]}
+          transactions={transactions}
+          type={type}
+          handleDelete={handleDelete}
+        />
+        <SummaryTable data={data} />
+      </div>
+      </div>
     </div>
   );
 }

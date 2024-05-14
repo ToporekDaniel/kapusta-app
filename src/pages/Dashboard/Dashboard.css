@@ -2,11 +2,17 @@
 @import url('../../index.css');
 
 .dashboard {
+    display: none;
+}
+
+@media (min-width: 768px) {
+.dashboard {
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--background-main);
+}
 }
 
 @media (max-width: 1023px) {
