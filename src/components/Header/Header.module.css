@@ -1,14 +1,18 @@
+@import url('../../index.css');
+html{
+  background-color: var(--header-color);
+}
 .header {
     max-width: 320px;
     margin: auto;
     padding-left: 15px;
     padding-right: 15px;
-    background-color: white;
+    background-color: var(--header-color);
     margin-top: -40px;
     text-decoration: none;
   }
   .logoSquare{
-    background-color: #FB7C2F;
+    background-color: var(--accent-orange);
     width: 33px;
     height: 26px;
     top: 12px;
@@ -38,7 +42,7 @@
     left: 36px;
     gap: 0px;
     opacity: 0px;
-    color: black;
+    color: var(--text-main);
     list-style: none;
     font-weight: 800;
     align-content: center;
@@ -65,7 +69,7 @@
     padding-bottom: 13px;
     margin-left: auto;
     margin-right: auto;
-    background-color: white;
+    background-color: var(--header-color);
   }
   
   .logo {

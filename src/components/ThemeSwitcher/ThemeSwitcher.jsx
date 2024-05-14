@@ -1,34 +1,23 @@
-import { useLayoutEffect } from "react";
-import { selectorTheme } from "../../../src/redux/theme/themeSelector";
-import { toggle as toggleTheme } from "../../../src/redux/theme/themeSlice";
-import styles from "./ThemeSwitcher.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import styles from "../ThemeSwitcher/ThemeSwitcher.module.css";
 
-export default function ThemeSwitcher() {
-  /*
-  const dispatch = useDispatch();
-  const theme = useSelector(selectorTheme);
-
-  const handleChange = () => {
-    if (theme === "day") {
-      dispatch(toggleTheme("night"));
-    } else {
-      dispatch(toggleTheme("day"));
-    }
+const ThemeSwitcher = () => {
+  const setLightMode = () => {
+    document.querySelector("html").setAttribute("data-theme", "light");
+  };
+  const setDarkMode = () => {
+    document.querySelector("html").setAttribute("data-theme", "dark");
   };
 
-  useLayoutEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
-*/
+  const toggleTheme = (e) => {
+    if (e.target.checked) setDarkMode();
+    else setLightMode();
+  };
+
   return (
     <div className={styles.toggleBtn}>
-      <input
-        type="checkbox"
-        //checked={theme === "night"}
-        //onChange={handleChange}
-      />
+      <input type="checkbox" onChange={toggleTheme} />
       <span>&nbsp;</span>
     </div>
   );
-}
+};
+export default ThemeSwitcher;

@@ -26,6 +26,7 @@
   --dashboard-not-active-link-bg: #fafbfd;
   --dashboard-input-color: #fff;
   --border-color: #f6f7fc;
+  --header-color: #fff;
 
   font-family: Roboto, sans-serif;
   --primary-font-size: 12px;
@@ -72,4 +73,5 @@ html[data-theme="dark"] {
   --dashboard-input-color: #60646d;
   --active-link-bg: #60646d;
   --not-active-link-bg: #4b4e55;
+  --header-color: #06061f;
 }

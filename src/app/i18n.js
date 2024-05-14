@@ -1,0 +1,20 @@
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+
+i18n.use(initReactI18next).init({
+  resources: {
+    en: {
+      translation: {
+        balance: 'Balance',
+      },
+    },
+    pl: {
+      translation: {
+        balance: 'Balans',
+      },
+    },
+  },
+  lng: 'en',
+});
+
+export default i18n;
