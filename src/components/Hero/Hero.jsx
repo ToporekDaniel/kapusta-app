@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route, Switch } from "react-router-dom";
 import css from "./Hero.module.css";
 import SummaryTable from "../../components/SummaryTable/SummaryTable";
 import FormTransaction from "../FormTransaction/FormTransaction";
@@ -50,38 +50,55 @@ function Hero() {
   };
 
   return (
-    <div className={css["hero-container"]}>
-      <nav className={css["tab-wrapper"]} >
-        <NavLink
-          to="/expenses"
-          className={type === "expenses" ? css["tab-active"] : css["tab"]}
-          onClick={() => handleTabChange("expenses")}
-        >
-          Expenses
-        </NavLink>
+      <div className={css["hero-container"]}>
+        <nav className={css["tab-wrapper"]}>
+          <NavLink
+            to="/expenses"
+            className={type === "expenses" ? css["tab-active"] : css["tab"]}
+            onClick={() => handleTabChange("expenses")}
+          >
+            Expenses
+          </NavLink>
 
-        <NavLink
-          to="/income"
-          className={type === "income" ? css["tab-active"] : css["tab"]}
-          onClick={() => handleTabChange("income")}
-        >
-          Income
-        </NavLink>
-      </nav>
+          <NavLink
+            to="/income"
+            className={type === "income" ? css["tab-active"] : css["tab"]}
+            onClick={() => handleTabChange("income")}
+          >
+            Income
+          </NavLink>
+        </nav>
 
-      <div className={css["hero-wrapper"]}>
-      <FormTransaction />
-      <div className={css["hero-wrapper-tables"]}>
-        <TransactionTable
-          className={css["hero-transaction-table"]}
-          transactions={transactions}
-          type={type}
-          handleDelete={handleDelete}
-        />
-        <SummaryTable data={data} />
+        <div className={css["hero-wrapper"]}>
+          <Switch>
+            <Route path="/expenses">
+              <FormTransaction />
+              <div className={css["hero-wrapper-tables"]}>
+                <TransactionTable
+                  className={css["hero-transaction-table"]}
+                  transactions={transactions}
+                  type={type}
+                  handleDelete={handleDelete}
+                />
+                <SummaryTable data={data} />
+              </div>
+            </Route>
+
+            <Route path="/income">
+              <FormTransaction />
+              <div className={css["hero-wrapper-tables"]}>
+                <TransactionTable
+                  className={css["hero-transaction-table"]}
+                  transactions={transactions}
+                  type={type}
+                  handleDelete={handleDelete}
+                />
+                <SummaryTable data={data} />
+              </div>
+            </Route>
+          </Switch>
+        </div>
       </div>
-      </div>
-    </div>
   );
 }
 

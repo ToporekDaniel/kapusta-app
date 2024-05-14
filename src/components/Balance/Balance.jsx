@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { disableInput } from '../../app/store';
-import { useFinance } from '../../../contexts/FinanceContext';
-import Button from './UI/Button/Button';
-import './Balance.css';
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { disableInput } from "../../app/store";
+import { useFinance } from "../../../contexts/FinanceContext";
+import Button from "./UI/Button/Button";
+import "./Balance.css";
 
 function Balance() {
-  const [inputBalance, setInputBalance] = useState('');
+  const [inputBalance, setInputBalance] = useState("");
   const { expenses, income } = useFinance();
-  const inputDisabled = useSelector(state => state.balance.inputDisabled);
+  const inputDisabled = useSelector((state) => state.balance.inputDisabled);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    const totalExpenses = expenses.reduce((acc, expense) => acc + expense.amount, 0);
+    const totalExpenses = expenses.reduce(
+      (acc, expense) => acc + expense.amount,
+      0
+    );
     const totalIncome = income.reduce((acc, income) => acc + income.amount, 0);
     const calculatedBalance = totalIncome - totalExpenses;
     setInputBalance(calculatedBalance.toFixed(2));
@@ -26,7 +29,7 @@ function Balance() {
     if (numBalance === 0) {
       setShowModal(true);
     } else {
-      alert('Balance confirmed: ' + numBalance + ' PLN');
+      alert("Balance confirmed: " + numBalance + " PLN");
       dispatch(disableInput());
       setShowModal(false);
     }
@@ -41,24 +44,33 @@ function Balance() {
   return (
     <div className="balance-container">
       <label className="balance-label">Balance:</label>
-      <input
-        type="text"
-        className="balance-value"
-        value={inputBalance}
-        onChange={handleInputChange}
-        disabled={inputDisabled}
-      />
-      {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <p>Hello! To get started, enter the current balance of your account!</p>
-            <p>You can't spend money until you have it :)</p>
+      <div className="input-button-container">
+        <input
+          type="text"
+          className="balance-value"
+          value={inputBalance}
+          onChange={handleInputChange}
+          disabled={inputDisabled}
+        />
+        {showModal && (
+          <div className="modal">
+            <div className="modal-content">
+              <p>
+                Hello! To get started, enter the current balance of your
+                account!
+              </p>
+              <p>You can&apos;t spend money until you have it :)</p>
+            </div>
           </div>
-        </div>
-      )}
-      {!inputDisabled && (
-        <Button className="confirm-button" onClick={handleConfirm} text="CONFIRM"/>
-      )}
+        )}
+        {!inputDisabled && (
+          <Button
+            className="confirm-button"
+            onClick={handleConfirm}
+            text="CONFIRM"
+          />
+        )}
+      </div>
     </div>
   );
 }

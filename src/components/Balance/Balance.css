@@ -2,12 +2,23 @@
 
 .balance-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  background-color: #ffffff;
+  position: relative; 
+  background-color: var(--background-main);
   gap: 20px;
   padding: 16px;
-  margin: 20px;
-  position: relative; 
+
+}
+
+.input-button-container {
+
+}
+
+@media (min-width: 768px) {
+.balance-container {
+  flex-direction: row;
+   }
 }
 
 .balance-header {
@@ -18,6 +29,7 @@
 
 .balance-label {
   font-size: 16px;
+  font-weight: 500;
   color: var(--text-darkgrey);
 }
 
@@ -25,10 +37,16 @@
   width: 125px;
   height: 44px;
   border-color: var(--accent-lightgrey);
-  border-radius: 16px;
+  border-radius: 16px 0 0 16px;
   border: 1px solid var(--accent-lightgrey); 
   text-align: center;
   font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .balance-value {
+    border-radius: 16px;
+  }
 }
 
 .modal {
@@ -55,4 +73,14 @@
 
 .modal-content {
   font-size: 14px;
+}
+
+.confirm-button {
+  border-radius: 0 16px 16px 0;
+}
+
+@media (min-width: 768px) {
+.confirm-button {
+  border-radius: 16px;
+}
 }
