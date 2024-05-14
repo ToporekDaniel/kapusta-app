@@ -1,0 +1,119 @@
+@import url("../../index.css");
+
+.container-transaction {
+  display: flex;
+  height: 44px;
+  margin: 32px 32px 0 32px;
+  justify-content: center;
+  align-items: center; 
+}
+
+.datepicker-wrapper {
+  align-items: center;
+  display: flex;
+  margin-right: 32px;
+}
+
+.datepicker-input-container {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: var(--text-darkgrey);
+  display: flex;
+  font-weight: 700;
+  line-height: 14px;
+  margin-left: 10px;
+  margin-right: 32px;
+  width: 74px;
+}
+
+.transaction-description {
+  background-color: var(--dashboard-input-color);
+  border: 2px solid var(--border-color);
+  border-radius: 16px 0 0 0;
+  border-right: none;
+width: 250px;
+  height: 40px;
+  padding-left: 20px;
+}
+
+.transaction-select {
+  color: var(--accent-lightgrey);
+  display: flex;
+  position: relative;
+}
+
+.transaction-select select {
+  -webkit-appearance: none; 
+  -moz-appearance: none; 
+  appearance: none;
+  height: 45px;
+  width: 190px;
+  color: var(--accent-lightgrey);
+  font-family: Roboto, sans-serif;
+  border: 2px solid var(--border-color);
+  margin: 0px;
+  padding: 0 0 0 20px;
+}
+
+.select-arrow {
+  width: 20px;
+  height: 10px;
+  stroke: var(--accent-lightgrey);
+  fill: #fff;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: stroke 0.3s ease;
+}
+
+.select-arrow:hover {
+    stroke: var(--text-darkgrey);
+  }
+
+.calc-container {
+  position: relative;
+
+}
+
+.calc-input {
+  text-align: right;
+  padding-right: 40px;
+  font-style: normal;
+  height: 40px;
+  width: 120px;
+  border: 2px solid var(--border-color);
+  border-left: none;
+  border-radius: 0 16px 16px 0;
+  color: var(--accent-lightgrey);
+  font-size: 18px;
+}
+
+.calc-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-darkgrey);
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.calc-input[type="number"]::-webkit-inner-spin-button,
+.calc-input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.calc-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.buttons-wrapper {
+    margin-left: 32px;
+}
+
+.buttons-wrapper > Button:first-child {
+    margin-right: 16px; /* Dodaj odstęp między przyciskami */
+  }

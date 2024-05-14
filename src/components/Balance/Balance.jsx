@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { disableInput } from '../../app/store';
 import { useFinance } from '../../../contexts/FinanceContext';
 import Button from './UI/Button/Button';
+import './Balance.css';
 
 function Balance() {
   const [inputBalance, setInputBalance] = useState('');
