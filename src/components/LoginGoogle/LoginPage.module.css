@@ -1,0 +1,298 @@
+.popup {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(190, 190, 190, 0.1);
+}
+
+/* You can log in with your Google Account: */
+.Desc {
+  /* width: 248px; */
+  /* height: 28px; */
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+
+  color: #52555f;
+
+  /* Inside auto layout */
+  /* flex: none; */
+  /* order: 0; */
+  /* flex-grow: 0; */
+}
+
+.popupInner {
+  /* form */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 56px 83px;
+  gap: 29px;
+
+  position: absolute;
+  /* width: 425px; */
+  /* height: 553px; */
+  left: 763px;
+  top: 173px;
+
+  background: #ffffff;
+  /* shadow 1 */
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 30px;
+
+  /* background-color: white; */
+  /* position: absolute; */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* padding: 20px; */
+  /* border-radius: 5px; */
+  /* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); */
+  /* width: 33%; */
+}
+
+.buttonLoginGoogle {
+  /* Group 28 */
+
+  width: 119.2px;
+  height: 40px;
+
+  filter: drop-shadow(1px 2px 3px rgba(170, 178, 197, 0.2));
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+
+  /* Rectangle 11 */
+
+  position: absolute;
+  /* width: 119.2px; */
+  /* height: 40px; */
+  /* left: 152.9px; */
+  /* top: 113px; */
+
+  background: #f6f7fb;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 26px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+
+  color: #000000;
+}
+
+.buttonLoginGoogleIcon {
+  background: url("./google-symbol.png") transparent 5px 50% no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  width: 42px;
+  height: 42px;
+}
+
+.buttonLoginGoogle .buttonText {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 42px;
+  padding-right: 42px;
+  font-size: 14px;
+  font-weight: bold;
+  /* Use the Roboto font that is loaded in the <head> */
+  font-family: "Roboto", sans-serif;
+}
+
+.popupInner h2 {
+  margin-top: 0;
+}
+
+.popupInner label {
+  display: block;
+  margin-bottom: 10px;
+
+  /* Email: */
+
+  /* position: absolute; */
+  width: 258.92px;
+  height: 14px;
+  /* left: 83.04px; */
+  /* top: 239px; */
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+  letter-spacing: 0.04em;
+
+  color: #000000;
+}
+
+.popupInner input {
+  margin-bottom: 29px;
+  /* width: 100%; */
+  /* padding: 5px; */
+  /* border-radius: 5px; */
+  /* border: 1px solid #ccc; */
+  /* margin-bottom: 10px; */
+
+  /* Rectangle 12 */
+
+  /* position: absolute; */
+  width: 258.92px;
+  height: 52px;
+  /* left: 83.04px; */
+  /* top: 265px; */
+
+  background: #f6f7fb;
+  border-radius: 30px;
+  border-style: none;
+
+  /* your@email.com */
+
+  /* position: absolute; */
+  /* width: 238.52px; */
+  /* height: 18px; */
+  /* left: 102.58px; */
+  /* top: 282px; */
+}
+
+.mailInpFont {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+
+  color: #a6abb9;
+}
+
+.pswdInpFont {
+  /* •••••••• */
+  /* position: absolute; */
+  /* width: 236.45px; */
+  /* height: 36px; */
+  /* left: 105.51px; */
+  /* top: 377px; */
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 54px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+.popupInner button[type="submit"],
+.popupInner button[type="button"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  /* Group 39 */
+
+  /* position: absolute; */
+  width: 122.17px;
+  height: 44px;
+  /* left: 83px; */
+  /* top: 453px; */
+
+  filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
+
+  /* Rectangle 18 */
+
+  /* position: absolute; */
+  /* width: 122.17px; */
+  /* height: 44px; */
+  /* left: 83px; */
+  /* top: 453px; */
+
+  border-radius: 16px;
+
+  /* Rectangle 18 */
+
+  /* Log in */
+
+  /* position: absolute; */
+  /* width: 55.71px; */
+  /* height: 20px; */
+  /* left: 116.23px; */
+  /* top: 465px; */
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* text-align: center; */
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.popupInner button[type="submit"]:hover,
+.popupInner button[type="button"]:hover {
+  /* background-color: #45a049; */
+  background: #ff751d;
+  color: #ffffff;
+}
+
+.popupInner button[type="submit"] {
+  margin-top: 20px;
+  background: #f5f6fb;
+  color: #52555f;
+
+  filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
+}
+
+.popupInner button[type="button"] {
+  margin-top: 20px;
+  /* background-color: #f44336; */
+}
+
+.popupInner button[type="button"]:hover {
+  background-color: #da190b;
+}
+
+.popupInner button[type="submit"]:disabled {
+  background-color: #bfbfbf;
+  color: #ffffff;
+  cursor: not-allowed;
+}
+
+.popupInner button[type="button"]:disabled {
+  background-color: #bfbfbf;
+  color: #ffffff;
+  cursor: not-allowed;
+}
