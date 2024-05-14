@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { format, addMonths } from 'date-fns';
-import './DataSlider.css'
+import css from './DataSlider.module.css'
 
 function DataSlider() {
     const [currentDate, setCurrentDate] = useState(new Date());
@@ -18,11 +18,11 @@ function DataSlider() {
     };
 
     return (
-        <div className="data-slider">
+        <div className={css["data-slider"]}>
             <button onClick={handlePrevious}>{'<'}</button>
-            <div className='text'>
+            <div className={css['text']}>
             <span>Current period:</span>
-            <span className='data-text'>{formatDate(currentDate)}</span>
+            <span className={css['data-text']}>{formatDate(currentDate)}</span>
             </div>
             <button onClick={handleNext}>{'>'}</button>
         </div>

@@ -1,14 +1,12 @@
 :root {
   --background-main: #e0e5eb;
   --background-additional: #f5f6fb;
-  --background-modal-darkblue: linear-gradient(
-    90deg,
-    #34495e,
-    #2c3e50,
-    #263859,
-    #212a3a,
-    #1a1a2e
-  );
+  --background-modal-darkblue: linear-gradient(90deg,
+      #34495e,
+      #2c3e50,
+      #263859,
+      #212a3a,
+      #1a1a2e);
   --background-modal: #fff;
   --text-main: #000000;
   --text-darkgrey: #52555f;
@@ -26,73 +24,73 @@
   --dashboard-not-active-link-bg: #fafbfd;
   --dashboard-input-color: #fff;
   --border-color: #f6f7fc;
-
-  font-family: Roboto, sans-serif;
   --primary-font-size: 12px;
+  font-family: Roboto, sans-serif;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
-  ul,
-  ol,
-  menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+ul,
+ol,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  a {
-    text-decoration: none;
-  }
+a {
+  text-decoration: none;
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-    margin: 0;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span{
+  margin: 0;
+}
 
-  html,
-  div,
-  span,
-  p,
-  form,
-  label,
-  legend,
-  table,
-  caption,
-  tbody,
-  tfoot,
-  thead,
-  tr,
-  th,
-  td,
-  article,
-  aside,
-  figure,
-  figcaption,
-  footer,
-  header,
-  menu,
-  nav,
-  section,
-  summary,
-  time,
-  mark,
-  audio,
-  video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-  }
+html,
+div,
+span,
+p,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+figcaption,
+footer,
+header,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  /* font: inherit; */
+  vertical-align: baseline;
 }
 
 html[data-theme="dark"] {

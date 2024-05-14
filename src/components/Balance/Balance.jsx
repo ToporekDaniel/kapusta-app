@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { disableInput } from '../../app/store';
 import { useFinance } from '../../../contexts/FinanceContext';
 import Button from '../Button/Button';
-import './Balance.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Backspace from "../../assets/icons/backspace.svg?react";
 import DataSlider from '../DataSlider/DataSlider';
+import css from './Balance.module.css';
 
 
 function Balance() {
@@ -15,7 +15,6 @@ function Balance() {
   const inputDisabled = useSelector(state => state.balance.inputDisabled);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
-  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,39 +43,30 @@ function Balance() {
     setShowModal(!value || parseFloat(value) === 0);
   };
 
- 
+
   return (
-    <div className="balance-container">
-      <div className='back-to-home-link-container'>
-        {location.pathname !== '/' && (
-        <Link to="/">
-          <Backspace />
-         <p className='text'>Main Page</p>
-         </Link> 
-      )}
-      </div>
-      <label className="balance-label text">Balance:</label>
-      <input
-        type="text"
-        className="balance-value"
-        value={inputBalance}
-        onChange={handleInputChange}
-        disabled={inputDisabled}
-      />
-      {showModal && (
-        <div className="modal">
-          <div className="modal-content">
+    <div className={css["balance-container"]}>
+   
+        <label className={css["balance-label text"]}>Balance:</label>
+        <input
+          type="text"
+          className={css["balance-value"]}
+          value={inputBalance}
+          onChange={handleInputChange}
+          disabled={inputDisabled}
+        />
+        {showModal && (
+        <div className={css["modal"]}>
+          <div className={css["modal-content"]}>
             <p>Hello! To get started, enter the current balance of your account!</p>
             <p>You can't spend money until you have it :)</p>
           </div>
         </div>
       )}
-      {!inputDisabled && (
-        <Button className="confirm-button" onClick={handleConfirm} text="CONFIRM"/>
-      )}
-   {location.pathname !== '/' && (
-       <DataSlider />
-      )}
+        {!inputDisabled && (
+          <Button className={css["confirm-button"]} onClick={handleConfirm} text="CONFIRM" />
+        )}
+      
     </div>
   );
 }

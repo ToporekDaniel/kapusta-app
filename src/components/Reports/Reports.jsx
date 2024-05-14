@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import './Reports.css';
+import css from './Reports.module.css';
 import ReportsIcon from "../../assets/icons/reports.svg?react";
 
 function Reports() {
   return (
-    <div className="reports-container">
-      <Link to="/reports" className="reports-link">
+    <div className={css["reports-container"]}>
+      <Link to="/reports" className={css['reports-link']}>
         <p>        Reports
         </p>
 

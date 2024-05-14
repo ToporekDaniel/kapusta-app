@@ -3,11 +3,12 @@
 .balance-container {
   display: flex;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #ff2323;
   gap: 20px;
   padding: 16px;
   margin: 20px;
   position: relative; 
+  
 }
 
 .balance-header {
@@ -57,12 +58,7 @@
   font-size: 14px;
 }
 
-.back-to-home-link-container a {
-  display: flex;
-  text-decoration: none;
-  align-items: center;
-  gap: 15px;
-}
+
 .text {
 color: var(--text-darkgrey);
 }
