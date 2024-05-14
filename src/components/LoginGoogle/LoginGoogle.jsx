@@ -52,7 +52,18 @@ function LoginGoogle() {
             <p>Email Address: {profile.email}</p>
             <br />
             <br />
-            <button onClick={logOut}>Log out</button>
+            <button onClick={logOut} className={css.gsiMaterialButton}>
+              <div className={css.gsiMaterialButtonContentWrapper}>
+                <LogoGoogle />
+                <span className="gsiMaterialButtonContents">Log out</span>
+              </div>
+            </button>
+            {
+              /* <button onClick={logOut} className={css.gsiMaterialButton}>
+                   Log out
+                 </button>
+              */
+            }
           </div>
         )
         : (

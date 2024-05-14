@@ -7,29 +7,10 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(190, 190, 190, 0.1);
+  font-size:  var(--primary-font-size);
 }
 
-/* You can log in with your Google Account: */
-.Desc {
-  /* width: 248px; */
-  /* height: 28px; */
-
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.04em;
-
-  color: #52555f;
-
-  /* Inside auto layout */
-  /* flex: none; */
-  /* order: 0; */
-  /* flex-grow: 0; */
-}
-
-.popupInner {
+.popup .popupInner {
   /* form */
 
   /* Auto layout */
@@ -59,6 +40,18 @@
   /* border-radius: 5px; */
   /* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); */
   /* width: 33%; */
+  font-size:  var(--primary-font-size);
+}
+
+/* You can log in with your Google Account: */
+.popup .popupInner .Desc {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size:  var(--primary-font-size);
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  color: #52555f;
 }
 
 .buttonLoginGoogle {
@@ -136,7 +129,7 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: var(--primary-font-size);
   line-height: 14px;
   /* identical to box height */
   letter-spacing: 0.04em;
@@ -177,7 +170,7 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: var(--secondary-font-size);
   line-height: 16px;
   letter-spacing: 0.04em;
 
