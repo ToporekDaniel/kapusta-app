@@ -1,6 +1,6 @@
 import "./Dashboard.css";
 
-import Balance from "../../components/Balance/Balance";
+import Balance from "../Balance/Balance";
 import Reports from "../Reports/Reports";
 
 function Dashboard() {

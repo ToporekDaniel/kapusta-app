@@ -56,3 +56,13 @@
 .modal-content {
   font-size: 14px;
 }
+
+.back-to-home-link-container a {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  gap: 15px;
+}
+.text {
+color: var(--text-darkgrey);
+}

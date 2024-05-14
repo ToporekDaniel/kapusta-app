@@ -1,0 +1,38 @@
+.data-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.data-slider button {
+    color: var(--accent-orange);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.data-slider button:hover {
+    background-color:var(--text-grey);
+}
+
+.data-slider span {
+    font-size: 16px;
+    color: #333;
+}
+
+.text  {
+    display: flex;
+    flex-direction: column;
+}
+
+.data-text{
+font-weight: bold;}

@@ -1,0 +1,13 @@
+@import url('../../index.css');
+
+.header {
+  display: flex;
+  gap: 40px;
+
+  justify-content: center;
+}
+
+.reports-chart-container {
+  margin-top: 60px;
+  padding: 20px 20px;
+}

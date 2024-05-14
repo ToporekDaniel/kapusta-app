@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { disableInput } from '../../app/store';
 import { useFinance } from '../../../contexts/FinanceContext';
-import Button from './UI/Button/Button';
+import Button from '../Button/Button';
 import './Balance.css';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Backspace from "../../assets/icons/backspace.svg?react";
+import DataSlider from '../DataSlider/DataSlider';
+
 
 function Balance() {
   const [inputBalance, setInputBalance] = useState('');
@@ -11,6 +15,8 @@ function Balance() {
   const inputDisabled = useSelector(state => state.balance.inputDisabled);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const totalExpenses = expenses.reduce((acc, expense) => acc + expense.amount, 0);
@@ -38,9 +44,18 @@ function Balance() {
     setShowModal(!value || parseFloat(value) === 0);
   };
 
+ 
   return (
     <div className="balance-container">
-      <label className="balance-label">Balance:</label>
+      <div className='back-to-home-link-container'>
+        {location.pathname !== '/' && (
+        <Link to="/">
+          <Backspace />
+         <p className='text'>Main Page</p>
+         </Link> 
+      )}
+      </div>
+      <label className="balance-label text">Balance:</label>
       <input
         type="text"
         className="balance-value"
@@ -58,6 +73,9 @@ function Balance() {
       )}
       {!inputDisabled && (
         <Button className="confirm-button" onClick={handleConfirm} text="CONFIRM"/>
+      )}
+   {location.pathname !== '/' && (
+       <DataSlider />
       )}
     </div>
   );
