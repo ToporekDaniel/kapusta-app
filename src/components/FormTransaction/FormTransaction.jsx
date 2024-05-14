@@ -87,10 +87,9 @@ function FormTransaction() {
           </svg>
         </label>
       </div>
-
-      <div>
+      <div className={css["buttons-wrapper"]} > 
         <Button onClick={handleSubmitInput} text="INPUT" />
-        <Button onClick={handleClear} text="CLEAR" />{" "}
+        <Button onClick={handleClear} text="CLEAR" />
       </div>
     </form>
   );

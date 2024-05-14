@@ -24,6 +24,8 @@
   --dashboard-not-active-link-bg: #fafbfd;
   --dashboard-input-color: #fff;
   --border-color: #f6f7fc;
+  --header-color: #fff;
+
   --primary-font-size: 12px;
   font-family: Roboto, sans-serif;
 
@@ -56,7 +58,7 @@ span{
   margin: 0;
 }
 
-html,
+/* html,
 div,
 span,
 p,
@@ -89,9 +91,9 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  /* font: inherit; */
+  font: inherit;
   vertical-align: baseline;
-}
+} */
 
 html[data-theme="dark"] {
   --background-main: #27282d;
@@ -106,4 +108,5 @@ html[data-theme="dark"] {
   --dashboard-input-color: #60646d;
   --active-link-bg: #60646d;
   --not-active-link-bg: #4b4e55;
+  --header-color: #06061f;
 }
