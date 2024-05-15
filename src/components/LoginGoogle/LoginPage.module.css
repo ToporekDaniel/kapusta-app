@@ -7,83 +7,46 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(190, 190, 190, 0.1);
-  font-size:  var(--primary-font-size);
+  font-size: var(--primary-font-size);
 }
 
 .popup .popupInner {
-  /* form */
-
-  /* Auto layout */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 56px 83px;
   gap: 29px;
-
   position: absolute;
-  /* width: 425px; */
-  /* height: 553px; */
-
-  /* left: 763px; */
-  /* top: 173px; */
-
-
-  /* left: 0px; */
-  /* top:  0px; */
-
   background: #ffffff;
-  /* shadow 1 */
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
-
-  /* background-color: white; */
-  /* position: absolute; */
   left: 60%;
   top: 35%;
   transform: translate(-50%, -50%);
-  /* padding: 20px; */
-  /* border-radius: 5px; */
-  /* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); */
-  /* width: 33%; */
-  font-size:  var(--primary-font-size);
+  font-size: var(--primary-font-size);
 }
 
-/* You can log in with your Google Account: */
 .popup .popupInner .Desc {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size:  var(--primary-font-size);
+  font-size: var(--primary-font-size);
   line-height: 14px;
   letter-spacing: 0.04em;
   color: #52555f;
 }
 
 .buttonLoginGoogle {
-  /* Group 28 */
-
   width: 119.2px;
   height: 40px;
-
   filter: drop-shadow(1px 2px 3px rgba(170, 178, 197, 0.2));
-
-  /* Inside auto layout */
   flex: none;
   order: 1;
   flex-grow: 0;
-
-  /* Rectangle 11 */
-
   position: absolute;
-  /* width: 119.2px; */
-  /* height: 40px; */
-  /* left: 152.9px; */
-  /* top: 113px; */
-
   background: #f6f7fb;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 26px;
-
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -92,7 +55,6 @@
   display: flex;
   align-items: center;
   letter-spacing: 0.02em;
-
   color: #000000;
 }
 
@@ -111,7 +73,6 @@
   padding-right: 42px;
   font-size: 14px;
   font-weight: bold;
-  /* Use the Roboto font that is loaded in the <head> */
   font-family: "Roboto", sans-serif;
 }
 
@@ -122,53 +83,24 @@
 .popupInner label {
   display: block;
   margin-bottom: 10px;
-
-  /* Email: */
-
-  /* position: absolute; */
   width: 258.92px;
   height: 14px;
-  /* left: 83.04px; */
-  /* top: 239px; */
-
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: var(--primary-font-size);
   line-height: 14px;
-  /* identical to box height */
   letter-spacing: 0.04em;
-
   color: #000000;
 }
 
 .popupInner input {
   margin-bottom: 29px;
-  /* width: 100%; */
-  /* padding: 5px; */
-  /* border-radius: 5px; */
-  /* border: 1px solid #ccc; */
-  /* margin-bottom: 10px; */
-
-  /* Rectangle 12 */
-
-  /* position: absolute; */
   width: 258.92px;
   height: 52px;
-  /* left: 83.04px; */
-  /* top: 265px; */
-
   background: #f6f7fb;
   border-radius: 30px;
   border-style: none;
-
-  /* your@email.com */
-
-  /* position: absolute; */
-  /* width: 238.52px; */
-  /* height: 18px; */
-  /* left: 102.58px; */
-  /* top: 282px; */
 }
 
 .mailInpFont {
@@ -178,18 +110,10 @@
   font-size: var(--secondary-font-size);
   line-height: 16px;
   letter-spacing: 0.04em;
-
   color: #a6abb9;
 }
 
 .pswdInpFont {
-  /* •••••••• */
-  /* position: absolute; */
-  /* width: 236.45px; */
-  /* height: 36px; */
-  /* left: 105.51px; */
-  /* top: 377px; */
-
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
@@ -197,7 +121,6 @@
   line-height: 54px;
   display: flex;
   align-items: center;
-
   color: #000000;
 }
 
@@ -214,54 +137,22 @@
   margin-right: 10px;
   cursor: pointer;
   border-radius: 5px;
-
-  /* Group 39 */
-
-  /* position: absolute; */
   width: 122.17px;
   height: 44px;
-  /* left: 83px; */
-  /* top: 453px; */
-
   filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
-
-  /* Rectangle 18 */
-
-  /* position: absolute; */
-  /* width: 122.17px; */
-  /* height: 44px; */
-  /* left: 83px; */
-  /* top: 453px; */
-
   border-radius: 16px;
-
-  /* Rectangle 18 */
-
-  /* Log in */
-
-  /* position: absolute; */
-  /* width: 55.71px; */
-  /* height: 20px; */
-  /* left: 116.23px; */
-  /* top: 465px; */
-
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 14px;
-  /* display: flex; */
-  /* align-items: center; */
-  /* text-align: center; */
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
   color: #ffffff;
 }
 
 .popupInner button[type="submit"]:hover,
 .popupInner button[type="button"]:hover {
-  /* background-color: #45a049; */
   background: #ff751d;
   color: #ffffff;
 }
@@ -270,13 +161,11 @@
   margin-top: 20px;
   background: #f5f6fb;
   color: #52555f;
-
   filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
 }
 
 .popupInner button[type="button"] {
   margin-top: 20px;
-  /* background-color: #f44336; */
 }
 
 .popupInner button[type="button"]:hover {
