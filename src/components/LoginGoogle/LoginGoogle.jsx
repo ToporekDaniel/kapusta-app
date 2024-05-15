@@ -7,7 +7,7 @@ import css from "./LoginGoogle.module.css";
 
 function LoginGoogle() {
   const [user, setUser] = useState([]);
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState(null);
   const [auth, setAuth] = useState([]);
 
   // const login = useGoogleLogin({
@@ -35,14 +35,14 @@ function LoginGoogle() {
         code,
       });
       // .then((res) => {
-      // setAuth(res);
+      // setUser(res);
       // });
       if (tokens) {
-        setAuth(tokens);
+        setUser(tokens.data);
         // process.env.ACCES_TOKEN = tokens.access_token;
         // process.env.REFRESH_TOKEN = tokens.refresh_token;
         // process.env.ID_TOKEN = tokens.id_token;
-        // console.log(tokens);
+        console.log("googleLogin - tokens:", tokens.data);
       }
     },
     flow: "auth-code",
@@ -51,10 +51,8 @@ function LoginGoogle() {
   // const googleLogin = useGoogleLogin({
   //   onSuccess: async ({ code }) => {
   //     // const tokens = await axios.get(`http://localhost:3001/api/auth/google?code=${code}`);
-  //
   // const tokens = await axios({
-  //   method: "get",
-  //   url: `http://localhost:3001/api/auth/google`,
+  //   method: "get", url: `http://localhost:3001/api/auth/google`,
   //   params: {
   //     code,
   //   },
@@ -67,7 +65,8 @@ function LoginGoogle() {
 
   useEffect(
     () => {
-      if (auth) {
+      if (user) {
+        console.log("useEffect - user: ", user);
         // axios
         //   .get(
         //     `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
@@ -83,43 +82,41 @@ function LoginGoogle() {
         //   })
         //   .catch((err) => console.log(err));
 
-        // axios
-        //   .get(`http://localhost:3001/api/user`)
-        //   .then((res) => {
-        //     setProfile(res.data);
-        //   })
-        //   .catch((err) => console.log(err));
-      
-      // Using Authorization Header
-      axios({
-        method: "get",
-        url: "http://localhost:3001/api/user",
-        headers: {
-          Authorization: `Bearer ${auth}`,
-        },
-      }).then((response) => {
-        console.log(response.data);
-      });
+        // Using Authorization Header
+        axios({
+          method: "get",
+          url: "http://localhost:3001/api/user",
+          headers: {
+            Authorization: `Bearer ${user.id_token}`,
+            Accept: "application/json",
+          },
+        }).then((response) => {
+            setProfile(response.data);
+          console.log("axios-get: ", response.data);
+        });
+        // }
+
+        // // if (user) {
+        //   axios
+        //     .get(
+        //       `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+        //       {
+        //         headers: {
+        //           Authorization: `Bearer ${user.access_token}`,
+        //           Accept: "application/json",
+        //         },
+        //       },
+        //     )
+        //     .then((res) => {
+        //       setProfile(res.data);
+        //     })
+        //     .catch((err) => console.log(err));
       }
     },
-    [auth],
-    () => {
-      // if (profile) {
-      //   axios
-      //     .post(
-      //       "https://kapusta-backend.goit.global/auth/google" -H  "accept: */*",
-      //       {
-      //         body: {
-      //           email: profile.email,
-      //           // password
-      //           name: profile.name,
-      //         }
-      //
-      //       }
-      //     )
-      // }
-    },
-    [profile],
+    [user],
+    // () => {
+    // },
+    // [profile],
   );
 
   // log out function to log the user out of google and set the profile array to null
@@ -133,10 +130,10 @@ function LoginGoogle() {
       {profile
         ? (
           <div>
-            <img src={profile.picture} alt="user image" />
+            <img src={profile.user.img} alt="user image" />
             <h3>User Logged in</h3>
-            <p>Name: {profile.name}</p>
-            <p>Email Address: {profile.email}</p>
+            <p>Name: {profile.user.name}</p>
+            <p>Email Address: {profile.user.email}</p>
             <br />
             <br />
             <button onClick={logOut} className={css.gsiMaterialButton}>
