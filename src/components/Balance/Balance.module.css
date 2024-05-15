@@ -3,7 +3,6 @@
 .balance-container {
   display: flex;
   align-items: center;
-  background-color: #ff2323;
   gap: 20px;
   padding: 16px;
   margin: 20px;
