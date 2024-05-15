@@ -18,8 +18,10 @@
 
 @media (min-width: 1024px) {
   .hero-wrapper-tables {
+    align-items: flex-start;
     display: flex;
     justify-content: space-between;
+    position: relative;
   }
 }
 

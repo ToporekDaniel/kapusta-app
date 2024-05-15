@@ -3,8 +3,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import css from "./FormTransaction.module.css";
 import Button from "../Balance/UI/Button/Button.jsx";
+import PropTypes from "prop-types";
 
-function FormTransaction() {
+function FormTransaction({ selectOptions }) {
   const [startDate, setStartDate] = useState(new Date());
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -52,19 +53,14 @@ function FormTransaction() {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
-            <option value="">Product category</option>
-            <option value="Transport">Transport</option>
-            <option value="Products">Products</option>
-            <option value="Health">Health</option>
-            <option value="Alcohol">Alcohol</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Housing">Housing</option>
-            <option value="Technique">Technique</option>
-            <option value="Communal, communication">
-              Communal, communication
-            </option>
-            <option value="Education">Education</option>
-            <option value="Other">Other</option>
+            <option value="" hidden>
+            Product category
+          </option>
+            {selectOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           </select>
           <svg className={css["select-arrow"]} width="10" height="4">
             <use href="/src/assets/icons.svg#icon-arrow"></use>
@@ -96,5 +92,14 @@ function FormTransaction() {
     </form>
   );
 }
+
+FormTransaction.propTypes = {
+  selectOptions: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default FormTransaction;

@@ -2,6 +2,7 @@ import SummaryTable from "../../components/SummaryTable/SummaryTable";
 import FormTransaction from "../FormTransaction/FormTransaction";
 import TransactionTable from "../TransactionTable/TransactionTable";
 import css from "./Hero.module.css";
+import selectOptionsIncome from "./selectOptionsIncome";
 
 //przykładowe dane do wyświetlenia w tabeli
 //finalnie powinny być zaciągane przez serwer
@@ -46,7 +47,7 @@ const handleDelete = (id) => {
 function HeroIncome() {
   return (
     <div className={css["hero-wrapper"]}>
-      <FormTransaction />
+      <FormTransaction selectOptions={selectOptionsIncome}/>
       <div className={css["hero-wrapper-tables"]}>
         <TransactionTable
           className={css["hero-transaction-table"]}
