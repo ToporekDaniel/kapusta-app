@@ -49,17 +49,16 @@ function TransactionTable({ transactions, type, handleDelete }) {
                 <td>{row.category}</td>
                 <td className={type === "expenses" ? css.expense : css.income}>
                   {row.sum}
-                  <div className={css.icon}>
-                    {type === "expenses" && (
-                      <svg
-                        width="18"
-                        height="18"
-                        
-                        onClick={() => handleDelete(row.id)}
-                      >
-                        <use href="/src/assets/icons.svg#icon-trash" fill="#52555f"></use>
-                      </svg>
-                    )}
+                  <div
+                    className={css.icon}
+                    onClick={() => handleDelete(row.id)}
+                  >
+                    <svg width="18" height="18">
+                      <use
+                        href="/src/assets/icons.svg#icon-trash"
+                        fill="#52555f"
+                      ></use>
+                    </svg>
                   </div>
                 </td>
               </tr>
