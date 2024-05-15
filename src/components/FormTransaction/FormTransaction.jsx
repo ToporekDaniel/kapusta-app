@@ -3,6 +3,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import css from "./FormTransaction.module.css";
 import Button from "../Balance/UI/Button/Button.jsx";
+import { useTranslation } from "react-i18next";
+
 
 function FormTransaction() {
   const [startDate, setStartDate] = useState(new Date());
@@ -18,6 +20,7 @@ function FormTransaction() {
     // Logika obsługi przycisku CLEAR do zrobienia
   };
 
+  const {t} = useTranslation();
   return (
     <form className={css["container-transaction"]}>
       <div className={css["datepicker-wrapper"]}>
@@ -40,7 +43,7 @@ function FormTransaction() {
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Product description"
+          placeholder={t("FormTransactionPlaceholder")}
           required
           style={{ color: "var(--accent-lightgrey)" }}
         />
@@ -53,9 +56,11 @@ function FormTransaction() {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option value="">Product category</option>
-          <option value="Transport">Transport</option>
-          <option value="Products">Products</option>
+           
+           
+          <option value="">{t("ProductCategory")}</option>
+          <option value="Transport">{t("Transport")}</option>
+          <option value="Products">{t("Products")}</option>
           <option value="Health">Health</option>
           <option value="Alcohol">Alcohol</option>
           <option value="Entertainment">Entertainment</option>
