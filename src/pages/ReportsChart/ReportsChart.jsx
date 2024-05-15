@@ -23,12 +23,14 @@ function ReportsChart() {
 
     return (
         <div className={css['reports-chart-container']}>
+            <div className={css['reports-container']}>
             <Dashboard />
             <div className={css['header-reports-chart']}>
                 <p>Expenses: {totalExpenses}</p>
                 <p>Incomes: {totalIncome}</p>
             </div>
             <ExpensesCategories />
+            </div>
             <ExpensesChart data={chartData} /> 
         </div>
     );

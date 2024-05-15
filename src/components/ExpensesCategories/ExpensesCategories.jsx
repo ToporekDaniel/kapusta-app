@@ -1,5 +1,19 @@
 import css from './ExpensesCategories.module.css';
 import ProductsIcon from '../../assets/icons/products.svg?react'
+import AlcoholIcon from '../../assets/icons/alcohol.svg?react'
+import KiteIcon from '../../assets/icons/kite.svg?react'
+import HealthIcon from '../../assets/icons/health.svg?react'
+import CarIcon from '../../assets/icons/car.svg?react'
+import CoachIcon from '../../assets/icons/coach.svg?react'
+import ToolsIcon from '../../assets/icons/tools.svg?react'
+import ReceiptIcon from '../../assets/icons/receipt.svg?react'
+import ClayIcon from '../../assets/icons/clay.svg?react'
+import BookIcon from '../../assets/icons/book.svg?react'
+import UfoIcon from '../../assets/icons/ufo.svg?react'
+
+
+
+
 
 function ExpensesCategories() {
     return (
@@ -12,52 +26,52 @@ function ExpensesCategories() {
                 </li>
                 <li className={css['product-card']}>
                     <p className={css['text']}>quantity</p>
-                    <ProductsIcon className={css["icon"]} />
+                    <AlcoholIcon className={css["icon"]} />
                     <span className={css['text']}>alcohol</span>
                 </li>
                 <li className={css['product-card']}>
                     <p className={css['text']}>quantity</p>
-                    <ProductsIcon className={css["icon"]} />
+                    <KiteIcon className={css["icon"]} />
                     <span className={css['text']}>entertainment</span>
                 </li>
                 <li className={css['product-card']}>
                     <p className={css['text']}>quantity</p>
-                    <ProductsIcon className={css["icon"]} />
+                    <HealthIcon className={css["icon"]} />
                     <span className={css['text']}>health</span>
                 </li>
                 <li className={css['product-card']}>
                     <p className={css['text']}>quantity</p>
-                    <ProductsIcon className={css["icon"]} />
+                    <CarIcon className={css["icon"]} />
                     <span className={css['text']}>transport</span>
                 </li>
                 <li className={css['product-card']}>
                     <p className={css['text']}>quantity</p>
-                    <ProductsIcon className={css["icon"]} />
+                    <CoachIcon className={css["icon"]} />
                     <span className={css['text']}>housing</span>
                 </li>
                 <li className={css['product-card']}>
                     <p className={css['text']}>quantity</p>
-                    <ProductsIcon className={css["icon"]} />
+                    <ToolsIcon className={css["icon"]} />
                     <span className={css['text']}>technique</span>
                 </li>
                 <li className={css['product-card']}>
                     <p className={css['text']}>quantity</p>
-                    <ProductsIcon className={css["icon"]} />
+                    <ReceiptIcon className={css["icon"]} />
                     <span className={css['text']}>communal communication</span>
                 </li>
                 <li className={css['product-card']}>
                     <p className={css['text']}>quantity</p>
-                    <ProductsIcon className={css["icon"]} />
+                    <ClayIcon className={css["icon"]} />
                     <span className={css['text']}>sports, hobbies</span>
                 </li>
                 <li className={css['product-card']}>
                     <p className={css['text']}>quantity</p>
-                    <ProductsIcon className={css["icon"]} />
+                    <BookIcon className={css["icon"]} />
                     <span className={css['text']}>education</span>
                 </li>
                 <li className={css['product-card']}>
                     <p className={css['text']}>quantity</p>
-                    <ProductsIcon className={css["icon"]} />
+                    <UfoIcon className={css["icon"]} />
                     <span className={css['text']}>other</span>
                 </li>
             </ul>

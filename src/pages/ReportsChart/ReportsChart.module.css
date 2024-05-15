@@ -11,12 +11,18 @@
 }
 
 /* .reports-chart-container {
-  margin-top: 60px;
-  padding: 20px 20px;
+background-color: var(--background-main);
 } */
 
+.reports-container {
+  background-color: var(--background-main);
+  border-radius: 20px;
+}
+
 .header-reports-chart {
-  /* padding-top: 200px; */
-  /* margin-top: 200px; */
-  background-color: blue;
+  margin: 32px 0;
+  border-radius: 30px;
+  background-color: var(--dashboard-color);
+
+  padding: 15px 0; 
 }
