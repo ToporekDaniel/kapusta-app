@@ -43,7 +43,6 @@ function FormTransaction({ selectOptions }) {
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Product description"
           required
-          style={{ color: "var(--accent-lightgrey)" }}
         />
 
         <div className={css["transaction-select"]}>

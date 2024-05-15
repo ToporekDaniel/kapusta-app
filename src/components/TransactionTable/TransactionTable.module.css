@@ -38,6 +38,7 @@
 @media (min-width: 768px) {
   .transaction-table {
     width: 625px;
+    margin: 0 auto;
   }
 }
 

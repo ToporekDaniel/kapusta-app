@@ -11,10 +11,6 @@
 
 }
 
-.input-button-container {
-
-}
-
 @media (min-width: 768px) {
 .balance-container {
   flex-direction: row;
@@ -35,7 +31,7 @@
 
 .balance-value {
   width: 125px;
-  height: 44px;
+  height: 42px;
   border-color: var(--accent-lightgrey);
   border-radius: 16px 0 0 16px;
   border: 1px solid var(--accent-lightgrey); 
