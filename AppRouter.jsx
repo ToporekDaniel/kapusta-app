@@ -2,7 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { FinanceProvider } from './contexts/FinanceContext';
 import HomePage from './src/pages/HomePage/HomePage';
 import Header from "./src/components/Header/Header";
-import ReportsChart from './src/pages/ReportsChart/ReportsChart';
+import ReportsChart from './src/components/ReportsChart/ReportsChart.jsx';
+console.log(ReportsChart);
+
 
 
 const AppRouter = () => {

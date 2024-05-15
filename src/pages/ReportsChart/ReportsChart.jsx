@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useFinance } from '../../../contexts/FinanceContext'; 
-import Balance from '../../components/Balance/Balance';
 import ExpensesChart from '../../components/ExpensesChart/ExpensesChart';
 import ExpensesCategories from '../../components/ExpensesCategories/ExpensesCategories';
 import Dashboard from '../../components/Dashboard/Dashboard';
