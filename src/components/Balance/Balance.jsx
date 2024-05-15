@@ -4,6 +4,7 @@ import { disableInput } from '../../app/store';
 import { useFinance } from '../../../contexts/FinanceContext';
 import Button from './UI/Button/Button';
 import './Balance.css';
+import { useTranslation } from 'react-i18next';
 
 function Balance() {
   const [inputBalance, setInputBalance] = useState('');
@@ -38,9 +39,10 @@ function Balance() {
     setShowModal(!value || parseFloat(value) === 0);
   };
 
+  const {t} = useTranslation();
   return (
     <div className="balance-container">
-      <label className="balance-label">Balance:</label>
+      <label className="balance-label">{t("balance")}</label>
       <input
         type="text"
         className="balance-value"
@@ -51,8 +53,8 @@ function Balance() {
       {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <p>Hello! To get started, enter the current balance of your account!</p>
-            <p>You can't spend money until you have it :)</p>
+            <p>{t("firstBalanceP")}</p>
+            <p>{t("secondBalanceP")}</p>
           </div>
         </div>
       )}
