@@ -6,9 +6,8 @@ import css from "./LoginGoogle.module.css";
 // require("dotenv").config();
 
 function LoginGoogle() {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
-  const [auth, setAuth] = useState([]);
 
   // const login = useGoogleLogin({
   //   onSuccess: (codeResponse) => setUser(codeResponse),
