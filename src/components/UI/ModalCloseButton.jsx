@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import styles from "../css/ModalCloseButton.module.css";
+import styles from "./ModalCloseButton.module.css";
+import PropTypes from "prop-types";
 
 // w propsie title powinny być dwie wartości: 
 // 1. Do you really want to leave?
@@ -38,5 +39,10 @@ function ModalCloseButton({ title }) {
     </div>
   );
 }
+
+ModalCloseButton.propTypes = {
+  title: PropTypes.oneOf(["Do you really want to leave?", "Are you sure?"])
+    .isRequired,
+};
 
 export default ModalCloseButton;
