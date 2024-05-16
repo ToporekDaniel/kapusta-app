@@ -5,7 +5,7 @@ import { LoginGoogle } from "./LoginGoogle";
 // import axios from "axios";
 // import PropTypes from "prop-types";
 
-import css from "./LoginPage.module.css";
+import css from "./LoginForm.module.css";
 // import { styled } from "styled-components";
 
 const LoginForm = () => {

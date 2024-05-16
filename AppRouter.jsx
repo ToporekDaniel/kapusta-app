@@ -3,6 +3,8 @@ import Dashboard from './src/pages/Dashboard/Dashboard';
 import Reports from './src/pages/Reports/Reports';
 import { FinanceProvider } from './contexts/FinanceContext';
 import HomePage from './src/components/HomePage/HomePage';
+// import { LoginForm } from './src/pages/LoginGoogle/LoginForm';
+import LoginPage from './src/pages/LoginGoogle/LoginPage'
 
 
 const AppRouter = () => {
@@ -10,7 +12,8 @@ const AppRouter = () => {
     <FinanceProvider>
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+          {/* <Route path="/" element={<HomePage />} /> */}
+        <Route path="/" element={<LoginPage />} />
         <Route path="/reports" element={<Reports />} />
       </Routes>
     </Router>
@@ -18,4 +21,4 @@ const AppRouter = () => {
   );
 }
 
-export default AppRouter;
+export default AppRouter
