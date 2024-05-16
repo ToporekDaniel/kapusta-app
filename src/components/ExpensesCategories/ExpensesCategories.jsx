@@ -1,82 +1,45 @@
+import React from 'react';
 import css from './ExpensesCategories.module.css';
-import ProductsIcon from '../../assets/icons/products.svg?react'
-import AlcoholIcon from '../../assets/icons/alcohol.svg?react'
-import KiteIcon from '../../assets/icons/kite.svg?react'
-import HealthIcon from '../../assets/icons/health.svg?react'
-import CarIcon from '../../assets/icons/car.svg?react'
-import CoachIcon from '../../assets/icons/coach.svg?react'
-import ToolsIcon from '../../assets/icons/tools.svg?react'
-import ReceiptIcon from '../../assets/icons/receipt.svg?react'
-import ClayIcon from '../../assets/icons/clay.svg?react'
-import BookIcon from '../../assets/icons/book.svg?react'
-import UfoIcon from '../../assets/icons/ufo.svg?react'
+import ProductsIcon from '../../assets/icons/products.svg?react';
+import AlcoholIcon from '../../assets/icons/alcohol.svg?react';
+import KiteIcon from '../../assets/icons/kite.svg?react';
+import HealthIcon from '../../assets/icons/health.svg?react';
+import CarIcon from '../../assets/icons/car.svg?react';
+import CoachIcon from '../../assets/icons/coach.svg?react';
+import ToolsIcon from '../../assets/icons/tools.svg?react';
+import ReceiptIcon from '../../assets/icons/receipt.svg?react';
+import ClayIcon from '../../assets/icons/clay.svg?react';
+import BookIcon from '../../assets/icons/book.svg?react';
+import UfoIcon from '../../assets/icons/ufo.svg?react';
 
+function ExpensesCategories({ onCategorySelect }) {
+    const categories = [
+        { name: 'Products', Icon: ProductsIcon, quantity: 5000 },
+        { name: 'Alcohol', Icon: AlcoholIcon, quantity: 3000 },
+        { name: 'Entertainment', Icon: KiteIcon, quantity: 2400 },
+        { name: 'Health', Icon: HealthIcon, quantity: 2200 },
+        { name: 'Transport', Icon: CarIcon, quantity: 2000 },
+        { name: 'Housing', Icon: CoachIcon, quantity: 1800 },
+        { name: 'Technique', Icon: ToolsIcon, quantity: 1500 },
+        { name: 'Communal communication', Icon: ReceiptIcon, quantity: 900 },
+        { name: 'Sports, hobbies', Icon: ClayIcon, quantity: 800 },
+        { name: 'Education', Icon: BookIcon, quantity: 800 },
+        { name: 'Other', Icon: UfoIcon, quantity: 200 },
+    ];
 
-
-
-
-function ExpensesCategories() {
     return (
-        <div>
+        <div className={css['expenses-categories']}>
             <ul className={css['products-container']}>
-                <li className={css["product-card"]}>
-                    <p className={css['text']}>quantity</p>
-                    <ProductsIcon className={css["icon"]} />
-                    <span className={css['text']}>products</span>
-                </li>
-                <li className={css['product-card']}>
-                    <p className={css['text']}>quantity</p>
-                    <AlcoholIcon className={css["icon"]} />
-                    <span className={css['text']}>alcohol</span>
-                </li>
-                <li className={css['product-card']}>
-                    <p className={css['text']}>quantity</p>
-                    <KiteIcon className={css["icon"]} />
-                    <span className={css['text']}>entertainment</span>
-                </li>
-                <li className={css['product-card']}>
-                    <p className={css['text']}>quantity</p>
-                    <HealthIcon className={css["icon"]} />
-                    <span className={css['text']}>health</span>
-                </li>
-                <li className={css['product-card']}>
-                    <p className={css['text']}>quantity</p>
-                    <CarIcon className={css["icon"]} />
-                    <span className={css['text']}>transport</span>
-                </li>
-                <li className={css['product-card']}>
-                    <p className={css['text']}>quantity</p>
-                    <CoachIcon className={css["icon"]} />
-                    <span className={css['text']}>housing</span>
-                </li>
-                <li className={css['product-card']}>
-                    <p className={css['text']}>quantity</p>
-                    <ToolsIcon className={css["icon"]} />
-                    <span className={css['text']}>technique</span>
-                </li>
-                <li className={css['product-card']}>
-                    <p className={css['text']}>quantity</p>
-                    <ReceiptIcon className={css["icon"]} />
-                    <span className={css['text']}>communal communication</span>
-                </li>
-                <li className={css['product-card']}>
-                    <p className={css['text']}>quantity</p>
-                    <ClayIcon className={css["icon"]} />
-                    <span className={css['text']}>sports, hobbies</span>
-                </li>
-                <li className={css['product-card']}>
-                    <p className={css['text']}>quantity</p>
-                    <BookIcon className={css["icon"]} />
-                    <span className={css['text']}>education</span>
-                </li>
-                <li className={css['product-card']}>
-                    <p className={css['text']}>quantity</p>
-                    <UfoIcon className={css["icon"]} />
-                    <span className={css['text']}>other</span>
-                </li>
+                {categories.map((category) => (
+                    <li key={category.name} className={css['product-card']} onClick={() => onCategorySelect(category.name)}>
+                        <p className={css['text']}>{category.quantity}</p>
+                        <category.Icon className={css['icon']} />
+                        <span className={css['text']}>{category.name}</span>
+                    </li>
+                ))}
             </ul>
         </div>
-    )
+    );
 }
 
 export default ExpensesCategories;
