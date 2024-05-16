@@ -3,11 +3,11 @@
 .balance-container {
   display: flex;
   align-items: center;
-  background-color: #ffffff;
   gap: 20px;
   padding: 16px;
   margin: 20px;
   position: relative; 
+  
 }
 
 .balance-header {
@@ -55,4 +55,9 @@
 
 .modal-content {
   font-size: 14px;
+}
+
+
+.text {
+color: var(--text-darkgrey);
 }

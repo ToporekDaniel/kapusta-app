@@ -1,0 +1,28 @@
+@import url('../../index.css');
+
+.header div {
+  /* display: flex; */
+  /* gap: 40px;
+  margin-top: 60px;
+  padding: 20px 20px;
+  justify-content: center;  */
+  /* margin-top: 60px; */
+  /* padding: 20px 20px; */
+}
+
+/* .reports-chart-container {
+background-color: var(--background-main);
+} */
+
+.reports-container {
+  background-color: var(--background-main);
+  border-radius: 20px;
+}
+
+.header-reports-chart {
+  margin: 32px 0;
+  border-radius: 30px;
+  background-color: var(--dashboard-color);
+
+  padding: 15px 0; 
+}
