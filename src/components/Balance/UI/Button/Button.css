@@ -1,0 +1,17 @@
+.button {
+    padding: 12px 27px;
+    border-radius: 16px;
+    color: var(--text-darkgrey);
+    border: var(--border-color);
+    background-color: var(--background-main);
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;  
+    box-shadow: 1px 3px 5px 0px rgba(82, 85, 95, 0.15);
+}
+
+.button:hover {
+    color: var(--dashboard-color);
+    background-color: var(--accent-orange);
+    box-shadow: 1px 3px 5px 0px rgba(255, 107, 8, 0.35);
+}

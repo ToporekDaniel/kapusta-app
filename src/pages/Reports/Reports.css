@@ -1,0 +1,29 @@
+@import url('../../index.css');
+
+  .icon-reports {
+    width: 32px;
+    height: 32px; 
+    color: #666;
+  }
+  
+  .reports-container {
+    background-color: #ffffff;
+display: flex;
+margin-left: 100px;
+align-items: center;
+justify-content: center;
+padding: 10px;
+  }
+  
+  
+  .reports-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none; 
+  }
+  
+  .reports-container p {
+    color: #666;
+    font-size: 16px;
+  }
+  

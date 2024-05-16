@@ -1,0 +1,58 @@
+@import url('../../index.css');
+
+.balance-container {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  gap: 20px;
+  padding: 16px;
+  margin: 20px;
+  position: relative; 
+}
+
+.balance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.balance-label {
+  font-size: 16px;
+  color: var(--text-darkgrey);
+}
+
+.balance-value {
+  width: 125px;
+  height: 44px;
+  border-color: var(--accent-lightgrey);
+  border-radius: 16px;
+  border: 1px solid var(--accent-lightgrey); 
+  text-align: center;
+  font-weight: 700;
+}
+
+.modal {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: calc(100% - 32px);
+  z-index: 100;
+  background: linear-gradient(90deg, #34495e, #2c3e50, #263859, #212a3a, #1a1a2e);
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  overflow: visible; 
+}
+
+.modal::after {
+  content: '';
+  position: absolute;
+  top: -10px; 
+  left: 150px;
+  border-left: 10px solid transparent; 
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #34495e; }
+
+.modal-content {
+  font-size: 14px;
+}
