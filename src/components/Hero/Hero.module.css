@@ -8,7 +8,6 @@
 
 @media (min-width: 768px) {
   .hero-wrapper {
-    border: 1px solid var(--accent-lightgrey);
     background-color: var(--dashboard-color);
     border-radius: 0 30px 30px 30px;
     box-shadow: 0 10px 60px rgba(170, 178, 197, 0.2);
@@ -38,7 +37,6 @@
 
   .tab,
   .tab-active {
-    border: 1px solid var(--accent-lightgrey);
     display: inline-block;
     padding: 10px 20px;
     border-top-left-radius: 20px;

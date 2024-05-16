@@ -74,7 +74,13 @@ function FormTransaction({ selectOptions }) {
               type="number"
               value={amount}
               placeholder="0,00"
-              onChange={(e) => setAmount(e.target.value)}
+              onChange={ (e) => {
+                const value = e.target.value;
+                const regex = /^\d*\.?\d{0,2}$/;
+                if (regex.test(value) || value === "") {
+                  setAmount(value);
+                }
+              }}
             />
             <svg className={css["calc-icon"]}>
               <use href="/src/assets/icons.svg#icon-calculator"></use>

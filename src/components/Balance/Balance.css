@@ -32,9 +32,9 @@
 .balance-value {
   width: 125px;
   height: 42px;
-  border-color: var(--accent-lightgrey);
   border-radius: 16px 0 0 16px;
-  border: 1px solid var(--accent-lightgrey); 
+  border: 1px solid var(--border-color);; 
+  background-color: var(--background-additional);
   text-align: center;
   font-weight: 700;
 }

@@ -37,8 +37,11 @@ function Balance() {
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    setInputBalance(value);
-    setShowModal(!value || parseFloat(value) === 0);
+    const regex = /^\d*\.?\d{0,2}$/;
+    if (regex.test(value) || value === "") {
+      setInputBalance(value);
+      setShowModal(!value || parseFloat(value) === 0);
+    }
   };
 
   return (
