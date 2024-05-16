@@ -2,12 +2,21 @@
 
 .balance-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 20px;
   padding: 16px;
   margin: 20px;
-  position: relative; 
-  
+  position: relative;
+  background-color: var(--background-main);
+}
+
+@media (min-width: 768px) {
+  .balance-container {
+    flex-direction: row;
+  }
+
+
 }
 
 .balance-header {
@@ -18,17 +27,25 @@
 
 .balance-label {
   font-size: 16px;
+  font-weight: 500;
   color: var(--text-darkgrey);
 }
 
 .balance-value {
   width: 125px;
-  height: 44px;
-  border-color: var(--accent-lightgrey);
-  border-radius: 16px;
-  border: 1px solid var(--accent-lightgrey); 
+  height: 42px;
+  border-radius: 16px 0 0 16px;
+  border: 1px solid var(--border-color);
+  ;
+  background-color: var(--background-additional);
   text-align: center;
   font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .balance-value {
+    border-radius: 16px;
+  }
 }
 
 .modal {
@@ -41,23 +58,34 @@
   color: #ffffff;
   padding: 10px;
   border-radius: 8px;
-  overflow: visible; 
+  overflow: visible;
 }
 
 .modal::after {
   content: '';
   position: absolute;
-  top: -10px; 
+  top: -10px;
   left: 150px;
-  border-left: 10px solid transparent; 
+  border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid #34495e; }
+  border-bottom: 10px solid #34495e;
+}
 
 .modal-content {
   font-size: 14px;
 }
 
-
 .text {
-color: var(--text-darkgrey);
+  color: var(--text-darkgrey);
 }
+
+.confirm-button {
+  border-radius: 0 16px 16px 0;
+}
+
+@media (min-width: 768px) {
+  .confirm-button {
+    border-radius: 16px;
+  }
+}
+
