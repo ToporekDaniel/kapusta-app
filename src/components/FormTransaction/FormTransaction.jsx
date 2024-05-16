@@ -61,16 +61,16 @@ function FormTransaction() {
           <option value="">{t("ProductCategory")}</option>
           <option value="Transport">{t("Transport")}</option>
           <option value="Products">{t("Products")}</option>
-          <option value="Health">Health</option>
-          <option value="Alcohol">Alcohol</option>
-          <option value="Entertainment">Entertainment</option>
-          <option value="Housing">Housing</option>
-          <option value="Technique">Technique</option>
+          <option value="Health">{t("Health")}</option>
+          <option value="Alcohol">{t("Alcohol")}</option>
+          <option value="Entertainment">{t("Entertainment")}</option>
+          <option value="Housing">{t("Housing")}</option>
+          <option value="Technique">{t("Technique")}</option>
           <option value="Communal, communication">
-            Communal, communication
+          {t("Communal")}
           </option>
-          <option value="Education">Education</option>
-          <option value="Other">Other</option>
+          <option value="Education">{t("Education")}</option>
+          <option value="Other">{t("Other")}</option>
         </select>
         <svg className={css["select-arrow"]} width="10" height="4">
           <use href="/src/assets/icons.svg#icon-arrow"></use>
@@ -93,8 +93,8 @@ function FormTransaction() {
         </label>
       </div>
       <div className={css["buttons-wrapper"]} > 
-        <Button onClick={handleSubmitInput} text="INPUT" />
-        <Button onClick={handleClear} text="CLEAR" />
+        <Button onClick={handleSubmitInput} text={t("INPUT")} />
+        <Button onClick={handleClear} text={t("CLEAR")} />
       </div>
     </form>
   );

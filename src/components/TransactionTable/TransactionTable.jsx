@@ -1,4 +1,5 @@
 // import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import css from "./TransactionTable.module.css";
 import PropTypes from "prop-types";
 
@@ -29,15 +30,16 @@ function TransactionTable({ transactions, type, handleDelete }) {
 
   const rows = [...transactions, ...emptyRows];
 
+  const {t} = useTranslation();
   return (
     <div className={css["transaction-table-wrapper"]}>
       <table className={css["transaction-table"]}>
         <thead>
           <tr>
-            <th>date</th>
-            <th>description</th>
-            <th>category</th>
-            <th>sum</th>
+            <th>{t("Date")}</th>
+            <th>{t("Description")}</th>
+            <th>{t("Category")}</th>
+            <th>{t("Sum")}</th>
           </tr>
         </thead>
         <tbody>

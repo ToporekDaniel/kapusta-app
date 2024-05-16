@@ -59,7 +59,7 @@ function Balance() {
         </div>
       )}
       {!inputDisabled && (
-        <Button className="confirm-button" onClick={handleConfirm} text="CONFIRM"/>
+        <Button className="confirm-button" onClick={handleConfirm} text={t('CONFIRM')}/>
       )}
     </div>
   );
