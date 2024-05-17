@@ -2,11 +2,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import css from "./FormTransaction.module.css";
-
-import Button from "../Balance/UI/Button/Button.jsx";
 import { useTranslation } from "react-i18next";
-
-
 import Button from "../Button/Button.jsx";
 
 function FormTransaction() {

@@ -2,15 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { disableInput } from '../../app/store';
 import { useFinance } from '../../../contexts/FinanceContext';
-
-import Button from './UI/Button/Button';
-import './Balance.css';
+import './Balance.module.css';
 import { useTranslation } from 'react-i18next';
-
 import Button from '../Button/Button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Backspace from "../../assets/icons/backspace.svg?react";
-import DataSlider from '../DataSlider/DataSlider';
 import css from './Balance.module.css';
 
 
@@ -51,27 +46,28 @@ function Balance() {
 
   const {t} = useTranslation();
   return (
-    <div className="balance-container">
-      <label className="balance-label">{t("balance")}</label>
-      <input
-        type="text"
-        className="balance-value"
-        value={inputBalance}
-        onChange={handleInputChange}
-        disabled={inputDisabled}
-      />
-      {showModal && (
-        <div className="modal">
-          <div className="modal-content">
+    <div className={css["balance-container"]}>
+   
+        <label className={css["balance-label text"]}>{t("balance")}</label>
+        <input
+          type="text"
+          className={css["balance-value"]}
+          value={inputBalance}
+          onChange={handleInputChange}
+          disabled={inputDisabled}
+        />
+        {showModal && (
+        <div className={css["modal"]}>
+          <div className={css["modal-content"]}>
             <p>{t("firstBalanceP")}</p>
             <p>{t("secondBalanceP")}</p>
           </div>
         </div>
       )}
-      {!inputDisabled && (
-        <Button className="confirm-button" onClick={handleConfirm} text={t('CONFIRM')}/>
-      )}
-
+        {!inputDisabled && (
+          <Button className={css["confirm-button"]} onClick={handleConfirm} text={t("CONFIRM")} />
+        )}
+      
     </div>
   );
 }
