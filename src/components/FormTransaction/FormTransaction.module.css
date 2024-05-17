@@ -20,7 +20,7 @@
   .container-transaction {
     flex-direction: row;
     align-items: center;
-    
+
   }
 }
 
@@ -205,6 +205,6 @@
   }
 }
 
-.buttons-wrapper > Button:first-child {
+.buttons-wrapper>Button:first-child {
   margin-right: 16px;
 }

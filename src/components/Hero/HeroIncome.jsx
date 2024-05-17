@@ -18,23 +18,23 @@ const transactions = [
   {
     id: 1,
     date: "2024-05-13",
-    description: "Mleko",
-    category: "Products",
-    sum: 2,
+    description: "Wypłata",
+    category: "Salary",
+    sum: 5000,
   },
   {
     id: 2,
     date: "2024-05-14",
-    description: "Kawa",
-    category: "Products",
-    sum: 5,
+    description: "Zlecenie",
+    category: "Add. Income",
+    sum: 500,
   },
   {
     id: 3,
     date: "2024-05-14",
-    description: "Dentysta",
-    category: "Health",
-    sum: 500,
+    description: "alaaaaa",
+    category: "Add. Income",
+    sum: 100,
   },
 ];
 
@@ -47,7 +47,7 @@ const handleDelete = (id) => {
 function HeroIncome() {
   return (
     <div className={css["hero-wrapper"]}>
-      <FormTransaction selectOptions={selectOptionsIncome}/>
+      <FormTransaction selectOptions={selectOptionsIncome} />
       <div className={css["hero-wrapper-tables"]}>
         <TransactionTable
           className={css["hero-transaction-table"]}

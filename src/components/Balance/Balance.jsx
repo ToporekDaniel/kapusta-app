@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { disableInput } from '../../app/store';
-import { useFinance } from '../../../contexts/FinanceContext';
-import Button from '../Button/Button';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Backspace from "../../assets/icons/backspace.svg?react";
-import DataSlider from '../DataSlider/DataSlider';
-import css from './Balance.module.css';
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { disableInput } from "../../app/store";
+import { useFinance } from "../../../contexts/FinanceContext";
+import Button from "../Button/Button";
 
-
+import css from "./Balance.module.css";
 
 function Balance() {
   const [inputBalance, setInputBalance] = useState("");
@@ -16,7 +12,6 @@ function Balance() {
   const inputDisabled = useSelector((state) => state.balance.inputDisabled);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const totalExpenses = expenses.reduce(
@@ -50,30 +45,33 @@ function Balance() {
     }
   };
 
-
   return (
     <div className={css["balance-container"]}>
-   
-        <label className={css["balance-label text"]}>Balance:</label>
-        <input
-          type="text"
-          className={css["balance-value"]}
-          value={inputBalance}
-          onChange={handleInputChange}
-          disabled={inputDisabled}
-        />
-        {showModal && (
+      <label className={css["balance-label text"]}>Balance:</label>
+      <input
+        type="text"
+        className={css["balance-value"]}
+        value={inputBalance}
+        onChange={handleInputChange}
+        disabled={inputDisabled}
+      />
+      {showModal && (
         <div className={css["modal"]}>
           <div className={css["modal-content"]}>
-            <p>Hello! To get started, enter the current balance of your account!</p>
+            <p>
+              Hello! To get started, enter the current balance of your account!
+            </p>
             <p>You can't spend money until you have it :)</p>
           </div>
         </div>
       )}
-        {!inputDisabled && (
-          <Button className={css["confirm-button"]} onClick={handleConfirm} text="CONFIRM" />
-        )}
-      
+      {!inputDisabled && (
+        <Button
+          className={css["confirm-button"]}
+          onClick={handleConfirm}
+          text="CONFIRM"
+        />
+      )}
     </div>
   );
 }
