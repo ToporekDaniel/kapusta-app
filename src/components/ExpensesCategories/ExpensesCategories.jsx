@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import css from './ExpensesCategories.module.css';
 import ProductsIcon from '../../assets/icons/products.svg?react';
 import AlcoholIcon from '../../assets/icons/alcohol.svg?react';
@@ -12,7 +13,7 @@ import ClayIcon from '../../assets/icons/clay.svg?react';
 import BookIcon from '../../assets/icons/book.svg?react';
 import UfoIcon from '../../assets/icons/ufo.svg?react';
 
-function ExpensesCategories({ onCategorySelect }) {
+function ExpensesCategories() {
     const categories = [
         { name: 'Products', Icon: ProductsIcon, quantity: 5000 },
         { name: 'Alcohol', Icon: AlcoholIcon, quantity: 3000 },
@@ -31,10 +32,15 @@ function ExpensesCategories({ onCategorySelect }) {
         <div className={css['expenses-categories']}>
             <ul className={css['products-container']}>
                 {categories.map((category) => (
-                    <li key={category.name} className={css['product-card']} onClick={() => onCategorySelect(category.name)}>
-                        <p className={css['text']}>{category.quantity}</p>
-                        <category.Icon className={css['icon']} />
-                        <span className={css['text']}>{category.name}</span>
+                    <li key={category.name} className={css['product-card']}>
+                        <NavLink 
+                            to={`/reports/category/${category.name}`} 
+                            className={({ isActive }) => isActive ? css['active'] : ''}
+                        >
+                            <p className={css['text']}>{category.quantity}</p>
+                            <category.Icon className={css['icon']} />
+                            <span className={css['text']}>{category.name}</span>
+                        </NavLink>
                     </li>
                 ))}
             </ul>

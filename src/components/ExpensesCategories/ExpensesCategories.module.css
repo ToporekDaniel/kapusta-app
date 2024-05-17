@@ -52,3 +52,7 @@
     font-size: 12px;
     margin: 8px 0;
 }
+
+.active {
+    color: var(--accent-orange);
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useFinance } from '../../../contexts/FinanceContext'; 
+import { Routes, Route, useParams } from 'react-router-dom';
 import ExpensesChart from '../../components/ExpensesChart/ExpensesChart';
 import ExpensesCategories from '../../components/ExpensesCategories/ExpensesCategories';
 import Dashboard from '../../components/Dashboard/Dashboard';
@@ -7,12 +8,12 @@ import css from './ReportsChart.module.css';
 
 function ReportsChart() {
     const { expenses, income } = useFinance();
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    const { categoryName } = useParams();
     const [chartData, setChartData] = useState([]);
 
     useEffect(() => {
-        if (selectedCategory) {
-            const data = expenses.filter(exp => exp.category === selectedCategory).map(exp => ({
+        if (categoryName) {
+            const data = expenses.filter(exp => exp.category === categoryName).map(exp => ({
                 category: exp.category,
                 amount: exp.amount
             }));
@@ -20,14 +21,10 @@ function ReportsChart() {
         } else {
             setChartData([]);
         }
-    }, [expenses, selectedCategory]);
+    }, [expenses, categoryName]);
 
     const totalExpenses = expenses.reduce((sum, item) => sum + item.amount, 0);
     const totalIncome = income.reduce((sum, item) => sum + item.amount, 0);
-
-    const handleCategorySelect = (category) => {
-        setSelectedCategory(category);
-    };
 
     return (
         <div className={css['reports-chart-container']}>
@@ -37,9 +34,11 @@ function ReportsChart() {
                     <p>Expenses: {totalExpenses}</p>
                     <p>Incomes: {totalIncome}</p>
                 </div>
-                <ExpensesCategories onCategorySelect={handleCategorySelect} />
+                <ExpensesCategories />
             </div>
-            {selectedCategory && <ExpensesChart data={chartData} />}
+            <Routes>
+                <Route path="category/:categoryName" element={<ExpensesChart data={chartData} />} />
+            </Routes>
         </div>
     );
 }
