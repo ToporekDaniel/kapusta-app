@@ -5,8 +5,8 @@ import s from './LanguageSwitcher.module.css';
 import { useEffect } from 'react';
 
 const languages = [
-  {code: "en", lang: "english", src: english},
-  {code: "pl", lang: "polish", src: polish},
+  {id: 1, code: "en", lang: "english", src: english},
+  {id: 2, code: "pl", lang: "polish", src: polish},
 ]
 export default function LanguageSwitcher() {
 
@@ -21,14 +21,15 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="btn-container">
+    <div className={"btn-container"}>
       {languages.map((lng) => {
         return (
           <button
           className={s.loclIcon}
             onClick={() => changeLanguage(lng.code)}
+            key={lng.id}
           >
-            <img className={s.icon} src={lng.src} alt="" width="30" /> 
+            <img className={s.icon} src={lng.src} alt={lng.lang} width="30" /> 
           </button>
         );
       })}
