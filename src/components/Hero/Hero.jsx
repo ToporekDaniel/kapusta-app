@@ -11,6 +11,7 @@ function Hero() {
 
   return (
     <div className={css["hero-container"]}>
+      
       <nav className={css["tab-wrapper"]}>
         <NavLink
           to="/expenses"
@@ -28,8 +29,8 @@ function Hero() {
           Income
         </NavLink>
       </nav>
-
       <Outlet />
+     
     </div>
   );
 }
