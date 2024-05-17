@@ -1,5 +1,5 @@
-import Dashboard from "../../pages/Dashboard/Dashboard";
-import Hero from "../Hero/Hero";
+import Dashboard from "../../components/Dashboard/Dashboard";
+import Hero from "../../components/Hero/Hero";
 
 const HomePage = () => {
   return (

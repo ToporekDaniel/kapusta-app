@@ -1,0 +1,54 @@
+@import url("../../index.css");
+
+.products-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 32px 0;
+    border-radius: 30px;
+    padding: 15px 0;
+}
+
+.product-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 32px 10px;
+}
+
+.icon {
+    fill: var(--text-darkgrey); 
+    transition: fill 0.3s ease;
+}
+
+/* .product-card:hover .icon,
+.product-card:active .icon {
+    fill: var(--accent-orange); 
+} */
+
+.icon:hover,
+.icon:active {
+    fill: var(--accent-orange); 
+}
+
+
+.product-card span {
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+.product-card p {
+    margin-bottom: 8px;
+
+}
+
+.text {
+    color: var(--text-darkgrey);
+    font-size: 12px;
+    margin: 8px 0;
+}

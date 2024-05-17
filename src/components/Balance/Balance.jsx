@@ -2,9 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { disableInput } from '../../app/store';
 import { useFinance } from '../../../contexts/FinanceContext';
+
 import Button from './UI/Button/Button';
 import './Balance.css';
 import { useTranslation } from 'react-i18next';
+
+import Button from '../Button/Button';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Backspace from "../../assets/icons/backspace.svg?react";
+import DataSlider from '../DataSlider/DataSlider';
+import css from './Balance.module.css';
+
+
 
 function Balance() {
   const [inputBalance, setInputBalance] = useState('');
@@ -12,6 +21,7 @@ function Balance() {
   const inputDisabled = useSelector(state => state.balance.inputDisabled);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const totalExpenses = expenses.reduce((acc, expense) => acc + expense.amount, 0);
@@ -61,6 +71,7 @@ function Balance() {
       {!inputDisabled && (
         <Button className="confirm-button" onClick={handleConfirm} text={t('CONFIRM')}/>
       )}
+
     </div>
   );
 }

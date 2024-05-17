@@ -13,10 +13,9 @@ export const FinanceProvider = ({ children }) => {
     const fetchData = async () => {
       try {
         const expensesResponse = await axios.get('/expenses');
-        // setExpenses(expensesResponse.data);
-
+        // setExpenses(expensesResponse.data);  
         const incomeResponse = await axios.get('/income');
-        // setIncome(incomeResponse.data);
+        // setIncome(incomeResponse.data);  
       } catch (error) {
         console.error("Failed to fetch data:", error);
       }
