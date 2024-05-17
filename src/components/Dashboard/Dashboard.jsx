@@ -1,5 +1,4 @@
 import Backspace from "../../assets/icons/backspace.svg?react";
-
 import Balance from "../Balance/Balance";
 import Reports from "../Reports/Reports";
 import { Link, useLocation } from "react-router-dom";
@@ -16,19 +15,19 @@ function Dashboard() {
 
   return (
     <div className={css["dashboard"]}>
-      <div className={css['back-to-home-link-container']}>
-        {location.pathname !== '/' && (
+      <div className={css["back-to-home-link-container"]}>
+        {location.pathname === "/reports" && (
           <Link to="/">
             <Backspace />
-            <p className={css['text']}>Main Page</p>
+            <p className={css["text"]}>Main Page</p>
           </Link>
         )}
       </div>
       <Balance />
-      {location.pathname !== '/reports' && ( <Reports />)}
-       {location.pathname !== '/' && (
-      <DataSlider />
-      )} 
+      {(location.pathname === "/" ||
+        location.pathname.startsWith("/expenses") ||
+        location.pathname.startsWith("/income")) && <Reports />}
+      {location.pathname === "/reports" && <DataSlider />}
     </div>
   );
 }

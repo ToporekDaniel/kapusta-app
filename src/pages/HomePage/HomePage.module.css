@@ -1,0 +1,35 @@
+.homepage-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.background-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background-color: var(--background-main);
+  border-bottom-left-radius: 100px;
+  z-index: -1;
+}
+
+.background-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background-color: var(--header-color);
+  background-image: url("../assets/backgroundkapusta1x.png"),
+    var(--background-main);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.dashboard,
+.hero {
+  position: relative;
+  z-index: 1;
+}

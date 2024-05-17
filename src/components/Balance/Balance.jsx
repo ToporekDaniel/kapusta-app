@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { disableInput } from '../../app/store';
-import { useFinance } from '../../../contexts/FinanceContext';
-import Button from '../Button/Button';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Backspace from "../../assets/icons/backspace.svg?react";
-import DataSlider from '../DataSlider/DataSlider';
-import css from './Balance.module.css';
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { disableInput } from "../../app/store";
+import { useFinance } from "../../../contexts/FinanceContext";
+import Button from "../Button/Button";
 
+import css from "./Balance.module.css";
 
 function Balance() {
-  const [inputBalance, setInputBalance] = useState('');
+  const [inputBalance, setInputBalance] = useState("");
   const { expenses, income } = useFinance();
-  const inputDisabled = useSelector(state => state.balance.inputDisabled);
+  const inputDisabled = useSelector((state) => state.balance.inputDisabled);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    const totalExpenses = expenses.reduce((acc, expense) => acc + expense.amount, 0);
+    const totalExpenses = expenses.reduce(
+      (acc, expense) => acc + expense.amount,
+      0
+    );
     const totalIncome = income.reduce((acc, income) => acc + income.amount, 0);
     const calculatedBalance = totalIncome - totalExpenses;
     setInputBalance(calculatedBalance.toFixed(2));
@@ -31,7 +30,7 @@ function Balance() {
     if (numBalance === 0) {
       setShowModal(true);
     } else {
-      alert('Balance confirmed: ' + numBalance + ' PLN');
+      alert("Balance confirmed: " + numBalance + " PLN");
       dispatch(disableInput());
       setShowModal(false);
     }
@@ -39,34 +38,40 @@ function Balance() {
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    setInputBalance(value);
-    setShowModal(!value || parseFloat(value) === 0);
+    const regex = /^\d*\.?\d{0,2}$/;
+    if (regex.test(value) || value === "") {
+      setInputBalance(value);
+      setShowModal(!value || parseFloat(value) === 0);
+    }
   };
-
 
   return (
     <div className={css["balance-container"]}>
-   
-        <label className={css["balance-label text"]}>Balance:</label>
-        <input
-          type="text"
-          className={css["balance-value"]}
-          value={inputBalance}
-          onChange={handleInputChange}
-          disabled={inputDisabled}
-        />
-        {showModal && (
+      <label className={css["balance-label text"]}>Balance:</label>
+      <input
+        type="text"
+        className={css["balance-value"]}
+        value={inputBalance}
+        onChange={handleInputChange}
+        disabled={inputDisabled}
+      />
+      {showModal && (
         <div className={css["modal"]}>
           <div className={css["modal-content"]}>
-            <p>Hello! To get started, enter the current balance of your account!</p>
+            <p>
+              Hello! To get started, enter the current balance of your account!
+            </p>
             <p>You can't spend money until you have it :)</p>
           </div>
         </div>
       )}
-        {!inputDisabled && (
-          <Button className={css["confirm-button"]} onClick={handleConfirm} text="CONFIRM" />
-        )}
-      
+      {!inputDisabled && (
+        <Button
+          className={css["confirm-button"]}
+          onClick={handleConfirm}
+          text="CONFIRM"
+        />
+      )}
     </div>
   );
 }
