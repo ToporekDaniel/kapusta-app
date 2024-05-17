@@ -36,6 +36,7 @@ i18n
         Description: 'descreiption',
         Category: 'category',
         Sum: 'sum',
+        Reports: 'Reports'
       },
     },
     pl: {
@@ -63,6 +64,7 @@ i18n
         Description: 'opis',
         Category: 'kategoria',
         Sum: 'suma',
+        Reports: 'Raporty'
       },
     },
   },

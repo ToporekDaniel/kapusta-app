@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import './Reports.css';
 import ReportsIcon  from "../../assets/icons/reports.svg?react";
+import { useTranslation } from "react-i18next";
 
 function Reports() {
+  const {t} =useTranslation();
   return (
     <div className="reports-container">
       <Link to="/reports" className="reports-link">
-        <p>        Reports
+        <p>        {t('Reports')}
         </p>
         {/* <svg className="icon-reports" viewBox="0 0 32 32" fill="gray"> */}
         {/* <use href="/icons.svg#icon-reports" />  */}
