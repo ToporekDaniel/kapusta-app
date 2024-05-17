@@ -2,22 +2,19 @@
 
 .balance-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 20px;
+  gap: 00px;
   padding: 16px;
   margin: 20px;
   position: relative;
   background-color: var(--background-main);
 }
-
 @media (min-width: 768px) {
   .balance-container {
-    flex-direction: row;
+    gap: 20px;
   }
-
-
-}
+  }
 
 .balance-header {
   display: flex;
@@ -29,22 +26,23 @@
   font-size: 16px;
   font-weight: 500;
   color: var(--text-darkgrey);
-}
+ }
 
 .balance-value {
   width: 125px;
-  height: 42px;
+  height: 40px;
   border-radius: 16px 0 0 16px;
   border: 1px solid var(--border-color);
-  ;
   background-color: var(--background-additional);
   text-align: center;
   font-weight: 700;
+  margin-left: 20px;
 }
 
 @media (min-width: 768px) {
   .balance-value {
     border-radius: 16px;
+    margin-left: 0px;
   }
 }
 
@@ -78,6 +76,7 @@
 .text {
   color: var(--text-darkgrey);
 }
+
 
 .confirm-button {
   border-radius: 0 16px 16px 0;
