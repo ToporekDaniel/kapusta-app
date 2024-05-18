@@ -4,12 +4,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 00px;
   padding: 16px;
   margin: 20px;
   position: relative;
-  background-color: var(--background-main);
-}
+ }
+
 @media (min-width: 768px) {
   .balance-container {
     gap: 20px;
@@ -37,6 +36,7 @@
   text-align: center;
   font-weight: 700;
   margin-left: 20px;
+  color: var(--text-darkgrey);
 }
 
 @media (min-width: 768px) {
@@ -72,11 +72,6 @@
 .modal-content {
   font-size: 14px;
 }
-
-.text {
-  color: var(--text-darkgrey);
-}
-
 
 .confirm-button {
   border-radius: 0 16px 16px 0;

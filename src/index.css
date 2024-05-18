@@ -19,6 +19,7 @@
   --accent-orange: #ff751d;
   --accent-lightorange: rgba(255, 117, 29, 0.2);
   --table-color: #f5f6fb;
+  --table-text: #52555f;
   --dashboard-color: #ffffff;
   --dashboard-active-link-bg: #fefefe;
   --dashboard-not-active-link-bg: #fafbfd;
@@ -102,6 +103,7 @@ html[data-theme="dark"] {
   --text-main: #fff;
   --text-darkgrey: #fff;
   --table-color: #60646d;
+  --table-text:  #c7ccdc;
   --dashboard-color: #4b4e55;
   --dashboard-active-link-bg: #60646d;
   --dashboard-not-active-link-bg: #4b4e55;
