@@ -15,18 +15,25 @@
   }
 }
 
+@media (max-width: 767px) {
+  .hero-wrapper-tables {
+    /* DO POPRAWY znaleźć błąd w stylizacji */
+    margin-top: 300px; 
+  }
+}
+
 @media (min-width: 1024px) {
   .hero-wrapper-tables {
     align-items: flex-start;
     display: flex;
     justify-content: space-between;
-    position: relative;
+    /* position: relative; zmiany w stylizacji*/
   }
 }
 
-.hero-transaction-table {
+/* .hero-transaction-table {
   display: none;
-}
+} zmiany w stylizacji*/
 
 @media (max-width: 767px) {
   .tab-wrapper {
@@ -34,7 +41,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 4;
+    /* z-index: 4; zmiany w stylizacji */ 
     display: flex;
     align-items: center;
     justify-content: center;

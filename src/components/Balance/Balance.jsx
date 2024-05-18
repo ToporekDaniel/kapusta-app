@@ -47,7 +47,7 @@ function Balance() {
 
   return (
     <div className={css["balance-container"]}>
-      <label className={css["balance-label text"]}>Balance:</label>
+      <label className={css["balance-label"]}>Balance:</label>
       <input
         type="text"
         className={css["balance-value"]}

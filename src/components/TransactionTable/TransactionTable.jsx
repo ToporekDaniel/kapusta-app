@@ -1,32 +1,8 @@
-// import { useState, useEffect } from "react";
 import css from "./TransactionTable.module.css";
 import PropTypes from "prop-types";
 
 function TransactionTable({ transactions, type, handleDelete }) {
-  // Pobierz dane z odpowiedniego endpointu na podstawie wybranego typu
-  // type to: 'expenses' albo 'incomes'
-
-  //       const [data, setData] = useState([]);
-
-  //   useEffect(() => {
-  //     fetchData();
-  //   }, [type]);
-
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch(`https://kapusta-app-madam-pab.netlify.app/transactions/${type}`); //wpisać odpowiedni url
-  //       if (!response.ok) {
-  //         throw new Error("Failed to fetch data");
-  //       }
-  //       const data = await response.json();
-  //       return data;
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
-
   const emptyRows = new Array(10 - transactions.length).fill(undefined);
-
   const rows = [...transactions, ...emptyRows];
 
   return (

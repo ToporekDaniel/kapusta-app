@@ -5,18 +5,43 @@ import css from "./FormTransaction.module.css";
 import Button from "../Button/Button.jsx";
 import PropTypes from "prop-types";
 
-function FormTransaction({ selectOptions }) {
+function FormTransaction({
+  selectOptions,
+  onAddTransaction,
+  onClearTransactions,
+}) {
   const [startDate, setStartDate] = useState(new Date());
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
 
-  const handleSubmitInput = () => {
-    // Logika obsługi przycisku INPUT do zrobienie
+  const handleSubmitInput = (e) => {
+    e.preventDefault();
+    if (!description || !category || !amount) {
+      alert("Please fill all the fields.");
+      return;
+    }
+
+    const newTransaction = {
+      id: Date.now(), // BACKEND zakualizować id
+      date: startDate.toISOString().split("T")[0],
+      description,
+      category,
+      sum: parseFloat(amount) * -1, //będzie się wyświetlać ujemna wartość w tabeli
+    };
+
+    onAddTransaction(newTransaction);
+
+    // czyszczenie pól
+    setStartDate(new Date());
+    setDescription("");
+    setCategory("");
+    setAmount("");
   };
 
-  const handleClear = () => {
-    // Logika obsługi przycisku CLEAR do zrobienia
+  const handleClear = (e) => {
+    e.preventDefault();
+    onClearTransactions();
   };
 
   return (
@@ -105,6 +130,8 @@ FormTransaction.propTypes = {
       label: PropTypes.string.isRequired,
     })
   ).isRequired,
+  onAddTransaction: PropTypes.func.isRequired,
+  onClearTransactions: PropTypes.func.isRequired,
 };
 
 export default FormTransaction;
