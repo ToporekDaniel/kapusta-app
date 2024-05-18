@@ -84,12 +84,6 @@ function HeroExpenses() {
     }
   };
 
-  const handleClearTransactions = () => {
-    // BACKEND usunąć console.log
-    console.log("Clearing transactions");
-    setTransactions([]);
-  };
-
   const handleDelete = async (id) => {
     try {
       // BACKEND usunąć console.log
@@ -121,7 +115,7 @@ function HeroExpenses() {
       <FormTransaction
         selectOptions={selectOptionsExpenses}
         onAddTransaction={handleAddTransaction}
-        onClearTransactions={handleClearTransactions}
+        type={type} 
       />
       <div className={css["hero-wrapper-tables"]}>
         <TransactionTable

@@ -105,3 +105,19 @@ tr {
   margin-right: 40px;
   margin-left: 40px;
 }
+
+@media (max-width: 767px) {
+.mobile-category {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.mobile-details {
+  display: flex;
+ }
+
+.mobile-date,
+.mobile-description {
+  font-size: 10px;
+}
+}

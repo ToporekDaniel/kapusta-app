@@ -5,6 +5,8 @@ function TransactionTable({ transactions, type, handleDelete }) {
   const emptyRows = new Array(10 - transactions.length).fill(undefined);
   const rows = [...transactions, ...emptyRows];
 
+  const isMobileView = window.innerWidth < 768;
+
   return (
     <div className={css["transaction-table-wrapper"]}>
       <table className={css["transaction-table"]}>
@@ -20,23 +22,41 @@ function TransactionTable({ transactions, type, handleDelete }) {
           {rows.map((row, index) =>
             row ? (
               <tr key={row.id}>
-                <td>{row.date}</td>
-                <td>{row.description}</td>
-                <td>{row.category}</td>
-                <td className={type === "expenses" ? css.expense : css.income}>
-                  {row.sum}
-                  <div
-                    className={css.icon}
-                    onClick={() => handleDelete(row.id)}
-                  >
-                    <svg width="18" height="18">
-                      <use
-                        href="/src/assets/icons.svg#icon-trash"
-                        fill="#52555f"
-                      ></use>
-                    </svg>
-                  </div>
-                </td>
+                {isMobileView ? (
+                  <>
+                    <td>
+                      <div className={css["mobile-category"]}>
+                        {row.category}
+                        <div className={css["mobile-details"]}>
+                          <div className={css["mobile-date"]}>{row.date}</div>
+                          <div className={css["mobile-description"]}>{row.description}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className={type === "expenses" ? css.expense : css.income}>
+                      {row.sum}
+                      <div className={css.icon} onClick={() => handleDelete(row.id)}>
+                        <svg width="18" height="18">
+                          <use href="/src/assets/icons.svg#icon-trash" fill="#52555f"></use>
+                        </svg>
+                      </div>
+                    </td>
+                  </>
+                ) : (
+                  <>
+                    <td>{row.date}</td>
+                    <td>{row.description}</td>
+                    <td>{row.category}</td>
+                    <td className={type === "expenses" ? css.expense : css.income}>
+                      {row.sum}
+                      <div className={css.icon} onClick={() => handleDelete(row.id)}>
+                        <svg width="18" height="18">
+                          <use href="/src/assets/icons.svg#icon-trash" fill="#52555f"></use>
+                        </svg>
+                      </div>
+                    </td>
+                  </>
+                )}
               </tr>
             ) : (
               <tr key={index}>

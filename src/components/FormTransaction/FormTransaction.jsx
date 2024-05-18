@@ -5,11 +5,7 @@ import css from "./FormTransaction.module.css";
 import Button from "../Button/Button.jsx";
 import PropTypes from "prop-types";
 
-function FormTransaction({
-  selectOptions,
-  onAddTransaction,
-  onClearTransactions,
-}) {
+function FormTransaction({ selectOptions, onAddTransaction, type }) {
   const [startDate, setStartDate] = useState(new Date());
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -23,11 +19,10 @@ function FormTransaction({
     }
 
     const newTransaction = {
-      id: Date.now(), // BACKEND zakualizować id
       date: startDate.toISOString().split("T")[0],
       description,
       category,
-      sum: parseFloat(amount) * -1, //będzie się wyświetlać ujemna wartość w tabeli
+      sum: type === "expenses" ? parseFloat(amount) * -1 : parseFloat(amount), //będzie się wyświetlać ujemna wartość w tabeli
     };
 
     onAddTransaction(newTransaction);
@@ -41,11 +36,14 @@ function FormTransaction({
 
   const handleClear = (e) => {
     e.preventDefault();
-    onClearTransactions();
+    setStartDate(new Date());
+    setDescription("");
+    setCategory("");
+    setAmount("");
   };
 
   return (
-    <form className={css["container-transaction"]}>
+    <form onSubmit={handleSubmitInput} className={css["container-transaction"]}>
       <div className={css["container-inputs"]}>
         <div className={css["datepicker-wrapper"]}>
           <svg width="20" height="20">
@@ -131,7 +129,7 @@ FormTransaction.propTypes = {
     })
   ).isRequired,
   onAddTransaction: PropTypes.func.isRequired,
-  onClearTransactions: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default FormTransaction;
