@@ -13,12 +13,16 @@ console.log(ReportsChart);
 import HeroExpenses from "./src/components/Hero/HeroExpenses";
 import HeroIncome from "./src/components/Hero/HeroIncome";
 
+// import { LoginForm } from './src/pages/LoginGoogle/LoginForm';
+import LoginPage from './src/pages/LoginGoogle/LoginPage'
+
 const AppRouter = () => {
   return (
     <FinanceProvider>
       <Router>
         <Header />
         <Routes>
+            {/* <Route path="/" element={<HomePage />} /> */}
           <Route path="/" element={<HomePage />}>
             <Route path="/" element={<Navigate to="/expenses" />} />
             <Route path="/expenses" element={<HeroExpenses />} />
@@ -31,4 +35,4 @@ const AppRouter = () => {
   );
 };
 
-export default AppRouter;
+export default AppRouter

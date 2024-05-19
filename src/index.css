@@ -145,6 +145,7 @@ html[data-theme="dark"] {
 
   font-family: Roboto, sans-serif;
   --primary-font-size: 12px;
+  --secondary-font-size: 14px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
