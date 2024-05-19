@@ -60,7 +60,7 @@ function FormTransaction({ selectOptions }) {
             </option>
             {selectOptions.map((option) => (
               <option key={option.value} value={option.value}>
-                {option.label}
+                {t(option.label)}
               </option>
             ))}
           </select>

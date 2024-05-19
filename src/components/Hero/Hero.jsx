@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import css from "./Hero.module.css";
+import { useTranslation } from "react-i18next";
 
 function Hero() {
   const [type, setType] = useState("expenses");
@@ -8,7 +9,7 @@ function Hero() {
   const handleTabChange = (selectedType) => {
     setType(selectedType);
   };
-
+  const {t} = useTranslation();
   return (
     <div className={css["hero-container"]}>
       
@@ -18,7 +19,7 @@ function Hero() {
           className={type === "expenses" ? css["tab-active"] : css["tab"]}
           onClick={() => handleTabChange("expenses")}
         >
-          Expenses
+          {t('Expenses')}
         </NavLink>
 
         <NavLink
@@ -26,7 +27,7 @@ function Hero() {
           className={type === "income" ? css["tab-active"] : css["tab"]}
           onClick={() => handleTabChange("income")}
         >
-          Income
+          {t('Income')}
         </NavLink>
       </nav>
       <Outlet />

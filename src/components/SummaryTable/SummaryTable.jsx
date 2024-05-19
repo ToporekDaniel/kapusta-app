@@ -10,7 +10,7 @@ function SummaryTable(props) {
       <ul className={css["summary-list"]}>
         {props.data.map((item, index) => (
           <li key={index} className={css["summary-item"]}>
-            <p>{item.monthName}</p>
+            <p>{t(item.monthName)}</p>
             <p>{item.value}</p>
           </li>
         ))}
