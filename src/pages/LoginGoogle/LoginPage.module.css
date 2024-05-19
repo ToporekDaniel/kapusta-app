@@ -1,19 +1,25 @@
-html {
+/* html {
   width: 100vw;
   height: 100vh;
-}
+} */
 
 .login {
+  /* nowa stylizacja */
+  display: flex;
   width: 1280px;
   height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+
+
   /* background-origin: border-box; */
   font-size: var(--primary-font-size);
   /* jap ierdole serio obrazek strony logowania*/
   /* background-image: url("./../../assets/LoginPage1x.png"); */
-  /* background-image: url("./../../assets/backgroundkapusta1x.png"); */
+  background-image: url("./../../assets/backgroundkapusta1x.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: fill;
   /* background-image: image-set ( */
   /*     './../../assets/LoginPage1x.png' 1x, */
   /*     ); */
@@ -29,3 +35,9 @@ html {
   /* align-items: center; */
 
 }
+
+.logo {}
+
+.title {}
+
+.subtitle {}
