@@ -1,9 +1,9 @@
-
 @import url('../../index.css');
 
 .dashboard {
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     background-color: var(--background-main);
@@ -17,19 +17,20 @@
     justify-content: flex-start;
     gap: 15px;
     margin-right: 40px;
-  }
-  
+}
+
+
 
 @media (max-width: 1023px) {
     .dashboard {
-        flex-direction: column;   
+        flex-direction: column;
     }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) {
     .dashboard {
-        flex-direction: column;   
-
-        padding: 10px; 
+        justify-content: space-between;
+        padding: 0 32px 0 32px;
+        flex-direction: row;
     }
 }
