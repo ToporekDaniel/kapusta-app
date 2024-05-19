@@ -40,7 +40,7 @@
   background-color: #f5f6fb;
   border-radius: 16px;
   color: #52555f;
-  font-size: 12px;
+  font-size: var(--primary-font-size);
   font-weight: 700;
   height: 44px;
   line-height: 14px;

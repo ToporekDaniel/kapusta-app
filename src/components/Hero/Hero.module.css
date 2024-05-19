@@ -1,8 +1,8 @@
 @media (min-width: 768px) {
   .hero-container {
-    border-radius: 0 0 0 100px;
     margin: 0 auto;
     max-width: 1098px;
+    padding: 0 32px 0 32px;
   }
 }
 
@@ -18,7 +18,7 @@
 @media (max-width: 767px) {
   .hero-wrapper-tables {
     /* DO POPRAWY znaleźć błąd w stylizacji */
-    margin-top: 300px; 
+    margin-top: 260px; 
   }
 }
 
@@ -64,7 +64,7 @@
 
 .tab,
 .tab-active {
-  font-size: 12px;
+  font-size: var(--primary-font-size);
   font-style: normal;
   font-weight: 700;
   letter-spacing: 0.02em;

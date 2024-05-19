@@ -1,14 +1,14 @@
 @import url('../../index.css');
 
 .dashboard {
-    margin: 0 auto;
+    padding: 20px 0 0 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
+    gap: 20px;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--background-main);
+    /* background-color: var(--background-main);  zmiany w stylizacji */
 }
-
 
 .back-to-home-link-container a {
     display: flex;
@@ -20,17 +20,22 @@
 }
 
 
-
-@media (max-width: 1023px) {
+/* @media (max-width: 1023px) {
     .dashboard {
         flex-direction: column;
     }
-}
+} zmiana stylizacji */
 
 @media (min-width: 768px) {
     .dashboard {
         justify-content: space-between;
-        padding: 0 32px 0 32px;
+        padding: 40px 32px 40px 32px;
         flex-direction: row;
     }
+}
+
+.text {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-darkgrey);
 }

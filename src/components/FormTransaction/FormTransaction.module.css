@@ -28,11 +28,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--background-main);
   padding-bottom: 40px;
   padding-top: 250px;
-  border-radius: 0 0 0 70px;
   width: 100%;
+  /* zmiany w stylizacji - usunięty background i zaokrąglenie narożńika */
 }
 
 @media (min-width: 768px) {
@@ -155,7 +154,7 @@
   border-radius: 16px;
   color: var(--accent-lightgrey);
   font-size: 18px;
-  margin-top: 32px;
+  margin-top: 16px;
   background-color: var(--dashboard-input-color);
 }
 
@@ -188,7 +187,6 @@
 
 .buttons-wrapper {
   display: flex;
-  margin-top: 40px;
 }
 
 @media (min-width: 768px) {

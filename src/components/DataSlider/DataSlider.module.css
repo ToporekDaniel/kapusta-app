@@ -1,39 +1,43 @@
-.data-slider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f4f4f4;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin-top: 20px;
-    width: 136px;
+.date-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 145px;
 }
 
-.data-slider button {
-    color: var(--accent-orange);
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 0 15px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+.date-slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.data-slider button:hover {
-    background-color:var(--text-grey);
+.date-slider button {
+  color: var(--accent-orange);
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+  background-color: transparent;
+  transition: color 0.3s ease;
 }
 
-.data-slider span {
-    font-size: 16px;
-    color: #333;
+.date-slider button:hover {
+  color: var(--text-grey);
 }
 
-.text  {
-    display: flex;
-    flex-direction: column;
+.date-slider span {
+  font-size: 16px;
+  color: var(--text-main);
+  font-weight: bold;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
-.data-text{
-font-weight: bold;}
+.text {
+  font-size: var(--primary-font-size);
+  color: var(--text-grey);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
