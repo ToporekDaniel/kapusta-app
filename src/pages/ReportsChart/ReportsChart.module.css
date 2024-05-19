@@ -1,4 +1,4 @@
-@import url('../../index.css');
+@import url("../../index.css");
 
 .header div {
   /* display: flex; */
@@ -20,12 +20,21 @@ background-color: var(--background-main);
 } zmiany w stylizacji*/
 
 .header-reports-total {
+  margin: 0 auto;
+  margin-top: 20px;
   margin-bottom: 32px;
   border-radius: 30px;
   background-color: var(--dashboard-color);
   display: flex;
   justify-content: center;
-  height: 50px;
+  height: 85px;
+  max-width: 350px;
+ }
+
+@media (min-width: 768px) {
+  .header-reports-total {
+    height: 50px;
+  }
 }
 
 .header-reports-list {
@@ -36,36 +45,51 @@ background-color: var(--background-main);
 .header-reports-item {
   align-items: center;
   display: flex;
+  flex-direction: column;
+  gap: 5px;
   margin-left: 20px;
   margin-right: 20px;
   color: var(--text-darkgrey);
   font-size: 14px;
   font-weight: 700;
   line-height: 1.16;
+  padding: 20px 0;
+}
+
+@media (min-width: 768px) {
+.header-reports-item {
+  flex-direction: row;
+}
 }
 
 .header-reports-div {
   background-color: #e0e5eb;
-    display: block;
+  display: block;
+  height: 70px;
+  margin: 7px 20px;
+  width: 1px;
+}
+
+@media (min-width: 768px) {
+  .header-reports-div {
     height: 36px;
-    margin: 7px 20px;
-    width: 1px;
+  }
 }
 
 .text-red {
   color: var(--text-red);
-  padding-left: 15px; 
+  padding-left: 15px;
   font-size: 14px;
-    font-weight: 700;
-    letter-spacing: .04em;
-    line-height: 1.14;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.14;
 }
 
 .text-green {
-  color: var(--text-green); 
-  padding-left: 10px; 
+  color: var(--text-green);
+  padding-left: 10px;
   font-size: 14px;
-    font-weight: 700;
-    letter-spacing: .04em;
-    line-height: 1.14;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.14;
 }

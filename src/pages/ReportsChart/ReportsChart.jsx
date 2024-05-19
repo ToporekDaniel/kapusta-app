@@ -45,7 +45,7 @@ function ReportsChart() {
             </li>
            <div className={css["header-reports-div"]}></div>
             <li className={css["header-reports-item"]}>
-              Incomes:<span className={css["text-green"]}>{totalIncome}</span>
+              Income:<span className={css["text-green"]}>{totalIncome}</span>
             </li>
           </ul>
         </div>
