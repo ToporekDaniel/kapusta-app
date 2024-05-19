@@ -9,7 +9,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import css from './Balance.module.css';
 
 
-import css from "./Balance.module.css";
+
 
 
 function Balance() {

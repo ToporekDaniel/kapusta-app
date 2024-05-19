@@ -56,7 +56,7 @@ function FormTransaction({ selectOptions }) {
             onChange={(e) => setCategory(e.target.value)}
           >
             <option value="" hidden>
-              Product category
+              {t("ProductCategory")}
             </option>
             {selectOptions.map((option) => (
               <option key={option.value} value={option.value}>
