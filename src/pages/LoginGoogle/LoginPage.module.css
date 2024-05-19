@@ -3,12 +3,14 @@ html {
   height: 100vh;
 }
 
-body {
+.login {
   width: 1280px;
-  height: auto;
+  height: 100vh;
   /* background-origin: border-box; */
   font-size: var(--primary-font-size);
-  background-image: url("./../../assets/LoginPage1x.png");
+  /* jap ierdole serio obrazek strony logowania*/
+  /* background-image: url("./../../assets/LoginPage1x.png"); */
+  /* background-image: url("./../../assets/backgroundkapusta1x.png"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -18,7 +20,7 @@ body {
   /* background-size: cover; */
 }
 
-body.form {
+.form {
   font-weight: 400;
   font-size: var(--primary-font-size);
   line-height: 14px;

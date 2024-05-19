@@ -1,20 +1,12 @@
-import Dashboard from "../../pages/Dashboard/Dashboard";
-import Hero from "../../components/Hero/Hero";
 import { LoginForm } from "./LoginForm";
-import css from './LoginPage.module.css';
+import css from "./LoginPage.module.css";
 
 const LoginPage = () => {
   return (
-    <body>
-      {/*<Dashboard /> */}
-
-      {/*<Hero />*/}
+    <div className={css.login}>
       <LoginForm className={css.form} />
-    </body>
+    </div>
   );
 };
 
 export default LoginPage;
-
-
-

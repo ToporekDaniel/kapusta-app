@@ -15,17 +15,17 @@
 }
 
 @media (min-width: 768px) {
-.background-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40%;
-  background-color: var(--header-color);
-  background-image: url("../../assets/backgroundkapusta1x.png");
-  background-repeat: repeat;
-  z-index: -1;
-}
+  .background-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background-color: var(--header-color);
+    background-image: url("../../assets/backgroundkapusta1x.png");
+    background-repeat: repeat;
+    z-index: -1;
+  }
 }
 
 /* .dashboard,
@@ -33,8 +33,3 @@
   position: relative;
   z-index: 1;
 } zmiany w stylizacji */
-
- 
-
-
-
