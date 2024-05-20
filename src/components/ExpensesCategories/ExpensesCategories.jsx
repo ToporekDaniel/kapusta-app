@@ -34,7 +34,7 @@ function ExpensesCategories() {
                 {categories.map((category) => (
                     <li key={category.name} className={css['product-card']}>
                         <NavLink 
-                            to={`/reports/category/${category.name}`} 
+                            to={`/reports/${category.name}`} 
                             className={({ isActive }) => isActive ? css['active'] : ''}
                         >
                             <p className={css['text']}>{category.quantity}</p>

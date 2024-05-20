@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFinance } from "../../../contexts/FinanceContext";
 import ExpensesChart from "../../components/ExpensesChart/ExpensesChart";
 import ExpensesCategories from "../../components/ExpensesCategories/ExpensesCategories";
 import Dashboard from "../../components/Dashboard/Dashboard";
 import css from "./ReportsChart.module.css";
+import style from "../HomePage/HomePage.module.css";
 
 function ReportsChart() {
   const { expenses, income } = useFinance();
@@ -33,8 +34,8 @@ function ReportsChart() {
 
   return (
     <div className={css["reports-chart-container"]}>
-      <div className={css["background-top"]}></div>
-      <div className={css["background-bottom"]}></div>
+         <div className={style["background-top"]}></div>
+      <div className={style["background-bottom"]}></div>
       <div className={css["reports-container"]}>
         <Dashboard />
         <div className={css["header-reports-total"]}>
@@ -42,9 +43,9 @@ function ReportsChart() {
             <li className={css["header-reports-item"]}>
               Expenses:<span className={css["text-red"]}>{totalExpenses}</span>
             </li>
-            <div className={css["header-reports-div"]}></div>
+           <div className={css["header-reports-div"]}></div>
             <li className={css["header-reports-item"]}>
-              Income:<span className={css["text-green"]}>{totalIncome}</span>
+              Incomes:<span className={css["text-green"]}>{totalIncome}</span>
             </li>
           </ul>
         </div>
