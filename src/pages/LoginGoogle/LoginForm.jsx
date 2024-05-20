@@ -5,15 +5,18 @@ import { LoginGoogle } from "./LoginGoogle";
 import axios from "axios";
 // import PropTypes from "prop-types";
 
+import { APP_ROUTES } from "../../utils/constants";
+import { useNavigate } from "react-router-dom";
 import css from "./LoginForm.module.css";
 import { API_ROUTES } from "../../utils/constants";
 // import { styled } from "styled-components";
 
 const LoginForm = () => {
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-  });
+  const navigate = useNavigate();
+  // const [form, setForm] = useState({
+  //   email: "",
+  //   password: "",
+  // });
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -46,11 +49,11 @@ const LoginForm = () => {
           password,
         },
       });
-      if (!response?.data?.token) {
+      if (!response?.data) {
         console.log("Something went wrong during signing up: ", response);
         return;
       }
-      navigate(APP_ROUTES.HOME);
+      navigate(APP_ROUTES.SIGN_IN);
     } catch (err) {
       console.log("Some error occured during signing up: ", err);
     } finally {

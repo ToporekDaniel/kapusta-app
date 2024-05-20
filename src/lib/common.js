@@ -22,7 +22,8 @@ export async function getAuthenticatedUser() {
         Authorization: `Bearer ${token}`
       }
     });
-    const { authenticated = false } = response.data;
+    const { authenticated = false, accesToken = null } = response.data;
+    localStorage.setItem(accesToken)
     return authenticated ? response.data : false;
   }
   catch (err) {
