@@ -1,11 +1,19 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFinance } from "../../../contexts/FinanceContext";
 import ExpensesChart from "../../components/ExpensesChart/ExpensesChart";
 import ExpensesCategories from "../../components/ExpensesCategories/ExpensesCategories";
 import Dashboard from "../../components/Dashboard/Dashboard";
 import css from "./ReportsChart.module.css";
+import { useUser } from "./../../lib/customHooks";
+import { APP_ROUTES } from "../../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 function ReportsChart() {
+  const navigate = useNavigate();
+  const { user, authenticated } = useUser();
+  if (!user || !authenticated) {
+    navigate(APP_ROUTES.SIGN_IN);
+  }
   const { expenses, income } = useFinance();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [chartData, setChartData] = useState([]);
