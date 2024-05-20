@@ -48,7 +48,7 @@ function TransactionTable({ transactions, type, handleDelete }) {
               <tr key={row.id}>
                 <td>{row.date}</td>
                 <td>{row.description}</td>
-                <td>{row.category}</td>
+                <td>{t(row.category)}</td>
                 <td className={type === "expenses" ? css.expense : css.income}>
                   {row.sum}
                   <div

@@ -15,9 +15,10 @@ function DataSlider() {
     };
 
     const formatDate = date => {
-        return format(date, 'MMMM yyyy');
+        return format(date, 'MMMM yyyy ');
     };
     const {t} =useTranslation();
+    
     return (
         <div className={css["data-slider"]}>
             <button onClick={handlePrevious}>{'<'}</button>
