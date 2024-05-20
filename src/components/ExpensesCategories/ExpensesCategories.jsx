@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import css from './ExpensesCategories.module.css';
 import ProductsIcon from '../../assets/icons/products.svg?react';
