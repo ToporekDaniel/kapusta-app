@@ -4,6 +4,7 @@ import ExpensesChart from '../../components/ExpensesChart/ExpensesChart';
 import ExpensesCategories from '../../components/ExpensesCategories/ExpensesCategories';
 import Dashboard from '../../components/Dashboard/Dashboard';
 import css from './ReportsChart.module.css';
+import { useTranslation } from 'react-i18next';
 
 function ReportsChart() {
     const { expenses, income } = useFinance();
@@ -28,14 +29,14 @@ function ReportsChart() {
     const handleCategorySelect = (category) => {
         setSelectedCategory(category);
     };
-
+const {t} =useTranslation();
     return (
         <div className={css['reports-chart-container']}>
             <div className={css['reports-container']}>
                 <Dashboard />
                 <div className={css['header-reports-chart']}>
-                    <p>Expenses: {totalExpenses}</p>
-                    <p>Incomes: {totalIncome}</p>
+                    <p>{t('Expenses')}: {totalExpenses}</p>
+                    <p>{t('Income')}: {totalIncome}</p>
                 </div>
                 <ExpensesCategories onCategorySelect={handleCategorySelect} />
             </div>
