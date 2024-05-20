@@ -46,12 +46,12 @@ function Balance() {
   };
 
   return (
-    <div className={css["balance-container"]}>
+    <div className={`${css["balance-container"]} ${inputDisabled ? css["row"] : ""}`}>
       <label className={css["balance-label"]}>Balance:</label>
       <div>
         <input
           type="text"
-          className={css["balance-value"]}
+          className={`${css["balance-value"]} ${inputDisabled ? css["rounded"] : ""}`}
           value={inputBalance}
           onChange={handleInputChange}
           disabled={inputDisabled}

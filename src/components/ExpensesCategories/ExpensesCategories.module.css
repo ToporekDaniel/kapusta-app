@@ -1,9 +1,8 @@
 @import url("../../index.css");
 
-
 @media (min-width: 768px) {
 .expenses-categories{
-padding: 0 120px;
+padding: 0 80px;
 background-color: var(--dashboard-color);
 border-radius: 30px;
 box-shadow: 0 10px 60px rgba(170, 178, 197, .2);

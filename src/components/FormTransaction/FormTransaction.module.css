@@ -47,7 +47,13 @@
 }
 
 .datepicker-wrapper {
-  display: none;
+  display: flex;
+  order: 2; 
+  margin-top: 16px;
+}
+
+.calc-container {
+  order: 1;
 }
 
 @media (min-width: 768px) {
@@ -55,6 +61,12 @@
     align-items: center;
     display: flex;
     margin-right: 20px;
+    margin-top: 0px;
+    order: 0;
+  }
+
+  .calc-container {
+    order: 0; 
   }
 }
 

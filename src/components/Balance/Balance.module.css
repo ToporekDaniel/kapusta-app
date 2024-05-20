@@ -8,6 +8,10 @@
   position: relative;
  }
 
+ .balance-container.row {
+  flex-direction: row;
+}
+
  @media (min-width: 768px) {
   .balance-container{
     flex-direction: row;
@@ -37,6 +41,10 @@
   font-weight: 700;
   margin-left: 20px;
   color: var(--text-darkgrey);
+}
+
+.balance-value.rounded {
+  border-radius: 16px;
 }
 
 @media (min-width: 768px) {
