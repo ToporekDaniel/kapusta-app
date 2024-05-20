@@ -64,7 +64,7 @@ thead {
   background-color: var(--table-color);
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 12px;
+  font-size: var(--primary-font-size);
 }
 
 thead tr th:first-child {
@@ -90,7 +90,7 @@ thead tr th:last-child {
 tr {
   border-bottom: 2px solid var(--table-color);
   height: 40px;
-  font-size: 12px;
+  font-size: var(--primary-font-size);
 }
 
 .icon {
@@ -106,18 +106,36 @@ tr {
   margin-left: 40px;
 }
 
+.icon svg {
+  fill: var(--table-text);
+}
+
 @media (max-width: 767px) {
+  .icon {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  tr {
+    height: 46px;
+   }
+
 .mobile-category {
+  font-size: var(--primary-font-size);
   font-weight: bold;
-  margin-bottom: 8px;
+  text-align: left;
+  margin-left: 20px;
 }
 
 .mobile-details {
   display: flex;
+  gap: 20px;
+  margin-top: 3px;
  }
 
 .mobile-date,
 .mobile-description {
-  font-size: 10px;
+  font-size: 8px;
 }
+
 }

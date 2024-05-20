@@ -27,13 +27,14 @@ function FormTransaction({ selectOptions, onAddTransaction, type }) {
 
     onAddTransaction(newTransaction);
 
-    // czyszczenie pól
+    // czyszczenie pól po tym jak już kliknie się 'INPUT"
     setStartDate(new Date());
     setDescription("");
     setCategory("");
     setAmount("");
   };
 
+  // czyszczenie pól po tym jak się je uzupełni i stwierdzi, że coś nie tak we wprowadzonych danych i wtedy można kliknąć 'CLEAR'
   const handleClear = (e) => {
     e.preventDefault();
     setStartDate(new Date());
@@ -133,3 +134,5 @@ FormTransaction.propTypes = {
 };
 
 export default FormTransaction;
+
+

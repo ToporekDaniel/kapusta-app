@@ -6,7 +6,7 @@ function Reports() {
   return (
     <div className={css["reports-container"]}>
       <Link to="/reports" className={css["reports-link"]}>
-        <p> Reports </p>
+        <p>Reports</p>
         <ReportsIcon />
       </Link>
     </div>

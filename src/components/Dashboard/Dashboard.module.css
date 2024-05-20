@@ -1,36 +1,47 @@
-@import url('../../index.css');
+@import url("../../index.css");
 
 .dashboard {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--background-main);
+  padding: 20px 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: var(--background-main);  zmiany w stylizacji */
 }
 
+.dashboard > :first-child {
+  align-self: flex-start;
+}
 
 .back-to-home-link-container a {
-    display: flex;
-    text-decoration: none;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 15px;
-    margin-right: 40px;
-}
-
-
-
-@media (max-width: 1023px) {
-    .dashboard {
-        flex-direction: column;
-    }
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-right: 40px;
 }
 
 @media (min-width: 768px) {
+}
+
+/* @media (max-width: 1023px) {
     .dashboard {
-        justify-content: space-between;
-        padding: 0 32px 0 32px;
-        flex-direction: row;
+        flex-direction: column;
     }
+} zmiana stylizacji */
+
+@media (min-width: 768px) {
+  .dashboard {
+    justify-content: space-between;
+    padding: 40px 32px 40px 32px;
+    flex-direction: row;
+     }
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-darkgrey);
 }
