@@ -7,6 +7,7 @@ const HomePage = () => {
     <div className={css["homepage-container"]}>
       <div className={css["background-top"]}></div>
       <div className={css["background-bottom"]}></div>
+      <div className={css["image-tablet"]}></div> 
       <Dashboard />
       <Hero />
     </div>

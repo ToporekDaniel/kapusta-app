@@ -5,22 +5,46 @@ import css from "./FormTransaction.module.css";
 import Button from "../Button/Button.jsx";
 import PropTypes from "prop-types";
 
-function FormTransaction({ selectOptions }) {
+function FormTransaction({ selectOptions, onAddTransaction, type }) {
   const [startDate, setStartDate] = useState(new Date());
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
 
-  const handleSubmitInput = () => {
-    // Logika obsługi przycisku INPUT do zrobienie
+  const handleSubmitInput = (e) => {
+    e.preventDefault();
+    if (!description || !category || !amount) {
+      alert("Please fill all the fields.");
+      return;
+    }
+
+    const newTransaction = {
+      date: startDate.toISOString().split("T")[0],
+      description,
+      category,
+      sum: type === "expenses" ? parseFloat(amount) * -1 : parseFloat(amount), //będzie się wyświetlać ujemna wartość w tabeli
+    };
+
+    onAddTransaction(newTransaction);
+
+    // czyszczenie pól po tym jak już kliknie się 'INPUT"
+    setStartDate(new Date());
+    setDescription("");
+    setCategory("");
+    setAmount("");
   };
 
-  const handleClear = () => {
-    // Logika obsługi przycisku CLEAR do zrobienia
+  // czyszczenie pól po tym jak się je uzupełni i stwierdzi, że coś nie tak we wprowadzonych danych i wtedy można kliknąć 'CLEAR'
+  const handleClear = (e) => {
+    e.preventDefault();
+    setStartDate(new Date());
+    setDescription("");
+    setCategory("");
+    setAmount("");
   };
 
   return (
-    <form className={css["container-transaction"]}>
+    <form onSubmit={handleSubmitInput} className={css["container-transaction"]}>
       <div className={css["container-inputs"]}>
         <div className={css["datepicker-wrapper"]}>
           <svg width="20" height="20">
@@ -105,6 +129,10 @@ FormTransaction.propTypes = {
       label: PropTypes.string.isRequired,
     })
   ).isRequired,
+  onAddTransaction: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default FormTransaction;
+
+

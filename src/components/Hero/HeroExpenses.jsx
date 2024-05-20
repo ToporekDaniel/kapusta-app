@@ -1,9 +1,12 @@
+import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import SummaryTable from "../../components/SummaryTable/SummaryTable";
 import FormTransaction from "../FormTransaction/FormTransaction";
 import TransactionTable from "../TransactionTable/TransactionTable";
 import css from "./Hero.module.css";
 import selectOptionsExpenses from "./selectOptionsExpenses";
 
+// BACKEND - usunąć te przykładowe dane
 //przykładowe dane do wyświetlenia w tabeli
 //finalnie powinny być zaciągane przez serwer
 const data = [
@@ -14,7 +17,7 @@ const data = [
   { monthName: "January", value: 8 },
   { monthName: "January", value: 100 },
 ];
-const transactions = [
+const initialTransactions = [
   {
     id: 1,
     date: "2024-05-13",
@@ -47,14 +50,76 @@ const transactions = [
 
 const type = "expenses";
 
-const handleDelete = (id) => {
-  // Implementacja usuwania transakcji
-};
-
 function HeroExpenses() {
+  const [transactions, setTransactions] = useState(initialTransactions);
+  const isTablet = useMediaQuery({ query: "(min-width: 768px) and (max-width: 1024px)" });
+
+  const handleAddTransaction = async (newTransaction) => {
+    try {
+      // BACKEND usunąć console.log
+      console.log("Adding transaction:", newTransaction);
+
+      // BACKEND skontrolować endpoint
+      const response = await fetch(
+        "https://kapusta-server.onrender.com/api/transactions/expenses",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newTransaction),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to add transaction");
+      }
+
+      const addedTransaction = await response.json();
+
+      // BACKEND usunąć console.log
+      console.log("Transaction added:", addedTransaction);
+
+      setTransactions([...transactions, addedTransaction]);
+    } catch (error) {
+      console.error("Error adding transaction:", error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      // BACKEND usunąć console.log
+      console.log("Deleting transaction with ID:", id);
+
+      const response = await fetch(
+        `https://kapusta-server.onrender.com/api/transactions/expenses/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to delete transaction");
+      }
+
+      setTransactions(
+        transactions.filter((transaction) => transaction.id !== id)
+      );
+      // BACKEND usunąć console.log
+      console.log("Transaction deleted successfully");
+    } catch (error) {
+      console.error("Error deleting transaction:", error);
+    }
+  };
+
   return (
+    <div>
     <div className={css["hero-wrapper"]}>
-      <FormTransaction selectOptions={selectOptionsExpenses} />
+      <FormTransaction
+        selectOptions={selectOptionsExpenses}
+        onAddTransaction={handleAddTransaction}
+        type={type} 
+      />
       <div className={css["hero-wrapper-tables"]}>
         <TransactionTable
           className={css["hero-transaction-table"]}
@@ -62,8 +127,10 @@ function HeroExpenses() {
           type={type}
           handleDelete={handleDelete}
         />
-        <SummaryTable data={data} />
+        {!isTablet && <SummaryTable data={data} />}
+        </div>
       </div>
+      {isTablet && <SummaryTable data={data} />}
     </div>
   );
 }

@@ -11,7 +11,6 @@ function Hero() {
 
   return (
     <div className={css["hero-container"]}>
-      
       <nav className={css["tab-wrapper"]}>
         <NavLink
           to="/expenses"
@@ -30,7 +29,6 @@ function Hero() {
         </NavLink>
       </nav>
       <Outlet />
-     
     </div>
   );
 }
