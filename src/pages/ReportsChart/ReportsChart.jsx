@@ -12,13 +12,10 @@ function ReportsChart() {
   const { user, authenticated } = useUser();
   if (!user || !authenticated) {
     navigate(APP_ROUTES.SIGN_IN);
-  }
-    const { expenses, income } = useFinance();
-    const [selectedCategory, setSelectedCategory] = useState(null);
+  } const { expenses, income } = useFinance(); const [selectedCategory, setSelectedCategory] = useState(null);
     const [chartData, setChartData] = useState([]);
 
-    useEffect(() => {
-        if (selectedCategory) {
+    useEffect(() => { if (selectedCategory) {
             const data = expenses.filter(exp => exp.category === selectedCategory).map(exp => ({
                 category: exp.category,
                 amount: exp.amount
