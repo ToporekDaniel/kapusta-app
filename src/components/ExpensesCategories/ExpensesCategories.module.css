@@ -25,6 +25,7 @@
 .icon {
     fill: var(--text-darkgrey); 
     transition: fill 0.3s ease;
+    padding: 5px;
 }
 
 /* .product-card:hover .icon,
