@@ -34,6 +34,11 @@ height: 100vh;
     height: 35%;
   }}
 
+  @media (min-width: 1024px) {
+    .background-top {
+      height: 50%;
+    }}
+
 @media (min-width: 1024px) {
   .background-bottom {
     position: absolute;
