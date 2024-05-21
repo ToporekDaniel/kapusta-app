@@ -2,16 +2,19 @@
 
 .balance-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 8px;
   align-items: center;
-  gap: 00px;
-  padding: 16px;
-  margin: 20px;
   position: relative;
-  background-color: var(--background-main);
+ }
+
+ .balance-container.row {
+  flex-direction: row;
 }
-@media (min-width: 768px) {
-  .balance-container {
+
+ @media (min-width: 768px) {
+  .balance-container{
+    flex-direction: row;
     gap: 20px;
   }
   }
@@ -37,12 +40,18 @@
   text-align: center;
   font-weight: 700;
   margin-left: 20px;
+  color: var(--text-darkgrey);
+}
+
+.balance-value.rounded {
+  border-radius: 16px;
 }
 
 @media (min-width: 768px) {
   .balance-value {
     border-radius: 16px;
     margin-left: 0px;
+    margin-right: 20px;
   }
 }
 
@@ -72,11 +81,6 @@
 .modal-content {
   font-size: 14px;
 }
-
-.text {
-  color: var(--text-darkgrey);
-}
-
 
 .confirm-button {
   border-radius: 0 16px 16px 0;

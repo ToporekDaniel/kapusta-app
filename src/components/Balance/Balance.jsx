@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { disableInput } from '../../app/store';
-import { useFinance } from '../../../contexts/FinanceContext';
-import './Balance.module.css';
-import { useTranslation } from 'react-i18next';
-import Button from '../Button/Button';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import css from './Balance.module.css';
-
-
-
-
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { disableInput } from "../../app/store";
+import { useFinance } from "../../../contexts/FinanceContext";
+import "./Balance.module.css";
+import { useTranslation } from "react-i18next";
+import Button from "../Button/Button";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import css from "./Balance.module.css";
 
 function Balance() {
   const [inputBalance, setInputBalance] = useState("");
@@ -51,31 +47,40 @@ function Balance() {
     }
   };
 
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   return (
-    <div className={css["balance-container"]}>
-   
-        <label className={css["balance-label"]}>{t("balance")}</label>
+    <div
+      className={`${css["balance-container"]} ${
+        inputDisabled ? css["row"] : ""
+      }`}
+    >
+      <label className={css["balance-label"]}>{t("balance")}</label>
+      <div>
         <input
           type="text"
-          className={css["balance-value"]}
+          className={`${css["balance-value"]} ${
+            inputDisabled ? css["rounded"] : ""
+          }`}
           value={inputBalance}
           onChange={handleInputChange}
           disabled={inputDisabled}
         />
         {showModal && (
-        <div className={css["modal"]}>
-          <div className={css["modal-content"]}>
-            <p>{t("firstBalanceP")}</p>
-            <p>{t("secondBalanceP")}</p>
+          <div className={css["modal"]}>
+            <div className={css["modal-content"]}>
+              <p>{t("firstBalanceP")}</p>
+              <p>{t("secondBalanceP")}</p>
+            </div>
           </div>
-        </div>
-      )}
-        {!inputDisabled && (
-          <Button className={css["confirm-button"]} onClick={handleConfirm} text={t("CONFIRM")} />
         )}
-      
-
+        {!inputDisabled && (
+          <Button
+            className={css["confirm-button"]}
+            onClick={handleConfirm}
+            text={t("CONFIRM")}
+          />
+        )}
+      </div>
     </div>
   );
 }

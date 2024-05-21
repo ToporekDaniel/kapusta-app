@@ -10,7 +10,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 999;
+  z-index: 1;
 }
 
 .ModalContainer {
@@ -22,7 +22,7 @@
   position: absolute;
   right: 20px;
   top: 50px;
-  z-index: 30;
+  z-index: 1;
 }
 
 .ModalTitle {
@@ -40,7 +40,7 @@
   background-color: #f5f6fb;
   border-radius: 16px;
   color: #52555f;
-  font-size: 12px;
+  font-size: var(--primary-font-size);
   font-weight: 700;
   height: 44px;
   line-height: 14px;
