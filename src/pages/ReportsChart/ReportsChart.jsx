@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { useFinance } from "../../../contexts/FinanceContext";
 import ExpensesChart from "../../components/ExpensesChart/ExpensesChart";
 import IncomeChart from "../../components/IncomeChart/IncomeChart"; 
-import ExpensesCategories from "../../components/ExpensesCategories/ExpensesCategories";
 import Dashboard from "../../components/Dashboard/Dashboard";
 import ReportsSlider from "../../components/ReportsSlider/ReportsSlider"; 
 import css from "./ReportsChart.module.css";
