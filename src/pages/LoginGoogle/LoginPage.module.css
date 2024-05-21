@@ -8,13 +8,13 @@ body {
   height: 850px;
   /* background-origin: border-box; */
   font-size: var(--primary-font-size);
-  background-image: url("./../../assets/LoginPage1x.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  background-image: image-set (
-      './../../assets/LoginPage1x.png' 1x,
-      );
+  /* background-image: url("./../../assets/LoginPage1x.png"); */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  /* background-size: contain; */
+  /* background-image: image-set ( */
+      /* './../../assets/LoginPage1x.png' 1x, */
+      /* ); */
   /* background-size: cover; */
 }
 
