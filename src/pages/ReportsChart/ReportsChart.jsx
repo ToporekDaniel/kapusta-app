@@ -7,9 +7,19 @@ import ExpensesCategories from "../../components/ExpensesCategories/ExpensesCate
 import Dashboard from "../../components/Dashboard/Dashboard";
 import ReportsSlider from "../../components/ReportsSlider/ReportsSlider"; 
 import css from "./ReportsChart.module.css";
+
+import { useUser } from "./../../lib/customHooks";
+import { useNavigate } from "react-router-dom";
+import { APP_ROUTES } from "../../utils/constants";
 import { useTranslation } from "react-i18next";
 
 function ReportsChart() {
+  const navigate = useNavigate();
+  const { user, authenticated } = useUser();
+  if (!user || !authenticated) {
+    navigate(APP_ROUTES.SIGN_IN);
+  }
+
   const { expenses, income } = useFinance();
   const [chartData, setChartData] = useState([]);
   const { categoryName, reportType } = useParams();  
@@ -39,6 +49,7 @@ function ReportsChart() {
     setSelectedCategory(category);
   };
 
+
   const { t } = useTranslation();
 
   return (
@@ -64,6 +75,7 @@ function ReportsChart() {
               <span className={css["text-green"]}>{totalIncome}</span>
             </li>
           </ul>
+
         </div>
         {/* <ExpensesCategories onCategorySelect={handleCategorySelect} /> */}
       </div>
