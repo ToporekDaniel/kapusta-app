@@ -13,9 +13,9 @@ function LoginGoogle() {
   const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
   const { user, authenticated } = useUser();
-  if (!user || !authenticated) {
+  if (user || authenticated) {
     // setProfile(user);
-    // navigate(APP_ROUTES.HOME);
+    navigate(APP_ROUTES.HOME);
   }
 
   const googleLogin = useGoogleLogin({
