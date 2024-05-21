@@ -1,0 +1,24 @@
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+  }
+  
+  .slider a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color:var(--text-darkgrey);
+    font-size: 16px;
+    font-weight: 400;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .slider a.active {
+    font-weight: 600;
+    color:var(--accent-orange);
+    border-bottom: 3px solid var(--accent-orange);
+  }
+  
