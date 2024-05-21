@@ -16,8 +16,13 @@ const LoginPage = () => {
 
   return (
     <div className={css["loginpage-container"]}>
+      <div className={css.logo}>
+        <h1 className={css.title}>Kapu$ta</h1>
+        <p className={css.subtitle}>smart finance</p>
+      </div>
       <div className={css["background-top"]}></div>
       <div className={css["background-bottom"]}></div>
+      <div className={css["image"]}></div>
       <LoginForm className={css.form} />
     </div>
   );
