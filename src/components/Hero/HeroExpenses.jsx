@@ -92,7 +92,7 @@ function HeroExpenses() {
       console.log("Deleting transaction with ID:", id);
 
       const response = await fetch(
-        `https://kapusta-server.onrender.com/api/transactions/expenses/${id}`,
+        `https://kapusta-server.onrender.com/api/transaction/expense/${id}`,
         {
           method: "DELETE",
         }

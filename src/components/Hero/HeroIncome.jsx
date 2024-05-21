@@ -53,7 +53,7 @@ function HeroIncome() {
       console.log("Adding transaction:", newTransaction);
       // BACKEND skontrolować endpoint
       const response = await fetch(
-        "https://kapusta-server.onrender.com/api/transactions/income",
+     "/api/transaction/income",
         {
           method: "POST",
           headers: {
@@ -84,7 +84,7 @@ function HeroIncome() {
       // BACKEND usunąć console.log
       console.log("Deleting transaction with ID:", id);
       const response = await fetch(
-        `https://kapusta-server.onrender.com/api/transactions/income/${id}`,
+        `https://kapusta-server.onrender.com/api/transaction/income/${id}`,
         {
           method: "DELETE",
         }
