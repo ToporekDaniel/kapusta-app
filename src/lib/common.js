@@ -4,6 +4,11 @@ export function storeTokenInLocalStorage(token) {
   localStorage.setItem('token', token);
 }
 
+export function storeAccessTokenInLocalStorage(accessToken){
+
+  localStorage.setItem('accessToken', token);
+}
+
 export function getTokenFromLocalStorage() {
   return localStorage.getItem('token');
 }
@@ -32,8 +37,8 @@ export async function getAuthenticatedUser() {
           Authorization: `Bearer ${token}`
         }
       });
-      const { authenticated = false, accesToken = null } = response.data;
-      localStorage.setItem(accesToken)
+      const { authenticated = false, accessToken = null } = response.data;
+      localStorage.setItem("accessToken", accessToken)
       return authenticated ? response.data : false;
 
 
