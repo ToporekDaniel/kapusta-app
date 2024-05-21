@@ -8,12 +8,18 @@ import { useUser } from "./../../lib/customHooks";
 import { APP_ROUTES } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
 
+import { useUser } from "./../../lib/customHooks";
+import { useNavigate } from "react-router-dom";
+import { APP_ROUTES } from "../../utils/constants";
+import { useTranslation } from "react-i18next";
+
 function ReportsChart() {
   const navigate = useNavigate();
   const { user, authenticated } = useUser();
   if (!user || !authenticated) {
     navigate(APP_ROUTES.SIGN_IN);
   }
+
   const { expenses, income } = useFinance();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [chartData, setChartData] = useState([]);
@@ -39,6 +45,9 @@ function ReportsChart() {
     setSelectedCategory(category);
   };
 
+
+  const { t } = useTranslation();
+
   return (
     <div className={css["reports-chart-container"]}>
       <div className={css["background-top"]}></div>
@@ -48,13 +57,16 @@ function ReportsChart() {
         <div className={css["header-reports-total"]}>
           <ul className={css["header-reports-list"]}>
             <li className={css["header-reports-item"]}>
-              Expenses:<span className={css["text-red"]}>{totalExpenses}</span>
+              {t("Expenses")}:
+              <span className={css["text-red"]}>{totalExpenses}</span>
             </li>
             <div className={css["header-reports-div"]}></div>
             <li className={css["header-reports-item"]}>
-              Income:<span className={css["text-green"]}>{totalIncome}</span>
+              {t("Income")}:
+              <span className={css["text-green"]}>{totalIncome}</span>
             </li>
           </ul>
+
         </div>
         <ExpensesCategories onCategorySelect={handleCategorySelect} />
       </div>

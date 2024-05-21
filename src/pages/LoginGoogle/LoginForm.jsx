@@ -5,6 +5,8 @@ import { LoginGoogle } from "./LoginGoogle";
 import axios from "axios";
 // import PropTypes from "prop-types";
 
+
+import { storeTokenInLocalStorage } from "../../lib/common";
 import { APP_ROUTES } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
 import css from "./LoginForm.module.css";
@@ -74,12 +76,21 @@ const LoginForm = () => {
           password,
         },
       });
-      if (!response?.data?.token) {
+      if (!response?.data?.accessToken) {
         console.log("Something went wrong during signing in: ", response);
         return;
       }
-      storeTokenInLocalStorage(response.data.token);
+
+
+
+
+
+
+
+      // storeTokenInLocalStorage(response.data.accessToken);
+      localStorage.setItem('accessToken', response.data.accessToken);
       navigate(APP_ROUTES.HOME);
+      return;
     } catch (err) {
       console.log("Some error occured during signing in: ", err);
     } finally {
