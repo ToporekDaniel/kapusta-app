@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import styles from "./ModalCloseButton.module.css";
+import styles from "./ModalClosePopup.module.css";
 import PropTypes from "prop-types";
 
 // w propsie title powinny być dwie wartości: 

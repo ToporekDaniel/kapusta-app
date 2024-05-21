@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFinance } from "../../../contexts/FinanceContext";
 import ExpensesChart from "../../components/ExpensesChart/ExpensesChart";
 import ExpensesCategories from "../../components/ExpensesCategories/ExpensesCategories";
 import Dashboard from "../../components/Dashboard/Dashboard";
 import css from "./ReportsChart.module.css";
+import { useTranslation } from "react-i18next";
 
 function ReportsChart() {
   const { expenses, income } = useFinance();
@@ -31,6 +32,8 @@ function ReportsChart() {
     setSelectedCategory(category);
   };
 
+  const { t } = useTranslation();
+
   return (
     <div className={css["reports-chart-container"]}>
       <div className={css["background-top"]}></div>
@@ -40,11 +43,13 @@ function ReportsChart() {
         <div className={css["header-reports-total"]}>
           <ul className={css["header-reports-list"]}>
             <li className={css["header-reports-item"]}>
-              Expenses:<span className={css["text-red"]}>{totalExpenses}</span>
+              {t("Expenses")}:
+              <span className={css["text-red"]}>{totalExpenses}</span>
             </li>
             <div className={css["header-reports-div"]}></div>
             <li className={css["header-reports-item"]}>
-              Income:<span className={css["text-green"]}>{totalIncome}</span>
+              {t("Income")}:
+              <span className={css["text-green"]}>{totalIncome}</span>
             </li>
           </ul>
         </div>

@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import UserLogOut from "../UserLogOut/UserLogOut";
 
 const Header = () => {
+
+  
+
   return (
     
       <header className={styles.header}>
@@ -14,7 +18,7 @@ const Header = () => {
           </Link>
           <ThemeSwitcher/>
           <LanguageSwitcher />
-          
+          <UserLogOut/>
         </div>
       </header>
     
