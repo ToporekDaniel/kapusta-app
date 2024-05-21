@@ -37,6 +37,7 @@ function ExpensesReport() {
     useEffect(() => {
         if (categoryName) {
             const filteredData = expenses.filter(exp => exp.category === categoryName);
+            console.log(filteredData);
             setChartData(filteredData.map(exp => ({
                 category: exp.category,
                 amount: exp.amount,
@@ -63,15 +64,12 @@ function ExpensesReport() {
                         </li>
                     ))}
                 </ul>
-             
             </div>
             <div>
-                    {chartData.length > 0 ? (
-                        <ExpensesChart data={chartData} />
-                    ) : (
-                        <p>No data available for this category.</p>
-                    )}
-                </div>
+               
+                    <ExpensesChart data={chartData} />
+               
+            </div>
         </div>
     );
 }

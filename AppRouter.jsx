@@ -32,7 +32,11 @@ const AppRouter = () => {
           <Route path="/reports" element={<ReportsChart />}>
             <Route index element={<Navigate to="expenses" />} />
             <Route path="expenses" element={<ExpensesReport />} />
+            <Route path="expenses/:categoryName" element={<ExpensesReport />} />
+
             <Route path="income" element={<IncomeReport />} /> 
+            <Route path="income/:categoryName" element={<IncomeReport />} /> 
+
           </Route>
         </Routes>
       </Router>
