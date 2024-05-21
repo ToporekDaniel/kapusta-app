@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 import { useFinance } from '../../../contexts/FinanceContext';
 import ExpensesChart from '../../components/ExpensesChart/ExpensesChart';
@@ -37,11 +37,10 @@ function ExpensesReport() {
     useEffect(() => {
         if (categoryName) {
             const filteredData = expenses.filter(exp => exp.category === categoryName);
-            const dataForChart = filteredData.map(exp => ({
+            setChartData(filteredData.map(exp => ({
                 category: exp.category,
                 amount: exp.amount,
-            }));
-            setChartData(dataForChart);
+            })));
         } else {
             setChartData([]);
         }
@@ -49,7 +48,7 @@ function ExpensesReport() {
 
     return (
         <div className={css['expenses-report']}>
-            <h1>{categoryName ? `${categoryName} Expenses` : "Expenses"}</h1>
+            {/* <h1>{categoryName ? `${categoryName} Expenses` : "Expenses"}</h1> */}
             <div className={css['categories-container']}>
                 {categories.map((category) => (
                     <NavLink
@@ -63,7 +62,7 @@ function ExpensesReport() {
                     </NavLink>
                 ))}
             </div>
-         <ExpensesChart data={chartData} /> 
+            {chartData.length > 0 ? <ExpensesChart data={chartData} /> : <p>No data available for this category.</p>}
         </div>
     );
 }

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useFinance } from "../../../contexts/FinanceContext";
 import ExpensesChart from "../../components/ExpensesChart/ExpensesChart";
 import IncomeChart from "../../components/IncomeChart/IncomeChart"; 
-// import ExpensesCategories from "../../components/ExpensesCategories/ExpensesCategories";
+import ExpensesCategories from "../../components/ExpensesCategories/ExpensesCategories";
 import Dashboard from "../../components/Dashboard/Dashboard";
 import ReportsSlider from "../../components/ReportsSlider/ReportsSlider"; 
 import css from "./ReportsChart.module.css";
@@ -47,7 +47,10 @@ function ReportsChart() {
       <div className={css["background-bottom"]}></div>
       <div className={css["reports-container"]}>
         <Dashboard />
+
         <div className={css["header-reports-total"]}>
+        <ReportsSlider />
+
           <ul className={css["header-reports-list"]}>
             <li className={css["header-reports-item"]}>
               {t("Expenses")}:
@@ -60,9 +63,8 @@ function ReportsChart() {
             </li>
           </ul>
         </div>
-        <ExpensesCategories onCategorySelect={handleCategorySelect} />
+        {/* <ExpensesCategories onCategorySelect={handleCategorySelect} /> */}
       </div>
-      <ReportsSlider />
 
       {/* <ExpensesCategories /> */}
       {categoryName && reportType === "expenses" && <ExpensesChart data={chartData} />}

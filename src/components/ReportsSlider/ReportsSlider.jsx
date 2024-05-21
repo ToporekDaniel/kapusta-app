@@ -1,22 +1,22 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import css from './ReportsSlider.module.css'; // Upewnij się, że ścieżka jest poprawna
+import { NavLink, Outlet } from 'react-router-dom';
+import css from './ReportsSlider.module.css';
 
-const DataSlider = ({ current }) => {
+const ReportsSlider = () => {
   return (
-    <div className={css.slider}>
-      <NavLink to="/reports/expenses"
-               className={({ isActive }) => isActive ? css.active : ''}
-               activeClassName={css.active}>
-        Expenses
-      </NavLink>
-      <NavLink to="/reports/income"
-               className={({ isActive }) => isActive ? css.active : ''}
-               activeClassName={css.active}>
-        Income
-      </NavLink>
+    <div>
+      <div className={css.slider}>
+        <NavLink to="/reports/expenses"
+                 className={({ isActive }) => isActive ? `${css.active}` : ''}>
+          Expenses
+        </NavLink>
+        <NavLink to="/reports/income"
+                 className={({ isActive }) => isActive ? `${css.active}` : ''}>
+          Income
+        </NavLink>
+      </div>
+      <Outlet /> 
     </div>
   );
 };
 
-export default DataSlider;
+export default ReportsSlider;
