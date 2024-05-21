@@ -26,6 +26,12 @@
   /* font-size: var(--primary-font-size); */
 }
 
+@media (max-width: 1023px) {
+.popup .popupInner {
+  left: 50%;
+}
+}
+
 .popup .popupInner .Desc {
   /* font-family: "Roboto"; */
   /* font-style: normal; */

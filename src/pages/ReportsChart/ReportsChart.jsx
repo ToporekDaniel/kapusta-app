@@ -7,10 +7,10 @@ import ExpensesCategories from "../../components/ExpensesCategories/ExpensesCate
 import Dashboard from "../../components/Dashboard/Dashboard";
 import ReportsSlider from "../../components/ReportsSlider/ReportsSlider"; 
 import css from "./ReportsChart.module.css";
-
 import { useUser } from "./../../lib/customHooks";
-import { useNavigate } from "react-router-dom";
 import { APP_ROUTES } from "../../utils/constants";
+import { useNavigate } from "react-router-dom";
+
 import { useTranslation } from "react-i18next";
 
 function ReportsChart() {
@@ -49,7 +49,6 @@ function ReportsChart() {
     setSelectedCategory(category);
   };
 
-
   const { t } = useTranslation();
 
   return (
@@ -75,7 +74,6 @@ function ReportsChart() {
               <span className={css["text-green"]}>{totalIncome}</span>
             </li>
           </ul>
-
         </div>
         {/* <ExpensesCategories onCategorySelect={handleCategorySelect} /> */}
       </div>
