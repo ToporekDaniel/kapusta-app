@@ -7,6 +7,7 @@ import IncomeChart from "../../components/IncomeChart/IncomeChart";
 import Dashboard from "../../components/Dashboard/Dashboard";
 import ReportsSlider from "../../components/ReportsSlider/ReportsSlider"; 
 import css from "./ReportsChart.module.css";
+import { useTranslation } from "react-i18next";
 
 function ReportsChart() {
   const { expenses, income } = useFinance();
@@ -34,12 +35,32 @@ function ReportsChart() {
   const totalExpenses = expenses.reduce((sum, item) => sum + item.amount, 0);
   const totalIncome = income.reduce((sum, item) => sum + item.amount, 0);
 
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+  };
+
+  const { t } = useTranslation();
+
   return (
     <div className={css["reports-chart-container"]}>
-      <Dashboard />
-      <div className={css["header-reports-total"]}>
-        <p>Expenses: {totalExpenses}</p>
-        <p>Incomes: {totalIncome}</p>
+      <div className={css["background-top"]}></div>
+      <div className={css["background-bottom"]}></div>
+      <div className={css["reports-container"]}>
+        <Dashboard />
+        <div className={css["header-reports-total"]}>
+          <ul className={css["header-reports-list"]}>
+            <li className={css["header-reports-item"]}>
+              {t("Expenses")}:
+              <span className={css["text-red"]}>{totalExpenses}</span>
+            </li>
+            <div className={css["header-reports-div"]}></div>
+            <li className={css["header-reports-item"]}>
+              {t("Income")}:
+              <span className={css["text-green"]}>{totalIncome}</span>
+            </li>
+          </ul>
+        </div>
+        <ExpensesCategories onCategorySelect={handleCategorySelect} />
       </div>
       <ReportsSlider />
 

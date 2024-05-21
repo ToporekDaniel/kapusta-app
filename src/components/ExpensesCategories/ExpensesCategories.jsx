@@ -11,8 +11,10 @@ import ReceiptIcon from '../../assets/icons/receipt.svg?react';
 import ClayIcon from '../../assets/icons/clay.svg?react';
 import BookIcon from '../../assets/icons/book.svg?react';
 import UfoIcon from '../../assets/icons/ufo.svg?react';
+import { useTranslation } from 'react-i18next';
 
-function ExpensesCategories() {
+function ExpensesCategories({ onCategorySelect }) {
+    const {t} = useTranslation();
     const categories = [
         { name: 'Products', Icon: ProductsIcon, quantity: 5000 },
         { name: 'Alcohol', Icon: AlcoholIcon, quantity: 3000 },
@@ -31,15 +33,10 @@ function ExpensesCategories() {
         <div className={css['expenses-categories']}>
             <ul className={css['products-container']}>
                 {categories.map((category) => (
-                    <li key={category.name} className={css['product-card']}>
-                        <NavLink 
-                            to={`/reports/${category.name}`} 
-                            className={({ isActive }) => isActive ? css['active'] : ''}
-                        >
-                            <p className={css['text']}>{category.quantity}</p>
-                            <category.Icon className={css['icon']} />
-                            <span className={css['text']}>{category.name}</span>
-                        </NavLink>
+                    <li key={category.name} className={css['product-card']} onClick={() => onCategorySelect(category.name)}>
+                        <p className={css['text']}>{category.quantity}</p>
+                        <category.Icon className={css['icon']} />
+                        <span className={css['text']}>{t(category.name)}</span>
                     </li>
                 ))}
             </ul>

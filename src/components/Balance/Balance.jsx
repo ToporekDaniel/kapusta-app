@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { disableInput } from "../../app/store";
 import { useFinance } from "../../../contexts/FinanceContext";
+import "./Balance.module.css";
+import { useTranslation } from "react-i18next";
 import Button from "../Button/Button";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import css from "./Balance.module.css";
 
 function Balance() {
@@ -45,13 +47,20 @@ function Balance() {
     }
   };
 
+  const { t } = useTranslation();
   return (
-    <div className={`${css["balance-container"]} ${inputDisabled ? css["row"] : ""}`}>
-      <label className={css["balance-label"]}>Balance:</label>
+    <div
+      className={`${css["balance-container"]} ${
+        inputDisabled ? css["row"] : ""
+      }`}
+    >
+      <label className={css["balance-label"]}>{t("balance")}</label>
       <div>
         <input
           type="text"
-          className={`${css["balance-value"]} ${inputDisabled ? css["rounded"] : ""}`}
+          className={`${css["balance-value"]} ${
+            inputDisabled ? css["rounded"] : ""
+          }`}
           value={inputBalance}
           onChange={handleInputChange}
           disabled={inputDisabled}
@@ -59,11 +68,8 @@ function Balance() {
         {showModal && (
           <div className={css["modal"]}>
             <div className={css["modal-content"]}>
-              <p>
-                Hello! To get started, enter the current balance of your
-                account!
-              </p>
-              <p>You can't spend money until you have it :)</p>
+              <p>{t("firstBalanceP")}</p>
+              <p>{t("secondBalanceP")}</p>
             </div>
           </div>
         )}
@@ -71,7 +77,7 @@ function Balance() {
           <Button
             className={css["confirm-button"]}
             onClick={handleConfirm}
-            text="CONFIRM"
+            text={t("CONFIRM")}
           />
         )}
       </div>

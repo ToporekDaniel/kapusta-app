@@ -1,3 +1,5 @@
+// import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import css from "./TransactionTable.module.css";
 import PropTypes from "prop-types";
 import { useMediaQuery } from "react-responsive";
@@ -8,16 +10,17 @@ function TransactionTable({ transactions, type, handleDelete }) {
   const emptyRows = new Array(10 - transactions.length).fill(undefined);
   const rows = [...transactions, ...emptyRows];
 
+  const {t} = useTranslation();
   return (
     <div className={css["transaction-table-wrapper"]}>
       <table className={css["transaction-table"]}>
         {!isMobileView && (
           <thead>
             <tr>
-              <th>date</th>
-              <th>description</th>
-              <th>category</th>
-              <th>sum</th>
+              <th>{t("Date")}</th>
+            <th>{t("Description")}</th>
+            <th>{t("Category")}</th>
+            <th>{t("Sum")}</th>
             </tr>
           </thead>
         )}
@@ -59,7 +62,7 @@ function TransactionTable({ transactions, type, handleDelete }) {
                   <>
                     <td>{row.date}</td>
                     <td>{row.description}</td>
-                    <td>{row.category}</td>
+                    <td>{t(row.category)}</td>
                     <td
                       className={type === "expenses" ? css.expense : css.income}
                     >
