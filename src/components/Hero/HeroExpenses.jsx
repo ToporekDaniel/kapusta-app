@@ -5,6 +5,8 @@ import FormTransaction from "../FormTransaction/FormTransaction";
 import TransactionTable from "../TransactionTable/TransactionTable";
 import css from "./Hero.module.css";
 import selectOptionsExpenses from "./selectOptionsExpenses";
+import axios from 'axios';
+import { getAccessTokenFromLocalStorage } from "../../lib/common";
 
 // BACKEND - usunąć te przykładowe dane
 //przykładowe dane do wyświetlenia w tabeli
@@ -58,28 +60,26 @@ function HeroExpenses() {
     try {
       // BACKEND usunąć console.log
       console.log("Adding transaction:", newTransaction);
+  
+      const accessToken = getAccessTokenFromLocalStorage();
 
       // BACKEND skontrolować endpoint
-      const response = await fetch(
-        "https://kapusta-server.onrender.com/api/transactions/expenses",
+      const response = await axios.post(
+        "https://kapusta-server.onrender.com/api/transaction/expense",
+        newTransaction,
         {
-          method: "POST",
           headers: {
             "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newTransaction),
+            "Authorization": `Bearer ${accessToken}` 
+          }
         }
       );
-
-      if (!response.ok) {
-        throw new Error("Failed to add transaction");
-      }
-
-      const addedTransaction = await response.json();
-
+  
+      const addedTransaction = response.data;
+  
       // BACKEND usunąć console.log
       console.log("Transaction added:", addedTransaction);
-
+  
       setTransactions([...transactions, addedTransaction]);
     } catch (error) {
       console.error("Error adding transaction:", error);
@@ -91,14 +91,18 @@ function HeroExpenses() {
       // BACKEND usunąć console.log
       console.log("Deleting transaction with ID:", id);
 
-      const response = await fetch(
+      const accessToken = getAccessTokenFromLocalStorage();  // Get the access token
+
+      const response = await axios.delete(
         `https://kapusta-server.onrender.com/api/transaction/expense/${id}`,
         {
-          method: "DELETE",
+          headers: {
+            "Authorization": `Bearer ${accessToken}`
+          }
         }
       );
 
-      if (!response.ok) {
+      if (response.status !== 200) {
         throw new Error("Failed to delete transaction");
       }
 

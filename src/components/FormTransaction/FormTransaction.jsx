@@ -23,7 +23,7 @@ function FormTransaction({ selectOptions, onAddTransaction, type }) {
       date: startDate.toISOString().split("T")[0],
       description,
       category,
-      sum: type === "expenses" ? parseFloat(amount) * -1 : parseFloat(amount), //będzie się wyświetlać ujemna wartość w tabeli
+      amount: type === "expenses" ? parseFloat(amount) * -1 : parseFloat(amount), //będzie się wyświetlać ujemna wartość w tabeli
     };
 
     onAddTransaction(newTransaction);

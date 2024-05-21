@@ -5,6 +5,8 @@ import FormTransaction from "../FormTransaction/FormTransaction";
 import TransactionTable from "../TransactionTable/TransactionTable";
 import css from "./Hero.module.css";
 import selectOptionsIncome from "./selectOptionsIncome";
+import axios from "axios";
+import { getAccessTokenFromLocalStorage } from "../../lib/common";
 
 // BACKEND - usunąć te przykładowe dane
 //przykładowe dane do wyświetlenia w tabeli
@@ -23,21 +25,21 @@ const initialTransactions = [
     date: "2024-05-13",
     description: "Wypłata",
     category: "Salary",
-    sum: 5000,
+    amount: 5000,
   },
   {
     id: 2,
     date: "2024-05-14",
     description: "Zlecenie",
     category: "Add. Income",
-    sum: 500,
+    amount: 500,
   },
   {
     id: 3,
     date: "2024-05-14",
     description: "alaaaaa",
     category: "Add. Income",
-    sum: 100,
+    amount: 100,
   },
 ];
 
@@ -49,31 +51,24 @@ function HeroIncome() {
 
   const handleAddTransaction = async (newTransaction) => {
     try {
-      // BACKEND usunąć console.log
-      console.log("Adding transaction:", newTransaction);
-      // BACKEND skontrolować endpoint
-      const response = await fetch(
-     "/api/transaction/income",
+      const accessToken = getAccessTokenFromLocalStorage();  
+
+      const response = await axios.post(
+        "https://kapusta-server.onrender.com/api/transaction/income",
+        newTransaction,
         {
-          method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Authorization": `Bearer ${accessToken}`,
           },
-          body: JSON.stringify(newTransaction),
         }
       );
 
-      if (!response.ok) {
+      if (!response.data) {
         throw new Error("Failed to add transaction");
       }
 
-      // Pobieram zaktualizowane dane z serwera
-      const addedTransaction = await response.json();
-
-      // BACKEND usunąć console.log
-      console.log("Transaction added:", addedTransaction);
-      // Aktualizuje stan
-      setTransactions([...transactions, addedTransaction]);
+      setTransactions([...transactions, response.data]);
     } catch (error) {
       console.error("Error adding transaction:", error);
     }
@@ -81,25 +76,26 @@ function HeroIncome() {
 
   const handleDelete = async (id) => {
     try {
-      // BACKEND usunąć console.log
       console.log("Deleting transaction with ID:", id);
-      const response = await fetch(
+      const accessToken = getAccessTokenFromLocalStorage();  // Get the access token
+      const response = await axios.delete(
         `https://kapusta-server.onrender.com/api/transaction/income/${id}`,
         {
-          method: "DELETE",
+          headers: {
+            "Authorization": `Bearer ${accessToken}`,
+          },
         }
       );
 
-      if (!response.ok) {
+      if (response.status !== 200) {
         throw new Error("Failed to delete transaction");
       }
 
-      // Aktualizuje stan komponentu, usuwam transakcję z listy
       const updatedTransactions = transactions.filter(
         (transaction) => transaction.id !== id
       );
       setTransactions(updatedTransactions);
-      // BACKEND usunąć console.log
+
       console.log("Transaction deleted.");
     } catch (error) {
       console.error("Error deleting transaction:", error);
