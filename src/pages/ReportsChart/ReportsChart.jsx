@@ -47,8 +47,10 @@ function ReportsChart() {
       <div className={css["background-bottom"]}></div>
       <div className={css["reports-container"]}>
         <Dashboard />
-
+        {categoryName && reportType === "expenses" && <ExpensesChart data={chartData} />}
+      {categoryName && reportType === "income" && <IncomeChart data={chartData} />}
         <div className={css["header-reports-total"]}>
+
         <ReportsSlider />
 
           <ul className={css["header-reports-list"]}>

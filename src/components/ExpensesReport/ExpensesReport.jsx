@@ -47,22 +47,31 @@ function ExpensesReport() {
     }, [expenses, categoryName]);
 
     return (
-        <div className={css['expenses-report']}>
-            {/* <h1>{categoryName ? `${categoryName} Expenses` : "Expenses"}</h1> */}
-            <div className={css['categories-container']}>
-                {categories.map((category) => (
-                    <NavLink
-                        key={category.name}
-                        to={`/reports/expenses/${category.name}`}
-                        className={({ isActive }) => isActive ? `${css['active']} ${css['category']}` : css['category']}
-                    >
-                        {category.Icon && <category.Icon />}
-                        <p>{category.name}</p>
-                        <span>{category.quantity}</span>
-                    </NavLink>
-                ))}
+        <div className={css['expenses-report-wrapper']}>
+            <div className={css['expenses-report']}>
+                <ul className={css['products-container']}>
+                    {categories.map((category) => (
+                        <li key={category.name} className={css['product-card']}>
+                            <NavLink
+                                to={`/reports/expenses/${category.name}`}
+                                className={({ isActive }) => isActive ? `${css['active']} ${css['category']}` : css['category']}
+                            >
+                                <p className={css['text']}>{category.quantity}</p>
+                                {category.Icon && <category.Icon className={css['icon']} />}
+                                <span className={css['text']}>{category.name}</span>
+                            </NavLink>
+                        </li>
+                    ))}
+                </ul>
+             
             </div>
-            {chartData.length > 0 ? <ExpensesChart data={chartData} /> : <p>No data available for this category.</p>}
+            <div>
+                    {chartData.length > 0 ? (
+                        <ExpensesChart data={chartData} />
+                    ) : (
+                        <p>No data available for this category.</p>
+                    )}
+                </div>
         </div>
     );
 }
