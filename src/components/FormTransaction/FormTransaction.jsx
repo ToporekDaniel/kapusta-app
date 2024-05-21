@@ -2,6 +2,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import css from "./FormTransaction.module.css";
+import { useTranslation } from "react-i18next";
 import Button from "../Button/Button.jsx";
 import PropTypes from "prop-types";
 
@@ -27,13 +28,14 @@ function FormTransaction({ selectOptions, onAddTransaction, type }) {
 
     onAddTransaction(newTransaction);
 
-    // czyszczenie pól
+    // czyszczenie pól po tym jak już kliknie się 'INPUT"
     setStartDate(new Date());
     setDescription("");
     setCategory("");
     setAmount("");
   };
 
+  // czyszczenie pól po tym jak się je uzupełni i stwierdzi, że coś nie tak we wprowadzonych danych i wtedy można kliknąć 'CLEAR'
   const handleClear = (e) => {
     e.preventDefault();
     setStartDate(new Date());
@@ -42,6 +44,7 @@ function FormTransaction({ selectOptions, onAddTransaction, type }) {
     setAmount("");
   };
 
+  const {t} = useTranslation();
   return (
     <form onSubmit={handleSubmitInput} className={css["container-transaction"]}>
       <div className={css["container-inputs"]}>
@@ -64,23 +67,24 @@ function FormTransaction({ selectOptions, onAddTransaction, type }) {
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Product description"
+          placeholder={t("FormTransactionPlaceholder")}
           required
         />
 
         <div className={css["transaction-select"]}>
           <select
             data-value={category}
+
             required
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
             <option value="" hidden>
-              Product category
+              {t("ProductCategory")}
             </option>
             {selectOptions.map((option) => (
               <option key={option.value} value={option.value}>
-                {option.label}
+                {t(option.label)}
               </option>
             ))}
           </select>
@@ -111,11 +115,11 @@ function FormTransaction({ selectOptions, onAddTransaction, type }) {
           </label>
         </div>
       </div>
-      <div>
-        <div className={css["buttons-wrapper"]}>
-          <Button onClick={handleSubmitInput} text="INPUT" />
-          <Button onClick={handleClear} text="CLEAR" />
-        </div>
+
+      <div className={css["buttons-wrapper"]} > 
+        <Button onClick={handleSubmitInput} text={t("INPUT")} />
+        <Button onClick={handleClear} text={t("CLEAR")} />
+
       </div>
     </form>
   );
@@ -133,3 +137,5 @@ FormTransaction.propTypes = {
 };
 
 export default FormTransaction;
+
+

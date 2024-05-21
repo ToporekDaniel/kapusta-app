@@ -11,8 +11,10 @@ import ReceiptIcon from '../../assets/icons/receipt.svg?react';
 import ClayIcon from '../../assets/icons/clay.svg?react';
 import BookIcon from '../../assets/icons/book.svg?react';
 import UfoIcon from '../../assets/icons/ufo.svg?react';
+import { useTranslation } from 'react-i18next';
 
 function ExpensesCategories({ onCategorySelect }) {
+    const {t} = useTranslation();
     const categories = [
         { name: 'Products', Icon: ProductsIcon, quantity: 5000 },
         { name: 'Alcohol', Icon: AlcoholIcon, quantity: 3000 },
@@ -34,7 +36,7 @@ function ExpensesCategories({ onCategorySelect }) {
                     <li key={category.name} className={css['product-card']} onClick={() => onCategorySelect(category.name)}>
                         <p className={css['text']}>{category.quantity}</p>
                         <category.Icon className={css['icon']} />
-                        <span className={css['text']}>{category.name}</span>
+                        <span className={css['text']}>{t(category.name)}</span>
                     </li>
                 ))}
             </ul>

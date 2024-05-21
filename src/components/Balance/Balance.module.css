@@ -2,15 +2,19 @@
 
 .balance-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 8px;
   align-items: center;
-  padding: 16px;
-  margin: 20px;
   position: relative;
  }
 
-@media (min-width: 768px) {
-  .balance-container {
+ .balance-container.row {
+  flex-direction: row;
+}
+
+ @media (min-width: 768px) {
+  .balance-container{
+    flex-direction: row;
     gap: 20px;
   }
   }
@@ -39,10 +43,15 @@
   color: var(--text-darkgrey);
 }
 
+.balance-value.rounded {
+  border-radius: 16px;
+}
+
 @media (min-width: 768px) {
   .balance-value {
     border-radius: 16px;
     margin-left: 0px;
+    margin-right: 20px;
   }
 }
 

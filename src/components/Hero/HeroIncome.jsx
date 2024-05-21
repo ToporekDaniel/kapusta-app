@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import SummaryTable from "../../components/SummaryTable/SummaryTable";
 import FormTransaction from "../FormTransaction/FormTransaction";
 import TransactionTable from "../TransactionTable/TransactionTable";
@@ -44,6 +45,7 @@ const type = "income";
 
 function HeroIncome() {
   const [transactions, setTransactions] = useState(initialTransactions);
+  const isTablet = useMediaQuery({ query: "(min-width: 768px) and (max-width: 1024px)" });
 
   const handleAddTransaction = async (newTransaction) => {
     try {
@@ -105,6 +107,7 @@ function HeroIncome() {
   };
 
   return (
+    <div>
     <div className={css["hero-wrapper"]}>
       <FormTransaction
         selectOptions={selectOptionsIncome}
@@ -118,8 +121,10 @@ function HeroIncome() {
           type={type}
           handleDelete={handleDelete}
         />
-        <SummaryTable data={data} />
+       {!isTablet && <SummaryTable data={data} />}
+        </div>
       </div>
+      {isTablet && <SummaryTable data={data} />}
     </div>
   );
 }

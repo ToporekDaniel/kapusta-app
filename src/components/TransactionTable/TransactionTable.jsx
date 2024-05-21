@@ -1,23 +1,29 @@
+// import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import css from "./TransactionTable.module.css";
 import PropTypes from "prop-types";
+import { useMediaQuery } from "react-responsive";
 
 function TransactionTable({ transactions, type, handleDelete }) {
+  const isMobileView = useMediaQuery({ query: "(max-width: 767px)" });
+
   const emptyRows = new Array(10 - transactions.length).fill(undefined);
   const rows = [...transactions, ...emptyRows];
 
-  const isMobileView = window.innerWidth < 768;
-
+  const {t} = useTranslation();
   return (
     <div className={css["transaction-table-wrapper"]}>
       <table className={css["transaction-table"]}>
-        <thead>
-          <tr>
-            <th>date</th>
-            <th>description</th>
-            <th>category</th>
-            <th>sum</th>
-          </tr>
-        </thead>
+        {!isMobileView && (
+          <thead>
+            <tr>
+              <th>{t("Date")}</th>
+            <th>{t("Description")}</th>
+            <th>{t("Category")}</th>
+            <th>{t("Sum")}</th>
+            </tr>
+          </thead>
+        )}
         <tbody>
           {rows.map((row, index) =>
             row ? (
@@ -29,15 +35,25 @@ function TransactionTable({ transactions, type, handleDelete }) {
                         {row.category}
                         <div className={css["mobile-details"]}>
                           <div className={css["mobile-date"]}>{row.date}</div>
-                          <div className={css["mobile-description"]}>{row.description}</div>
+                          <div className={css["mobile-description"]}>
+                            {row.description}
+                          </div>
                         </div>
                       </div>
                     </td>
-                    <td className={type === "expenses" ? css.expense : css.income}>
+                    <td
+                      className={type === "expenses" ? css.expense : css.income}
+                    >
                       {row.sum}
-                      <div className={css.icon} onClick={() => handleDelete(row.id)}>
+                      <div
+                        className={css.icon}
+                        onClick={() => handleDelete(row.id)}
+                      >
                         <svg width="18" height="18">
-                          <use href="/src/assets/icons.svg#icon-trash" fill="#52555f"></use>
+                          <use
+                            href="/src/assets/icons.svg#icon-trash"
+                            fill="#52555f"
+                          ></use>
                         </svg>
                       </div>
                     </td>
@@ -46,12 +62,19 @@ function TransactionTable({ transactions, type, handleDelete }) {
                   <>
                     <td>{row.date}</td>
                     <td>{row.description}</td>
-                    <td>{row.category}</td>
-                    <td className={type === "expenses" ? css.expense : css.income}>
+                    <td>{t(row.category)}</td>
+                    <td
+                      className={type === "expenses" ? css.expense : css.income}
+                    >
                       {row.sum}
-                      <div className={css.icon} onClick={() => handleDelete(row.id)}>
+                      <div
+                        className={css.icon}
+                        onClick={() => handleDelete(row.id)}
+                      >
                         <svg width="18" height="18">
-                          <use href="/src/assets/icons.svg#icon-trash" fill="#52555f"></use>
+                          <use
+                            href="/src/assets/icons.svg#icon-trash"
+                                                     ></use>
                         </svg>
                       </div>
                     </td>
