@@ -20,10 +20,17 @@ function FormTransaction({ selectOptions, onAddTransaction, type }) {
     }
 
     const newTransaction = {
-      date: startDate.toISOString().split("T")[0],
+      date: startDate
+        .toLocaleDateString("en-GB", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        })
+        .replace(/\//g, "."),
       description,
       category,
-      amount: type === "expenses" ? parseFloat(amount) * -1 : parseFloat(amount), //będzie się wyświetlać ujemna wartość w tabeli
+      amount:
+        type === "expenses" ? parseFloat(amount) * -1 : parseFloat(amount), //będzie się wyświetlać ujemna wartość w tabeli
     };
 
     onAddTransaction(newTransaction);
@@ -44,7 +51,7 @@ function FormTransaction({ selectOptions, onAddTransaction, type }) {
     setAmount("");
   };
 
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   return (
     <form onSubmit={handleSubmitInput} className={css["container-transaction"]}>
       <div className={css["container-inputs"]}>
@@ -74,7 +81,6 @@ function FormTransaction({ selectOptions, onAddTransaction, type }) {
         <div className={css["transaction-select"]}>
           <select
             data-value={category}
-
             required
             value={category}
             onChange={(e) => setCategory(e.target.value)}
@@ -116,10 +122,9 @@ function FormTransaction({ selectOptions, onAddTransaction, type }) {
         </div>
       </div>
 
-      <div className={css["buttons-wrapper"]} > 
+      <div className={css["buttons-wrapper"]}>
         <Button onClick={handleSubmitInput} text={t("INPUT")} />
         <Button onClick={handleClear} text={t("CLEAR")} />
-
       </div>
     </form>
   );
@@ -137,5 +142,3 @@ FormTransaction.propTypes = {
 };
 
 export default FormTransaction;
-
-

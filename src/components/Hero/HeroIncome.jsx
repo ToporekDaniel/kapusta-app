@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import SummaryTable from "../../components/SummaryTable/SummaryTable";
 import FormTransaction from "../FormTransaction/FormTransaction";
@@ -47,11 +47,41 @@ const type = "income";
 
 function HeroIncome() {
   const [transactions, setTransactions] = useState(initialTransactions);
-  const isTablet = useMediaQuery({ query: "(min-width: 768px) and (max-width: 1024px)" });
+  const isTablet = useMediaQuery({
+    query: "(min-width: 768px) and (max-width: 1024px)",
+  });
+
+  useEffect(() => {
+    handleFetchTransactions();
+  }, []);
+
+  const handleFetchTransactions = async () => {
+    try {
+      const accessToken = getAccessTokenFromLocalStorage();
+
+      if (!accessToken) {
+        throw new Error("No access token found");
+      }
+
+      const response = await axios.get(
+        "https://kapusta-server.onrender.com/api/transaction/income",
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      const fetchedTransactions = response.data.expenses;
+      setTransactions(fetchedTransactions);
+    } catch (error) {
+      console.error("Error fetching transactions:", error);
+    }
+  };
 
   const handleAddTransaction = async (newTransaction) => {
     try {
-      const accessToken = getAccessTokenFromLocalStorage();  
+      const accessToken = getAccessTokenFromLocalStorage();
 
       const response = await axios.post(
         "https://kapusta-server.onrender.com/api/transaction/income",
@@ -59,7 +89,7 @@ function HeroIncome() {
         {
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${accessToken}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
@@ -77,12 +107,12 @@ function HeroIncome() {
   const handleDelete = async (id) => {
     try {
       console.log("Deleting transaction with ID:", id);
-      const accessToken = getAccessTokenFromLocalStorage();  // Get the access token
+      const accessToken = getAccessTokenFromLocalStorage();
       const response = await axios.delete(
         `https://kapusta-server.onrender.com/api/transaction/income/${id}`,
         {
           headers: {
-            "Authorization": `Bearer ${accessToken}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
@@ -104,20 +134,20 @@ function HeroIncome() {
 
   return (
     <div>
-    <div className={css["hero-wrapper"]}>
-      <FormTransaction
-        selectOptions={selectOptionsIncome}
-        onAddTransaction={handleAddTransaction}
-        type={type} 
-      />
-      <div className={css["hero-wrapper-tables"]}>
-        <TransactionTable
-          className={css["hero-transaction-table"]}
-          transactions={transactions}
+      <div className={css["hero-wrapper"]}>
+        <FormTransaction
+          selectOptions={selectOptionsIncome}
+          onAddTransaction={handleAddTransaction}
           type={type}
-          handleDelete={handleDelete}
         />
-       {!isTablet && <SummaryTable data={data} />}
+        <div className={css["hero-wrapper-tables"]}>
+          <TransactionTable
+            className={css["hero-transaction-table"]}
+            transactions={transactions}
+            type={type}
+            handleDelete={handleDelete}
+          />
+          {!isTablet && <SummaryTable data={data} />}
         </div>
       </div>
       {isTablet && <SummaryTable data={data} />}
