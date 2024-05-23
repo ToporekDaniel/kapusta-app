@@ -6,7 +6,9 @@ import { useMediaQuery } from "react-responsive";
 function TransactionTable({ transactions, type, handleDelete }) {
   const isMobileView = useMediaQuery({ query: "(max-width: 767px)" });
 
-  const emptyRows = new Array(10 - transactions.length).fill(undefined);
+  const emptyRows = transactions.length < 10 ? new Array(10 - transactions.length).fill(undefined) : new Array(0);
+
+
   const rows = [...transactions, ...emptyRows];
 
   const { t } = useTranslation();

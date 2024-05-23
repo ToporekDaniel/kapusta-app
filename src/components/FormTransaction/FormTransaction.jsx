@@ -20,13 +20,7 @@ function FormTransaction({ selectOptions, onAddTransaction, type }) {
     }
 
     const newTransaction = {
-      date: startDate
-        .toLocaleDateString("en-GB", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-        })
-        .replace(/\//g, "."),
+      date: startDate.toISOString().split('T')[0],
       description,
       category,
       amount:

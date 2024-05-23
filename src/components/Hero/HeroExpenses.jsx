@@ -11,7 +11,7 @@ import { getAccessTokenFromLocalStorage } from "../../lib/common";
 // BACKEND - usunąć te przykładowe dane
 //przykładowe dane do wyświetlenia w tabeli
 //finalnie powinny być zaciągane przez serwer
-const data = [
+const summaryData = [
   { monthName: "January", value: 222 },
   { monthName: "February", value: 100 },
   { monthName: "March", value: 333 },
@@ -54,12 +54,14 @@ const type = "expenses";
 
 function HeroExpenses() {
   const [transactions, setTransactions] = useState([]);
+  const [summaryData, setSummaryData] = useState([]);
   const isTablet = useMediaQuery({
     query: "(min-width: 768px) and (max-width: 1024px)",
   });
 
   useEffect(() => {
     handleFetchTransactions();
+    handleFetchSummary();
   }, []);
 
   const handleFetchTransactions = async () => {
@@ -83,6 +85,30 @@ function HeroExpenses() {
       setTransactions(fetchedTransactions);
     } catch (error) {
       console.error("Error fetching transactions:", error);
+    }
+  };
+
+  const handleFetchSummary = async () => {
+    try {
+      const accessToken = getAccessTokenFromLocalStorage();
+      if (!accessToken) throw new Error("No access token found");
+
+      const response = await axios.get(
+        "https://kapusta-server.onrender.com/api/summary",
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+          params: {
+            period: "monthly"
+          }
+        }
+      );
+
+      const fetchedSummary = response.data.summary;
+      setSummaryData(Object.entries(fetchedSummary.expenseSummaryByCategory).map(([key, value]) => ({ monthName: key, value })));
+    } catch (error) {
+      console.error("Error fetching summary:", error);
     }
   };
 
@@ -160,10 +186,10 @@ function HeroExpenses() {
             type={type}
             handleDelete={handleDelete}
           />
-          {!isTablet && <SummaryTable data={data} />}
+          {!isTablet && <SummaryTable data={summaryData} />}
         </div>
       </div>
-      {isTablet && <SummaryTable data={data} />}
+      {isTablet && <SummaryTable data={summaryData} />}
     </div>
   );
 }
