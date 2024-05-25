@@ -12,14 +12,14 @@ const UserLogOut = () => {
 
   const handleLogout = async () => {
     try {
-      const accessToken = localStorage.getItem('accessToken');
-
+      const accessToken = localStorage.getItem("accessToken");
+  
       if (!accessToken) {
         alert('Not authenticated');
         return;
       }
-
-      await axios.post(
+  
+      const response = await axios.post(
         'https://kapusta-server.onrender.com/api/auth/logout',
         {},
         {
@@ -29,13 +29,23 @@ const UserLogOut = () => {
           },
         }
       );
-
-      localStorage.removeItem('accessToken');
-      localStorage.removeItem('refreshToken');
-
-      navigate('/signin');
+  
+      // Handle the response from the server
+      if (response.status === 204) {
+        console.log('Logout successful');
+  
+        // Clear local storage
+        localStorage.clear();
+  
+        // Redirect to sign-in page
+        navigate('/signin');
+      } else {
+        alert('Logout failed. Please try again.');
+      }
     } catch (error) {
       console.error('Error during logout:', error);
+  
+      // Show a user-friendly error message
       alert('Error during logout. Please try again.');
     }
   };
