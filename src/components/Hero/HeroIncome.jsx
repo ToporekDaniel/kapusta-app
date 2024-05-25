@@ -11,7 +11,7 @@ import { getAccessTokenFromLocalStorage } from "../../lib/common";
 // BACKEND - usunąć te przykładowe dane
 //przykładowe dane do wyświetlenia w tabeli
 //finalnie powinny być zaciągane przez serwer
-const data = [
+const summaryData = [
   { monthName: "January", value: 222 },
   { monthName: "February", value: 100 },
   { monthName: "March", value: 333 },
@@ -147,10 +147,10 @@ function HeroIncome() {
             type={type}
             handleDelete={handleDelete}
           />
-          {!isTablet && <SummaryTable data={data} />}
+          {!isTablet && <SummaryTable summaryData={summaryData} />}
         </div>
       </div>
-      {isTablet && <SummaryTable data={data} />}
+      {isTablet && <SummaryTable summaryData={summaryData} />}
     </div>
   );
 }

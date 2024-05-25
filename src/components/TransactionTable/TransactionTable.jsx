@@ -45,7 +45,7 @@ function TransactionTable({ transactions, type, handleDelete }) {
                     <td
                       className={type === "expenses" ? css.expense : css.income}
                     >
-                      {row.sum}
+                      {row.amount.toFixed(2)}
                       <div
                         className={css.icon}
                         onClick={() => handleDelete(row.id)}
@@ -67,7 +67,7 @@ function TransactionTable({ transactions, type, handleDelete }) {
                     <td
                       className={type === "expenses" ? css.expense : css.income}
                     >
-                      {row.sum}
+                      {row.amount.toFixed(2)}
                       <div
                         className={css.icon}
                         onClick={() => handleDelete(row.id)}

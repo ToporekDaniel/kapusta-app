@@ -186,10 +186,10 @@ function HeroExpenses() {
             type={type}
             handleDelete={handleDelete}
           />
-          {!isTablet && <SummaryTable data={summaryData} />}
+          {!isTablet && <SummaryTable summaryData={summaryData} />}
         </div>
       </div>
-      {isTablet && <SummaryTable data={summaryData} />}
+      {isTablet && <SummaryTable summaryData={summaryData} />}
     </div>
   );
 }
