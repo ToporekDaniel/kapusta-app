@@ -4,7 +4,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const ExpensesChart = ({ data }) => {
+const IncomeChart = ({ data }) => {
     const chartData = {
         labels: data.map(item => item.category),
         datasets: [
@@ -25,4 +25,4 @@ const ExpensesChart = ({ data }) => {
     );
 };
 
-export default ExpensesChart;
+export default IncomeChart;

@@ -1,34 +1,35 @@
+import React from 'react';
+import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import Backspace from "../../assets/icons/backspace.svg?react";
 import Balance from "../Balance/Balance";
 import Reports from "../Reports/Reports";
-import { Link, useLocation } from "react-router-dom";
 import DataSlider from "../DataSlider/DataSlider";
 import css from "./Dashboard.module.css";
-import { useTranslation } from "react-i18next";
-// import { useEffect } from "react";
 
 function Dashboard() {
   const location = useLocation();
+  const { t } = useTranslation();
+  
+  // Condition to check if current path is related to reports
+  const isReportsPath = location.pathname.includes("/reports");
 
-  // useEffect(( )=> {
-  //   console.log("location", location);
-  // }, [])
-const {t} = useTranslation();
   return (
     <div className={css["dashboard"]}>
-      <div className={css["back-to-home-link-container"]}>
-        {location.pathname === "/reports" && (
+      {isReportsPath && (
+        <div className={css["back-to-home-link-container"]}>
           <Link to="/">
             <Backspace />
             <p className={css["text"]}>{t('MainPage')}</p>
           </Link>
-        )}
-      </div>
+        </div>
+      )}
       <Balance />
       {(location.pathname === "/" ||
         location.pathname.startsWith("/expenses") ||
         location.pathname.startsWith("/income")) && <Reports />}
-      {location.pathname === "/reports" && <DataSlider />}
+      {isReportsPath && <DataSlider />}
     </div>
   );
 }

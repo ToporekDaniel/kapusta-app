@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { useFinance } from "../../../contexts/FinanceContext";
 import ExpensesChart from "../../components/ExpensesChart/ExpensesChart";
-import ExpensesCategories from "../../components/ExpensesCategories/ExpensesCategories";
+import IncomeChart from "../../components/IncomeChart/IncomeChart"; 
 import Dashboard from "../../components/Dashboard/Dashboard";
+import ReportsSlider from "../../components/ReportsSlider/ReportsSlider"; 
 import css from "./ReportsChart.module.css";
 import { useUser } from "./../../lib/customHooks";
 import { APP_ROUTES } from "../../utils/constants";
@@ -18,22 +20,26 @@ function ReportsChart() {
   }
 
   const { expenses, income } = useFinance();
-  const [selectedCategory, setSelectedCategory] = useState(null);
   const [chartData, setChartData] = useState([]);
+  const { categoryName, reportType } = useParams();  
 
   useEffect(() => {
-    if (selectedCategory) {
-      const data = expenses
-        .filter((exp) => exp.category === selectedCategory)
-        .map((exp) => ({
-          category: exp.category,
-          amount: exp.amount,
-        }));
-      setChartData(data);
+    if (reportType === "expenses" && categoryName) {
+      const filteredData = expenses.filter(exp => exp.category === categoryName);
+      setChartData(filteredData.map(exp => ({
+        category: exp.category,
+        amount: exp.amount,
+      })));
+    } else if (reportType === "income" && categoryName) {
+      const filteredData = income.filter(inc => inc.category === categoryName);
+      setChartData(filteredData.map(inc => ({
+        category: inc.category,
+        amount: inc.amount,
+      })));
     } else {
       setChartData([]);
     }
-  }, [expenses, selectedCategory]);
+  }, [expenses, income, categoryName, reportType]);
 
   const totalExpenses = expenses.reduce((sum, item) => sum + item.amount, 0);
   const totalIncome = income.reduce((sum, item) => sum + item.amount, 0);
@@ -50,7 +56,11 @@ function ReportsChart() {
       <div className={css["background-bottom"]}></div>
       <div className={css["reports-container"]}>
         <Dashboard />
+       
         <div className={css["header-reports-total"]}>
+
+        <ReportsSlider />
+
           <ul className={css["header-reports-list"]}>
             <li className={css["header-reports-item"]}>
               {t("Expenses")}:
@@ -63,9 +73,12 @@ function ReportsChart() {
             </li>
           </ul>
         </div>
-        <ExpensesCategories onCategorySelect={handleCategorySelect} />
+        {/* <ExpensesCategories onCategorySelect={handleCategorySelect} /> */}
       </div>
-      {selectedCategory && <ExpensesChart data={chartData} />}
+
+      {/* <ExpensesCategories /> */}
+      {categoryName && reportType === "expenses" && <ExpensesChart data={chartData} />}
+      {categoryName && reportType === "income" && <IncomeChart data={chartData} />}
     </div>
   );
 }
