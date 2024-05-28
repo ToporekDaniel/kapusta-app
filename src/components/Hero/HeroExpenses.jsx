@@ -106,7 +106,8 @@ function HeroExpenses() {
       );
 
       const fetchedSummary = response.data.summary;
-      setSummaryData(Object.entries(fetchedSummary.expenseSummaryByCategory).map(([key, value]) => ({ monthName: key, value })));
+      console.log(response.data.summary)
+      setSummaryData(Object.entries(fetchedSummary.expenseSummaryByMonth).map(([month, value]) => ({ month, value })));
     } catch (error) {
       console.error("Error fetching summary:", error);
     }
@@ -170,7 +171,7 @@ function HeroExpenses() {
       console.error("Error deleting transaction:", error);
     }
   };
-
+console.log(summaryData)
   return (
     <div>
       <div className={css["hero-wrapper"]}>
