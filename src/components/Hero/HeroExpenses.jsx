@@ -11,14 +11,14 @@ import { getAccessTokenFromLocalStorage } from "../../lib/common";
 // BACKEND - usunąć te przykładowe dane
 //przykładowe dane do wyświetlenia w tabeli
 //finalnie powinny być zaciągane przez serwer
-const summaryData = [
-  { monthName: "January", value: 222 },
-  { monthName: "February", value: 100 },
-  { monthName: "March", value: 333 },
-  { monthName: "January", value: 10 },
-  { monthName: "January", value: 8 },
-  { monthName: "January", value: 100 },
-];
+// const summaryData = [
+//   { monthName: "January", value: 222 },
+//   { monthName: "February", value: 100 },
+//   { monthName: "March", value: 333 },
+//   { monthName: "January", value: 10 },
+//   { monthName: "January", value: 8 },
+//   { monthName: "January", value: 100 },
+// ];
 // const initialTransactions = [
 //   {
 //     id: 1,
